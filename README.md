@@ -8,7 +8,10 @@
 		<br>Anser: 3; --> 3 =  5+5+1
 		<br>EX2: {5, 5, 5, 5, 5, 5}, S=11
 		<br>Answer: -1;
+		<br>Dynamic Programming O(N)
 	</li>
+
+
 	
 </ul>
 	
