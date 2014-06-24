@@ -11,7 +11,7 @@
 		<br>Dynamic Programming O(N)
 	</li>
 
-
-	
+	<li><h4>file: findADuplicateNumberInArray.js</h4>
+		The a number that got the same number in array, and print it out.
+	</li>
 </ul>
-	
