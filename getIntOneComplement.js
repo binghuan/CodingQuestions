@@ -16,6 +16,21 @@ function getIntegerOneComplement(inputValue) {
 
 	console.log("--> getIntegerOneComplement: " + result);
 	console.log("--> getIntegerOneComplement: " + parseInt( result, 2 ));
+	console.log("--> getIntegerOneComplement: " + convertBinaryStringToInteger(result));
+}
+
+function convertBinaryStringToInteger(input) {
+
+	var result = 0;
+
+	for(var i=0; i< input.length; i++) {
+		console.log("charAt(" + i + ") = " + input.charAt(i));
+		if(input.charAt(i) === "1") {
+			result += Math.pow(2, input.length - (i+1) );
+		}
+	}
+
+	return result;
 }
 
 // the fast way
