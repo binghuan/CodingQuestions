@@ -21,4 +21,9 @@
 		Find a value in 3x4 array.
 	</li>
 
+	<li>
+		<h4>file: getIntOneComplement.js</h4>
+		get one's complement of integer.
+	</li>
+
 </ul>
