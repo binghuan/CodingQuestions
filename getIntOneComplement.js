@@ -15,13 +15,14 @@ function getIntegerOneComplement(inputValue) {
 	}
 
 	console.log("--> getIntegerOneComplement: " + result);
+	console.log("--> getIntegerOneComplement: " + parseInt( result, 2 ));
 }
 
 // the fast way
 function instantGetOneComplementViaInteger(inputvalue) {
-	return ~inputvalue;
+	var result = inputvalue >> 1;
+	return result;
 }
-
 
 function convertIntegerToBinaryString(input) {
 	temp = input;
