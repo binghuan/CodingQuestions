@@ -26,4 +26,9 @@
 		get one's complement of integer.
 	</li>
 
+	<li>
+		<h4>file: merge2SortedArray.js</h4>
+		Merge Sort
+	</li>
+
 </ul>

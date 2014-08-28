@@ -1,5 +1,7 @@
-// reference: http://www.programmingsimplified.com/c/source-code/c-program-merge-two-arrays
-
+// reference:
+// http://www.programmingsimplified.com/c/source-code/c-program-merge-two-arrays
+// http://www.nczonline.net/blog/tag/computer-science/
+// http://en.wikipedia.org/wiki/Merge_sort
 
 var arrayA = [1, 4, 6];
 var arrayB = [-1, 2, 3];
