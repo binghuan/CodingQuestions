@@ -31,4 +31,19 @@
 		Merge Sort
 	</li>
 
+	<li>
+		<h4>file: getFirstNonRepeatingChar.js</h4>
+
+		QUESTION:
+     	Given an input stream of characters, return the first-seen character which occurred only once in the input. For example, if the input stream was:
+
+
+     	ICELANDIC - Your function should return E.
+     	BARBARIAN - Your function should return I.
+
+     	You may assume a stream has two functions:
+     	getNextCharacter() – returns the next character in the sequence, or null if there are no remaining characters.
+     	isEnd() – returns true if there are no remaining characters in the string.
+	</li>
+
 </ul>
