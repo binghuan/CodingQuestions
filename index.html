@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script src="sumByCombination.js"></script>
+	<script>
+
+		var dataKeeper = {
+			get: function(key, defaultValue) {
+
+				var returnValue = localStorage[key];
+				if(returnValue == null) {
+					returnValue = defaultValue;
+				}
+				console.log("getKey - " + key + ', ' + returnValue);
+				return returnValue;
+			},
+			put: function(key, value) {
+				console.log("storeValue - " + key + ", " + value);
+				localStorage[key] = value;
+			}
+		};
+
+		$("document").ready(function() {
+
+			$("#availableNum").val(dataKeeper.get("AVAILABLE_NUM", "[1,2]"));
+			$("#finalSUM").val(dataKeeper.get("FINAL_SUM", 4));
+
+			$("#startChecking").click(function() {
+
+				console.log("start checking");
+				var inputAvailableNumberArray = $("#availableNum").val();
+				var inputFinalSUM = $("#finalSUM").val();
+
+				dataKeeper.put("AVAILABLE_NUM", inputAvailableNumberArray);
+				dataKeeper.put("FINAL_SUM", inputFinalSUM);
+
+
+				checkSum(JSON.parse(inputFinalSUM),JSON.parse(inputAvailableNumberArray), []);
+				$("#outputArea").html(resultString);
+			});
+
+		});
+
+	</script>
+
+  </head>
+  <body style='padding:10px'>
+		<div>
+			<p>// Back Trace
+			Question:
+				input a number  N<br>
+				here is a example for output.<br>
+				if Needed SUM = 4<br>
+				Output: <br>
+				1 1 1 1<br>
+				1 1 2<br>
+				1 2 1<br>
+				2 1 1<br>
+				2 2<br>
+			</p>
+			<p style="inline">Give me available number array: </p>
+			<input id='availableNum' type="text" placeholder="[1,2]">
+
+			<p style="margin-top:10px">The Sum what you want: </p>
+			<input id='finalSUM' type="number" placeholder="4">
+		</div>
+		<button id='startChecking'>[[ Go ]]</button>
+		<hr>
+		<p>Output:</p>
+		<p id="outputArea"></p>
+  </body>
+</html>

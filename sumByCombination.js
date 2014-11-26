@@ -16,13 +16,13 @@ function geSum(inputArray) {
 	var total = inputArray.reduce(function(a, b) {
   		return a + b;
 	});
-	// total == 6
-
-	//console.log(inputArray + ' = ' + total);
 	return total;
 }
 
+var resultString = "";
+
 function checkSum(finalSum, availableNum, currentStack) {
+	resultString = "";
 
 	for (var i=0; i< availableNum.length; i++) {
 
@@ -31,6 +31,7 @@ function checkSum(finalSum, availableNum, currentStack) {
 
 		if( finalSum === geSum(newSumArray)) {
 			console.log(newSumArray);
+			resultString += newSumArray + "<br>";
 		} else if(finalSum > geSum(newSumArray)){
 			checkSum(finalSum, availableNum, newSumArray);
 		} else if(finalSum < geSum(newSumArray)){
@@ -40,4 +41,4 @@ function checkSum(finalSum, availableNum, currentStack) {
 }
 
 var stack = [];
-checkSum(finalSum, availableNum, stack);
+//checkSum(finalSum, availableNum, stack);
