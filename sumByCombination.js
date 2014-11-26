@@ -13,6 +13,8 @@
 var finalSum = 5;
 var availableNum = [1,2];
 function geSum(inputArray) {
+
+	// Here is a method to accumulate each value in array.
 	var total = inputArray.reduce(function(a, b) {
   		return a + b;
 	});
@@ -25,8 +27,8 @@ function checkSum(finalSum, availableNum, currentStack) {
 
 	for (var i=0; i< availableNum.length; i++) {
 
-		var newSumArray = currentStack.slice(0);
-		newSumArray.push(availableNum[i]);
+		var newSumArray = currentStack.slice(0);// copy Number Array
+		newSumArray.push(availableNum[i]);// try to add an available number
 
 		if( finalSum === geSum(newSumArray)) {
 			console.log(newSumArray);

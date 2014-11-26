@@ -46,4 +46,17 @@
      	isEnd() – returns true if there are no remaining characters in the string.
 	</li>
 
+	<li>
+		<h4>file: sumByCombination.js</h4>
+		// Question:
+		// input a number  N
+		// here is a example for output.
+		// if N = 4
+		// 1 1 1 1
+		// 1 1 2
+		// 1 2 1
+		// 2 1 1
+		// 2 2
+	</li>
+
 </ul>
