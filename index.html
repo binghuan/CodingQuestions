@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Coding Interview Question</title>
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -54,8 +54,9 @@
 				dataKeeper.put("AVAILABLE_NUM", inputAvailableNumberArray);
 				dataKeeper.put("FINAL_SUM", inputFinalSUM);
 
-
+				resultString = "";
 				checkSum(JSON.parse(inputFinalSUM),JSON.parse(inputAvailableNumberArray), []);
+
 				$("#outputArea").html(resultString);
 			});
 
@@ -64,7 +65,8 @@
 	</script>
 
   </head>
-  <body style='padding:10px'>
+  <body style='padding:20px'>
+  		<p>@BH_Lin 20141126</p>
 		<div>
 			<p>// Back Trace
 			Question:
@@ -88,5 +90,9 @@
 		<hr>
 		<p>Output:</p>
 		<p id="outputArea"></p>
+
+		<div class="footer" style="position:fixed; bottom: 0;left: 50%;width: 100%;">
+        	<p class='label label-success'>&copy; Studio Bing-Huan 2014</p>
+      	</div>
   </body>
 </html>

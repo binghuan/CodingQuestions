@@ -22,7 +22,6 @@ function geSum(inputArray) {
 var resultString = "";
 
 function checkSum(finalSum, availableNum, currentStack) {
-	resultString = "";
 
 	for (var i=0; i< availableNum.length; i++) {
 
