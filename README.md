@@ -59,4 +59,9 @@
 		// 2 2
 	</li>
 
+	<li>
+		<h4>file: twoStackForQueueOperation.js</h4>
+		Use 2*stack to implement queue operation
+	</li>
+
 </ul>
