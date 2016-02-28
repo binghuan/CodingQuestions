@@ -63,5 +63,10 @@
 		<h4>file: twoStackForQueueOperation.js</h4>
 		Use 2*stack to implement queue operation
 	</li>
+	
+	<li>
+		<h4>file: javaapps/anagrams.java</h4>
+		<p>How to run: javac ./javaapps/anagrams.java && java javaapps.anagrams</p>
+	</li>
 
 </ul>
