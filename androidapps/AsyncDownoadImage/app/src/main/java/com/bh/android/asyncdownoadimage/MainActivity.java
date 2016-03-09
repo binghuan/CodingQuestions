@@ -22,6 +22,8 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Reference: http://developer.android.com/intl/zh-tw/reference/android/os/AsyncTask.html#Usage
+
     private Button mButton = null;
     private ImageView logo = null;
 
