@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Anagrams {
 
-// How to run me.
+//## HOW TO RUN
 // javac javaapps/Anagrams.java ; java javaapps.Anagrams
 
     // ## Anagrams

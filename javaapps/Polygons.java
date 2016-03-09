@@ -10,8 +10,8 @@ import java.util.Objects;
  */
 public class Polygons {
 
-// How to run me.
-//  javac javaapps/Anagrams.java ; java javaapps.Anagrams
+//## HOW TO RUN
+//  javac javaapps/Polygons.java ; java javaapps.Polygons
 
 /*
 ## Polygons.

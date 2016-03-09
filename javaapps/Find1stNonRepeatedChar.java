@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class Find1stNonRepeatedChar {
 
-// How to run me
+//## HOW TO RUN
 //javac javaapps/Find1stNonRepeatedChar.java ; java javaapps.Find1stNonRepeatedChar
 
     //--------------------------------
