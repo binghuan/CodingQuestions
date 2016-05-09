@@ -28,12 +28,12 @@ function findRelationship() {
 
     var matchList = [];
 
-    for(var i=0; i< input.length; i++) {
+    for (var i = 0; i < input.length; i++) {
         var chars = input[i].split(",");
         var charsForRe = "";
 
-        for(var j=0; j< chars.length; j++) {
-            if(charsForRe.length > 0 ) {
+        for (var j = 0; j < chars.length; j++) {
+            if (charsForRe.length > 0) {
                 charsForRe += "|";
             }
             charsForRe += "" + chars[j];
@@ -41,18 +41,18 @@ function findRelationship() {
 
         var re = new RegExp(charsForRe, "i");
 
-        var nextIndex = i+1;
+        var nextIndex = i + 1;
         var relationship = [i];
-        for(var k = 0; k< input.length ; k++) {
-            if(k == i ) {
+        for (var k = 0; k < input.length; k++) {
+            if (k == i) {
                 continue;
             }
 
             var found = input[k].match(re);
             console.log("ready to check ", input[k], charsForRe, found);
 
-            if(found != null) {
-                    // setup relationship
+            if (found != null) {
+                // setup relationship
                 relationship.push(k);
             }
         }
@@ -63,10 +63,10 @@ function findRelationship() {
         matchList.push(relationship.toString());
     }
 
-    console.log("return relationship: ",matchList);
+    console.log("return relationship: ", matchList);
     var result = matchList.filter(onlyUnique);
 
-    console.log("==> return relationship count: ",result.length);
+    console.log("==> return relationship count: ", result.length);
 
 }
 
