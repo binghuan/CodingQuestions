@@ -35,7 +35,7 @@ namespace MergeSort
 			Node lastNode = null;
 			Node rootNode = null;
 
-			while (nodeA != null || nodeB != null) {
+			while (!(null == nodeA && null == nodeB)) {
 
 				Node tempNode = new Node ();
 
@@ -72,8 +72,8 @@ namespace MergeSort
 			for (int i = 0; i < array.Length; i++) {
 				Node node = new Node ();
 				node.data = array [i];
-				Console.WriteLine ("input [" + i + "]: " + node.data);
 				node.next = null;
+				Console.WriteLine ("input [" + i + "]: " + node.data);
 
 				if (i == 0) {
 					rootNode = node;
