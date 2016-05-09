@@ -94,7 +94,7 @@ namespace MergeSort
 			int counter = 0;
 
 			Node tempNode = node;
-			while (true) {
+			while (tempNode != null) {
 
 				Console.WriteLine ("[" + counter + "]: " + tempNode.data);
 				counter += 1;
@@ -115,8 +115,8 @@ namespace MergeSort
 			Console.WriteLine ("## Ready to run Merge Sort");
 
 			// Create data for testing.
-			int[] array1 = new int[] { 1, 3, 5, 7, 9 };
-			int[] array2 = new int[] { 2, 4, 6, 8, 10};
+			int[] array1 = new int[] {1, 3, 5, 7, 9};
+			int[] array2 = new int[] {2, 4, 6, 8, 10};
 
 			Console.WriteLine ("## Init Data 1");
 			Node head1 = initData (array1);
