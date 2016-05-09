@@ -20,7 +20,7 @@ namespace MergeSort
 	class Node
 	{
 		public int data;
-		public Node next;
+		public Node next = null;
 	};
 
 
@@ -29,15 +29,15 @@ namespace MergeSort
 
 		private static Node Merge (Node head1, Node head2)
 		{
-			Node lastNode = null;
 			Node nodeA = head1;
 			Node nodeB = head2;
+
+			Node lastNode = null;
 			Node rootNode = null;
 
 			while (nodeA != null || nodeB != null) {
 
 				Node tempNode = new Node ();
-				tempNode.next = null;
 
 				if (nodeA == null) {
 					tempNode.data = nodeB.data;
