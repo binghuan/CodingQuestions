@@ -55,13 +55,10 @@ namespace MergeSort
 
 				if (rootNode == null) {
 					rootNode = tempNode;
-					lastNode = tempNode;
 				} else {
 					lastNode.next = tempNode;
 				}
-
 				lastNode = tempNode;
-
 			}
 
 			return rootNode;
@@ -99,8 +96,8 @@ namespace MergeSort
 			Node tempNode = node;
 			while (true) {
 
-				counter += 1;
 				Console.WriteLine ("[" + counter + "]: " + tempNode.data);
+				counter += 1;
 
 				if (tempNode.next != null) {
 					tempNode = tempNode.next;
@@ -115,24 +112,24 @@ namespace MergeSort
 
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Ready to run Merge Sort");
+			Console.WriteLine ("## Ready to run Merge Sort");
 
 			// Create data for testing.
 			int[] array1 = new int[] { 1, 3, 5, 7, 9 };
-			int[] array2 = new int[] { 2, 4, 6, 8, 10 };
+			int[] array2 = new int[] { 2, 4, 6, 8, 10};
 
-			Console.WriteLine ("Init Data 1");
+			Console.WriteLine ("## Init Data 1");
 			Node head1 = initData (array1);
-			Console.WriteLine ("Init Data 2");
+			Console.WriteLine ("## Init Data 2");
 			Node head2 = initData (array2);
 
-			Console.WriteLine ("Ready to merge");
+			Console.WriteLine ("## Ready to merge");
 			Node head = Merge (head1, head2);
 
-			Console.WriteLine ("The new head will be");
+			Console.WriteLine ("## The new head will be");
 			printData (head);
 
-			Console.WriteLine ("End of Merge Sort");
+			Console.WriteLine ("## End of Merge Sort");
 
 		}
 	}
