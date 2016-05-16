@@ -3,6 +3,9 @@
 // If the language you're using has a function to flatten arrays,
 // you should pretend it doesn't exist.
 
+// ## How to test: just run following command.
+// node flatArray.js
+
 var input = [[1,2, [3]],4, [5,6,[7,8]]];
 //var input = [];
 var result = [];
