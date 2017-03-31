@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class Find1stNonRepeatedChar {
 
-//## HOW TO RUN
-//javac javaapps/Find1stNonRepeatedChar.java ; java javaapps.Find1stNonRepeatedChar
+    //## HOW TO RUN
+    //javac javaapps/Find1stNonRepeatedChar.java ; java javaapps.Find1stNonRepeatedChar
 
     //--------------------------------
     //Find first non repeated character
@@ -28,10 +28,10 @@ public class Find1stNonRepeatedChar {
 
         // 1st loop to get all uniq character into table.
         // O (n * n)  1000 ->  1 000 000
-        for (int i = 0; i < input.length(); i++) {  //n
+        for (int i = 0; i < input.length(); i++) { //n
 
             boolean hit = false;
-            for (int j = 0; j < strTable.size(); j++) {   //n
+            for (int j = 0; j < strTable.size(); j++) { //n
 
                 if (strTable.get(j).equals(input.charAt(i))) {
                     // loop to check if there is an character existed.
@@ -77,12 +77,12 @@ public class Find1stNonRepeatedChar {
         ///set/
         // map
         // list
-//   hashMap.containsKey('c') // n: 1 000 000
-//   treeMap.containsKey('c') // n: 1 000 000
-//   // key value
-//   arrayList.contains('c') // n
-//   hashSet.contains('c') --> set has uniq char in it.
-//   quicksort -> O ( n log n )
+        //   hashMap.containsKey('c') // n: 1 000 000
+        //   treeMap.containsKey('c') // n: 1 000 000
+        //   // key value
+        //   arrayList.contains('c') // n
+        //   hashSet.contains('c') --> set has uniq char in it.
+        //   quicksort -> O ( n log n )
     }
 
     public static String runMethod2(String input) {
