@@ -1,4 +1,4 @@
-package javaapps;
+package com.bh;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.List;
 public class Find1stNonRepeatedChar {
 
     //## HOW TO RUN
-    //javac javaapps/Find1stNonRepeatedChar.java ; java javaapps.Find1stNonRepeatedChar
+    //javac com/bh/Find1stNonRepeatedChar.java ; java com.bh.Find1stNonRepeatedChar
 
     //--------------------------------
     //Find first non repeated character

@@ -1,4 +1,4 @@
-package javaapps;
+package com.bh;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +11,16 @@ import java.util.Objects;
 public class Polygons {
 
     //## HOW TO RUN
-    //  javac javaapps/Polygons.java ; java javaapps.Polygons
+    //  javac com/bh/Polygons.java ; java com.bh.Polygons
 
     /*
     ## Polygons.
-    
+
     Identify whether four sides (given by four integres) can form a square, a rectangle or neither.
-    
+
     ### Input:
     You will receive an list of strings, each containing four space-separated integers, which represent the length of the sides of a polygon. The input lines will follow the "A B C D" order as in the following representation:
-    
+
     |-------A--------|
     |                |
     |                |
@@ -28,15 +28,15 @@ public class Polygons {
     |                |
     |                |
     |-------C--------|
-    
+
     ### Output:
     A single line which contains 3 space-separated integers, representing the number of squares, number of rectangles and number of other polygons wit 4 sides.
     Note that squares shouldn't be cunted as rectangles. Invalid polygons should also be counted as 'other polygons'.
-    
+
     ### Constraints:
     The four integers representing the sides will be such that: -2000 <= X <= 2000.
     (Where X representx the integer)
-    
+
     ### Sample Input:
     36 30 36 30
     15 15 15 15
@@ -44,10 +44,10 @@ public class Polygons {
     86 86 86 86
     100 200 100 200
     -100 200 -100 200
-    
+
     ### Sample Output
     2 2 2
-    
+
     */
 
     /**
