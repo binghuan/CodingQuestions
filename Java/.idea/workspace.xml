@@ -13,7 +13,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Polygons.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Polygons.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bh/Polygons.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
@@ -21,6 +21,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckTwoObjectHashcode.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/bh/CheckTwoObjectHashcode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,6 +76,7 @@
         <option value="$PROJECT_DIR$/src/com/bh/Find1stNonRepeatedChar.java" />
         <option value="$PROJECT_DIR$/src/com/bh/Anagrams.java" />
         <option value="$PROJECT_DIR$/src/com/bh/Polygons.java" />
+        <option value="$PROJECT_DIR$/src/com/bh/CheckTwoObjectHashcode.java" />
       </list>
     </option>
   </component>
@@ -173,7 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Polygons">
+  <component name="RunManager" selected="Application.CheckTwoObjectHashcode">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
       <option name="DEPLOY" value="true" />
@@ -400,10 +411,26 @@
       <envs />
       <method />
     </configuration>
-    <list size="3">
+    <configuration default="false" name="CheckTwoObjectHashcode" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="com.bh.CheckTwoObjectHashcode" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Java" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Anagrams" />
       <item index="1" class="java.lang.String" itemvalue="Application.Find1stNonRepeatedChar" />
       <item index="2" class="java.lang.String" itemvalue="Application.Polygons" />
+      <item index="3" class="java.lang.String" itemvalue="Application.CheckTwoObjectHashcode" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -512,6 +539,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bh/CheckTwoObjectHashcode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
