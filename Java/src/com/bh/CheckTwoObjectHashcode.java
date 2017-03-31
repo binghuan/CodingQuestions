@@ -41,6 +41,7 @@ public class CheckTwoObjectHashcode {
         Point pointOne = new Point(23, 94);
         Point pointTwo = new Point(23, 94);
 
+        System.out.println("Is pointOne equal to pointTwo :" + pointOne.equals(pointTwo));
         System.out.println("The hashcode of pointOne is " + System.identityHashCode(pointOne));
         System.out.println("The hashcode of pointTwo is " + System.identityHashCode(pointTwo));
     }
