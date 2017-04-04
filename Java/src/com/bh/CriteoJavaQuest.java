@@ -1,6 +1,7 @@
 package com.bh;
 
 import java.awt.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 /**
@@ -19,26 +20,32 @@ public class CriteoJavaQuest {
 
     public static void showQuestion(int number) {
 
-        System.out.println("## Question " + number + "/47 - Java\n");
-
-        switch(number) {
-            case 2:
-                break;
-            case 3:
-                QuestionNo3();
-                break;
-            case 4:
-                QuestionNo4();
-                break;
-            case 5:
-                QuestionNo5();
-                break;
-            case 6:
-                QuestionNo6();
-                break;
+        String functionName = "QuestionNo" + number;
+        //System.out.println("Call function : " + functionName);
+        Class clazz = CriteoJavaQuest.class;
+        try {
+            clazz.getMethod(functionName);
+            System.out.println("## Question " + number + "/47 - Java ##\n");
+        } catch (NoSuchMethodException e) {
+            //e.printStackTrace();
+            return;
         }
 
-        System.out.println("## ---------------------");
+        Object obj = new Object();
+        try {
+            clazz.getMethod(functionName).invoke(obj );
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return;
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+            return;
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        System.out.println("## -------------------------------");
     }
 
     public static void QuestionNo3() {
@@ -117,9 +124,18 @@ public class CriteoJavaQuest {
 
     }
 
+    public static void QuestionNo9() {
+        int i1 = 5;
+        int i2 = 2;
+        int i3 = i1/i2;
+
+        System.out.println("What is the value of i3?");
+        System.out.println("Answer: " + i3);
+    }
+
     public static void main(String[] args) {
 
-        for(int i=3; i< 7; i++) {
+        for(int i=1; i< 38; i++) {
             showQuestion(i);
         }
     }
