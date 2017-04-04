@@ -49,7 +49,7 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo2() {
-        System.out.println("Among these primitive types, which one(s) exists in Java?");
+        System.out.println("Q2: Among these primitive types, which one(s) exists in Java?");
         System.out.println("Options: { A: int, B: bool, C: float, D: unit }");
         System.out.println("--> Answer: A, C");
 //
@@ -67,12 +67,8 @@ public class CriteoJavaQuest {
 
     public static void QuestionNo3() {
 
-        // Question:
-        //  if two objects are equals then they should have the same hashcode?
-        //
-        // Options:
-        // A:   True
-        // B:   False
+        System.out.println("Q3: if two objects are equals then they should have the same hashcode?");
+        System.out.println("Options: A: True, B:   False");
 
         // After verification:
         // The output is
@@ -93,7 +89,7 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo4() {
-
+        System.out.println("Q4:");
         ArrayList l = new ArrayList(2);
         l.add(1);
         l.add(1);
@@ -108,7 +104,7 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo5() {
-
+        System.out.println("Q5:");
         boolean result = A5.isFoo("foo");
 
         System.out.println("Is \"foo\" : " + result);
@@ -120,6 +116,7 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo6() {
+        System.out.println("Q6:");
         String content = "Given this code, what is true about it?";
         System.out.println("Planet.MERCURY == Planet.MERCURY ==> " + (Planet.MERCURY == Planet.MERCURY));
         System.out.println("Planet.MERCURY == Planet.VENUS ==> " + (Planet.MERCURY == Planet.VENUS));
@@ -128,17 +125,16 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo7() {
-//        Q7: Which method is called when a thread is executed?
-//                Options: { A: "execute()", B: "exec()", C: "do()", D: "run()", E: "play()"}
+        System.out.println("Q7: Which method is called when a thread is executed?");
+        System.out.println("Options: { A: execute(), B: exec(), C: do(), D: run(), E: play()}");
 //        Reference: https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
 //        Answer: It might be {D: "run"}.
     }
 
     public static void QuestionNo8() {
-//        Q8: Type the name of a class belonging to the package java.lang
-//        which allows to concatenate efficient strings of characters.
-//
-//        --> Answer: "concat()"
+        System.out.println("Q8: Type the name of a class belonging to the package java.lang");
+        System.out.println("which allows to concatenate efficient strings of characters.");
+        System.out.println("--> Answer: concat()");
         "".concat("");
     }
 
@@ -185,14 +181,12 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo12() {
-//        Q12: A java class can have more than one parent class?
-//        --> Answer: False
+        System.out.println("Q12: A java class can have more than one parent class?");
+        System.out.println("--> Answer: False");
 //
 //        Multiple inheritance is not allowed in Java. Use delegates and interfaces instead
 //        Reference: http://stackoverflow.com/questions/2031759/how-to-inherit-from-multiple-base-classes-in-java
     }
-
-
 
     public static void QuestionNo13() {
         System.out.println("What is the value of s?");
@@ -317,13 +311,26 @@ public class CriteoJavaQuest {
     }
 
     public static final int MAXSIZE = 100;
-    
+
     public static void QuestionNo21() {
         System.out.println("Which option is a valid constant declaration in java?");
         System.out.println("X> define('MAXSZE', 100);");
         System.out.println("O> public static final int MAXSIZE = 100;");
         System.out.println("X> #define MAXSIZE 100");
         System.out.println("X> const int MAXSIZE = 100;");
+    }
+
+    public static void QuestionNo23() {
+        System.out.println("Q23: public class A()");
+        System.out.println("Who is the parent class of A?");
+        System.out.println("options: { A: Root, B: Object, C: Class A has no parent class }");
+    }
+
+    public static void QuestionNo24() {
+        System.out.println("Q24: public interface A extends B,C,D {}");
+        System.out.println("This interface is correct if B,C and D are also interface.");
+        System.out.println("options: { A: False, B: True}");
+        System.out.println("--> Answer: False;");
     }
 
     public static void QuestionNo25() {
