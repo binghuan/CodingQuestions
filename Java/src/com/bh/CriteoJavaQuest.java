@@ -48,6 +48,23 @@ public class CriteoJavaQuest {
         System.out.println("## -------------------------------");
     }
 
+    public static void QuestionNo2() {
+//        Q2: Among these primitive types, which one(s) exists in Java?
+//                Options: { A: int, B: bool, C: float, D: unit }
+//        --> Answer: A, C
+//
+//        According to this document: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+//        There are 8 primitive types for java:
+//        1. byte
+//        2. short
+//        3. int
+//        4. long
+//        5. float
+//        6. double
+//        7. boolean
+//        8. char
+    }
+
     public static void QuestionNo3() {
 
         // Question:
@@ -90,23 +107,9 @@ public class CriteoJavaQuest {
 
     }
 
-
-    static class A {
-        public static boolean isFoo(String params) {
-            boolean result = false;
-
-            if(params.equals("foo")) {
-                result = true;
-            }
-
-            return result;
-        }
-    }
-
     public static void QuestionNo5() {
 
-
-        boolean result = A.isFoo("foo");
+        boolean result = A5.isFoo("foo");
 
         System.out.println("Is \"foo\" : " + result);
 
@@ -124,6 +127,21 @@ public class CriteoJavaQuest {
 
     }
 
+    public static void QuestionNo7() {
+//        Q7: Which method is called when a thread is executed?
+//                Options: { A: "execute()", B: "exec()", C: "do()", D: "run()", E: "play()"}
+//        Reference: https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
+//        Answer: It might be {D: "run"}.
+    }
+
+    public static void QuestionNo8() {
+//        Q8: Type the name of a class belonging to the package java.lang
+//        which allows to concatenate efficient strings of characters.
+//
+//        --> Answer: "concat()"
+        "".concat("");
+    }
+
     public static void QuestionNo9() {
         int i1 = 5;
         int i2 = 2;
@@ -139,7 +157,6 @@ public class CriteoJavaQuest {
 
         System.out.println("Type the result displayed by the piece of code.");
     }
-
 
     class UserService{
         ArrayList<Integer> ids = new ArrayList<Integer>();
@@ -167,6 +184,16 @@ public class CriteoJavaQuest {
         System.out.println("Options: [ 'Stack', 'Vector', 'LinkedList', 'ArrayList', 'HashMap', 'Hashset']");
     }
 
+    public static void QuestionNo12() {
+//        Q12: A java class can have more than one parent class?
+//        --> Answer: False
+//
+//        Multiple inheritance is not allowed in Java. Use delegates and interfaces instead
+//        Reference: http://stackoverflow.com/questions/2031759/how-to-inherit-from-multiple-base-classes-in-java
+    }
+
+
+
     public static void QuestionNo13() {
         System.out.println("What is the value of s?");
         String s = null;
@@ -177,6 +204,60 @@ public class CriteoJavaQuest {
         // It's initialized to null if you do nothing, as are all reference types.
         // reference: http://stackoverflow.com/questions/5389200/what-is-a-java-strings-default-initial-value
 
+    }
+
+    public static void QuestionNo14() {
+//        Q14: Update the code by implementing the following rules.
+//            * if an exception is thrown by s.execute() then call c.rollback() and propagate the exception, otherwise call c.commit()
+//            * In any circumstances, c.close() must be called before leaving the metho a(Service s, Connection c)
+
+        Service service = new Service() {
+            public void execute() throws Exception {
+                System.out.println("execute");
+            }
+
+            @Override
+            public void setConnection(Connection c) {
+                System.out.println("setConnection");
+            }
+        };
+
+        Connection connection = new Connection() {
+            public void rollback() {
+                System.out.println("rollback");
+            }
+            public void commit() {
+                System.out.println("commit");
+            }
+            public void close() {
+                System.out.println("close");
+            }
+        };
+
+        A14 a14 = new A14();
+        a14.a(service, connection);
+    }
+
+    public static void QuestionNo15() {
+//        Q15: A method declared as final means...
+//        Options: { A: "The method can't be overridden", B: "The method returns a constant", C: "It's impossible: it leads to compilation error"}
+//        --> Answer: A.
+//
+//                As mentioned, final is used with a Java method to mark that
+//                --> the method can't be overridden (for object scope) or hidden (for static).
+//        This allows the original developer to create functionality that cannot be changed by subclasses, and that is all the guarantee it provides.
+//        // Reference: http://stackoverflow.com/questions/5547663/java-final-method-what-does-it-promise
+    }
+
+
+
+    public static void QuestionNo16() {
+        System.out.println("Make Counter.increment() thread safe");
+        Counter.increment();
+    }
+
+    public static void QuestionNo17() {
+        //
     }
 
     static class A20{
@@ -232,10 +313,26 @@ public class CriteoJavaQuest {
         // --> 11
     }
 
-//    abstract class Animal{}
-//    class Dog extends Animal {
-//
-//    }
+    public static void QuestionNo30() {
+        System.out.println("Complete the answer to make the following piece of code valid");
+        A30 a = new A30();
+        A30 b = new B30();
+    }
+
+    public static void QuestionNo32() {
+        System.out.println("Try to improve the code displayed in the answer editor by keeping the current behavior of the program.");
+        Dog sammy = new Dog("Sammy");
+        Cat smokey = new Cat("Smokey");
+        System.out.println(Application.getAnimalName(sammy));
+        System.out.println(Application.getAnimalName(smokey));
+
+        Dog2 sammy2 = new Dog2("Sammy");
+        Cat2 smokey2 = new Cat2("Smokey");
+        System.out.println(Application2.getAnimalName(sammy2));
+        System.out.println(Application2.getAnimalName(smokey2));
+    }
+
+
 
     public static void main(String[] args) {
 
@@ -244,4 +341,119 @@ public class CriteoJavaQuest {
         }
     }
 
+}
+
+class A5 {
+    public static boolean isFoo(String params) {
+        boolean result = false;
+
+        if(params.equals("foo")) {
+            result = true;
+        }
+
+        return result;
+    }
+}
+
+class A14 {
+
+    void a(Service s, Connection c) {
+        s.setConnection(c);
+        try {
+            s.execute();
+            c.commit();
+        } catch (Exception e) {
+            c.rollback();
+        } finally {
+            c.close();
+        }
+    }
+}
+
+interface Service {
+    void execute() throws Exception;
+    void setConnection(Connection c);
+}
+
+interface Connection{
+    void commit();
+    void rollback();
+    void close();
+}
+
+class Counter {
+    private static int count = 0;
+    synchronized public static int increment() {
+        count = count + 1;
+        return count;
+    }
+}
+
+class A30{
+
+}
+
+class B30 extends A30{
+}
+
+abstract class Animal{
+}
+
+class Dog extends Animal {
+    String name;
+
+    Dog(String name) {
+        this.name = name;
+    }
+
+    String getName() {
+        return name;
+    }
+}
+
+class Cat extends Animal {
+    String name;
+    Cat(String name) {
+        this.name = name;
+    }
+    String getName() {
+        return name;
+    }
+}
+
+class Application {
+    static String getAnimalName(Animal a) {
+        String name = null;
+        if(a instanceof  Dog) {
+            name = ((Dog)a).getName();
+        } else if (a instanceof Cat) {
+            name = ((Cat)a).getName();
+        }
+        return name;
+    }
+}
+
+abstract class Animal2{
+    String name;
+    String getName() {
+        return this.name;
+    }
+}
+
+class Dog2 extends Animal2 {
+    Dog2(String name) {
+        super.name = name;
+    }
+}
+
+class Cat2 extends Animal2 {
+    Cat2(String name) {
+        super.name = name;
+    }
+}
+
+class Application2 {
+    static String getAnimalName(Animal2 a) {
+        return a.getName();
+    }
 }
