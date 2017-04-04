@@ -83,6 +83,29 @@ The subarrays of [3, 1, 2, 1] having elements that sum to a number â‰¤ (k = 
 */
 
 
+/*
+
+    My Solution: 
+
+        1. remove the first element in array 
+            it' because the 1st element in array is the lenght of array 
+            for instance: [3,1,2,3,4];
+            So, I need to remove [3] in array and get back [1,2,3,4]
+
+        2. remove last element in array, 
+            the last lement in array is for variable "k". 
+
+        3. Sort the elements in array. 
+        4. Have an for loop and try to get sum of elements by index
+            for instance: 
+            a. index = 0; sum([1])
+            b. index = 1; sum([1,2])
+            c. index = 1; sum([1,2,3])
+
+            and check the result of sum, it should be less equal than variable k. 
+            
+*/
+
 function maxLength(a, k) {
 
     console.log(">> maxLength: a = ", a, "; k = ", k);
