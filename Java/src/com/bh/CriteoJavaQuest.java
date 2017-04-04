@@ -260,6 +260,19 @@ public class CriteoJavaQuest {
         //
     }
 
+    public static void QuestionNo18() {
+//        Q18: Privates attributes are visible from subclasses.
+//        --> Answer: False.
+//
+
+    }
+
+    public static void QuestionNo19() {
+        System.out.println("Q19: What is the most common method signature to obtain a singleton?");
+        System.out.println("Options: { A: \"getSingleton()\", B: \"instance()\", C: \"getInstance()\"}");
+        System.out.println("--> Answer: A.");
+    }
+
     static class A20{
         static boolean a(int i, int j)
         {

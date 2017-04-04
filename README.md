@@ -65,7 +65,7 @@
 	</li>
 	
 	<li>
-		<h4>file: javaapps/anagrams.java</h4>
+		<h4>file: java/anagrams.java</h4>
 		<p>How to run: javac ./javaapps/anagrams.java && java javaapps.anagrams</p>
 	</li>
 
