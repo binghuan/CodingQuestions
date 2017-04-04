@@ -25,7 +25,7 @@ public class CriteoJavaQuest {
         Class clazz = CriteoJavaQuest.class;
         try {
             clazz.getMethod(functionName);
-            System.out.println("## Question " + number + "/47 - Java ##\n");
+            System.out.println("## Question " + number + "/37 - Java ##\n");
         } catch (NoSuchMethodException e) {
             //e.printStackTrace();
             return;
@@ -49,9 +49,9 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo2() {
-//        Q2: Among these primitive types, which one(s) exists in Java?
-//                Options: { A: int, B: bool, C: float, D: unit }
-//        --> Answer: A, C
+        System.out.println("Among these primitive types, which one(s) exists in Java?");
+        System.out.println("Options: { A: int, B: bool, C: float, D: unit }");
+        System.out.println("--> Answer: A, C");
 //
 //        According to this document: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
 //        There are 8 primitive types for java:
@@ -239,9 +239,9 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo15() {
-//        Q15: A method declared as final means...
-//        Options: { A: "The method can't be overridden", B: "The method returns a constant", C: "It's impossible: it leads to compilation error"}
-//        --> Answer: A.
+        System.out.println("Q15: A method declared as final means...");
+        System.out.println("Options: { A: \"The method can't be overridden\", B: \"The method returns a constant\", C: \"It's impossible: it leads to compilation error\"}");
+        System.out.println("--> Answer: A.");
 //
 //                As mentioned, final is used with a Java method to mark that
 //                --> the method can't be overridden (for object scope) or hidden (for static).
@@ -249,22 +249,38 @@ public class CriteoJavaQuest {
 //        // Reference: http://stackoverflow.com/questions/5547663/java-final-method-what-does-it-promise
     }
 
-
-
     public static void QuestionNo16() {
-        System.out.println("Make Counter.increment() thread safe");
+        System.out.println("Q16: Make Counter.increment() thread safe");
         Counter.increment();
     }
 
+
+    static class StringUtils {
+        static String concat(String[] a) {
+            String result = "";
+
+            for(int i=0; i< a.length; i++) {
+                result += a[i];
+            }
+
+            return result;
+        }
+    }
+
     public static void QuestionNo17() {
-        //
+        System.out.println("Q17: StringUtils.concat(String[] strings) should join character strings end to end.");
+        System.out.println("For example, from an array which contains 'f', 'o', 'o', 'bar' it should result 'foobar'");
+        System.out.println("Input: strings always contains at least one element");
+        System.out.println("Implement StringUtils.concat(String[] strings)");
+        System.out.println("--> output");
+
+        String[] a= {"f", "o", "o", "bar"};
+        System.out.println(StringUtils.concat(a));
     }
 
     public static void QuestionNo18() {
-//        Q18: Privates attributes are visible from subclasses.
-//        --> Answer: False.
-//
-
+        System.out.println("Q18: Privates attributes are visible from subclasses.");
+        System.out.println("--> Answer: False.");
     }
 
     public static void QuestionNo19() {
@@ -301,6 +317,7 @@ public class CriteoJavaQuest {
     }
 
     public static final int MAXSIZE = 100;
+    
     public static void QuestionNo21() {
         System.out.println("Which option is a valid constant declaration in java?");
         System.out.println("X> define('MAXSZE', 100);");
