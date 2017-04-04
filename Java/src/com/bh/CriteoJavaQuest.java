@@ -133,6 +133,110 @@ public class CriteoJavaQuest {
         System.out.println("Answer: " + i3);
     }
 
+    public static void QuestionNo10() {
+        int i = 0;
+        System.out.println(i++);
+
+        System.out.println("Type the result displayed by the piece of code.");
+    }
+
+
+    class UserService{
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        ArrayList<String> names = new ArrayList<String>();
+
+        void add(int identifiant, String nom) {
+            ids.add(identifiant);
+            names.add(nom);
+        }
+
+        String findNameById(int id) {
+            for(int i= ids.size() - 1; i>= 0; i--) {
+
+                if(ids.get(i) == id) {
+                    return names.get(i);
+                }
+            }
+
+            return null;
+        }
+    }
+
+    public static void QuestionNo11() {
+        System.out.println("Among the following options, which class would you use to rewrite UsersService.");
+        System.out.println("Options: [ 'Stack', 'Vector', 'LinkedList', 'ArrayList', 'HashMap', 'Hashset']");
+    }
+
+    public static void QuestionNo13() {
+        System.out.println("What is the value of s?");
+        String s = null;
+        if(s == null) {
+            System.out.println("s is null");
+        }
+
+        // It's initialized to null if you do nothing, as are all reference types.
+        // reference: http://stackoverflow.com/questions/5389200/what-is-a-java-strings-default-initial-value
+
+    }
+
+    static class A20{
+        static boolean a(int i, int j)
+        {
+            if(i == 1 || j == 1) {
+                return true;
+            }
+
+            if((i+j) == 1) {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    public static void QuestionNo20() {
+        System.out.println("A.a(int i, int j) should return true if one of the arguments equals 1 or if their sum is equal to 1");
+        System.out.println("For example:");
+        System.out.println("A.a(1,5) return true");
+        System.out.println("A.a(2,3) return false");
+        System.out.println("A.a(-3,4) return true");
+
+        A20.a(1,5);
+        A20.a(2,3);
+        A20.a(-3,4);
+    }
+
+    public static final int MAXSIZE = 100;
+    public static void QuestionNo21() {
+        System.out.println("Which option is a valid constant declaration in java?");
+        System.out.println("X> define('MAXSZE', 100);");
+        System.out.println("O> public static final int MAXSIZE = 100;");
+        System.out.println("X> #define MAXSIZE 100");
+        System.out.println("X> const int MAXSIZE = 100;");
+    }
+
+    public static void QuestionNo25() {
+        System.out.println("In a base 2 system (binary), what is the value of 0001 & 0001?");
+        System.out.println(0x0001&0x0001);
+        //     01
+        // and 01
+        // --> 01
+    }
+
+    public static void QuestionNo26() {
+        System.out.println("In a base 2 system (binary), what is the value of 01 | 11 ?");
+        System.out.println(0x01|0x03);
+
+        //     01
+        // or  11
+        // --> 11
+    }
+
+//    abstract class Animal{}
+//    class Dog extends Animal {
+//
+//    }
+
     public static void main(String[] args) {
 
         for(int i=1; i< 38; i++) {
