@@ -350,6 +350,15 @@ public class CriteoJavaQuest {
         // --> 11
     }
 
+    public static void QuestionNo27() {
+        System.out.println("Write the Echo program");
+        // console> java Echo Hello you !
+        // Hello you !
+        // console>
+
+        // * Please check the Echo.java
+    }
+
     public static void QuestionNo30() {
         System.out.println("Complete the answer to make the following piece of code valid");
         A30 a = new A30();
