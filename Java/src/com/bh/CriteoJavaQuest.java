@@ -2,6 +2,7 @@ package com.bh;
 
 import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -359,6 +360,29 @@ public class CriteoJavaQuest {
         // * Please check the Echo.java
     }
 
+    public static void formula28_2(int n) {
+        System.out.println("if n = " + n );
+        BigDecimal result = BigDecimal.ZERO;
+        BigDecimal factorialN = new BigDecimal(1);
+        BigDecimal factorialNminusM = new BigDecimal(1);
+        int factorialM = 2*1;
+
+        int solutionIndex = 2;
+
+        for( int i = 1; i< n+1 ; i++) {
+            factorialN = factorialN.multiply(new BigDecimal(i));
+        }
+        //System.out.println("n! = " + factorialN);
+
+        for( int i = 1; i< n-2+1 ; i++) {
+            factorialNminusM = factorialNminusM.multiply(new BigDecimal(i));
+        }
+        //System.out.println("(n-m)! = " + factorialNminusM);
+
+        result = factorialN.divide(new BigDecimal(factorialM).multiply(factorialNminusM));
+        System.out.println("then return " + result);
+    }
+
     public static void formula28(int n) {
         // The formula is " n!/m!(n-m)! "
 
@@ -402,6 +426,11 @@ public class CriteoJavaQuest {
                 System.out.println("then return " + result);
 
                 break;
+
+            case 3: // for Solution 3 by using BigDecimal
+                formula28_2(n);
+                break;
+
         }
     }
 
