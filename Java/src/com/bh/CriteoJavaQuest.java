@@ -359,6 +359,59 @@ public class CriteoJavaQuest {
         // * Please check the Echo.java
     }
 
+    public static void formula28(int n) {
+        // The formula is " n!/m!(n-m)! "
+
+        System.out.println("if n = " + n );
+        long result = 0;
+        long factorialN = 1;
+        int factorialNminusM = 1;
+        int factorialM = 2*1;
+
+        int solutionIndex = 2;
+        switch (solutionIndex) {
+            case 1: // for solution 1
+
+                for( int i = 1; i< n+1 ; i++) {
+                    factorialN = factorialN * i;
+                }
+                System.out.println("n! = " + factorialN);
+
+                for( int i = 1; i< n-2+1 ; i++) {
+                    factorialNminusM = factorialNminusM * i;
+                }
+                System.out.println("(n-m)! = " + factorialNminusM);
+
+                result = factorialN/(factorialM*factorialNminusM);
+                System.out.println("then return " + result);
+
+                break;
+            case 2: // for solution 2
+                // Solution 2.
+                for( int i = 1; i< n+1 ; i++) {
+
+                    if(i < n-2+1) {
+                        //factorialN =
+                    } else {
+                        factorialN = factorialN * i;
+                        System.out.println("n! = " + factorialN);
+                    }
+                }
+
+                result = factorialN/(factorialM);
+                System.out.println("then return " + result);
+
+                break;
+        }
+    }
+
+    public static void QuestionNo28() {
+        // Ref: http://wywu.pixnet.net/blog/post/27455156-%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F
+        // The formula is " n!/m!(n-m!) "
+        formula28(4);
+        formula28(10000);
+    }
+
     public static void QuestionNo30() {
         System.out.println("Complete the answer to make the following piece of code valid");
         A30 a = new A30();
