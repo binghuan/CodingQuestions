@@ -34,7 +34,7 @@ public class CriteoJavaQuest {
 
         Object obj = new Object();
         try {
-            clazz.getMethod(functionName).invoke(obj );
+            clazz.getMethod(functionName).invoke(obj);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return;
@@ -142,7 +142,7 @@ public class CriteoJavaQuest {
     public static void QuestionNo9() {
         int i1 = 5;
         int i2 = 2;
-        int i3 = i1/i2;
+        int i3 = i1 / i2;
 
         System.out.println("What is the value of i3?");
         System.out.println("Answer: " + i3);
@@ -155,7 +155,7 @@ public class CriteoJavaQuest {
         System.out.println("Type the result displayed by the piece of code.");
     }
 
-    class UserService{
+    class UserService {
         ArrayList<Integer> ids = new ArrayList<Integer>();
         ArrayList<String> names = new ArrayList<String>();
 
@@ -165,9 +165,9 @@ public class CriteoJavaQuest {
         }
 
         String findNameById(int id) {
-            for(int i= ids.size() - 1; i>= 0; i--) {
+            for (int i = ids.size() - 1; i >= 0; i--) {
 
-                if(ids.get(i) == id) {
+                if (ids.get(i) == id) {
                     return names.get(i);
                 }
             }
@@ -192,7 +192,7 @@ public class CriteoJavaQuest {
     public static void QuestionNo13() {
         System.out.println("What is the value of s?");
         String s = null;
-        if(s == null) {
+        if (s == null) {
             System.out.println("s is null");
         }
 
@@ -221,9 +221,11 @@ public class CriteoJavaQuest {
             public void rollback() {
                 System.out.println("rollback");
             }
+
             public void commit() {
                 System.out.println("commit");
             }
+
             public void close() {
                 System.out.println("close");
             }
@@ -254,7 +256,7 @@ public class CriteoJavaQuest {
         static String concat(String[] a) {
             String result = "";
 
-            for(int i=0; i< a.length; i++) {
+            for (int i = 0; i < a.length; i++) {
                 result += a[i];
             }
 
@@ -269,7 +271,7 @@ public class CriteoJavaQuest {
         System.out.println("Implement StringUtils.concat(String[] strings)");
         System.out.println("--> output");
 
-        String[] a= {"f", "o", "o", "bar"};
+        String[] a = {"f", "o", "o", "bar"};
         System.out.println(StringUtils.concat(a));
     }
 
@@ -284,14 +286,13 @@ public class CriteoJavaQuest {
         System.out.println("--> Answer: A.");
     }
 
-    static class A20{
-        static boolean a(int i, int j)
-        {
-            if(i == 1 || j == 1) {
+    static class A20 {
+        static boolean a(int i, int j) {
+            if (i == 1 || j == 1) {
                 return true;
             }
 
-            if((i+j) == 1) {
+            if ((i + j) == 1) {
                 return true;
             }
 
@@ -306,9 +307,9 @@ public class CriteoJavaQuest {
         System.out.println("A.a(2,3) return false");
         System.out.println("A.a(-3,4) return true");
 
-        A20.a(1,5);
-        A20.a(2,3);
-        A20.a(-3,4);
+        A20.a(1, 5);
+        A20.a(2, 3);
+        A20.a(-3, 4);
     }
 
     public static final int MAXSIZE = 100;
@@ -336,7 +337,7 @@ public class CriteoJavaQuest {
 
     public static void QuestionNo25() {
         System.out.println("In a base 2 system (binary), what is the value of 0001 & 0001?");
-        System.out.println(0x0001&0x0001);
+        System.out.println(0x0001 & 0x0001);
         //     01
         // and 01
         // --> 01
@@ -344,7 +345,7 @@ public class CriteoJavaQuest {
 
     public static void QuestionNo26() {
         System.out.println("In a base 2 system (binary), what is the value of 01 | 11 ?");
-        System.out.println(0x01|0x03);
+        System.out.println(0x01 | 0x03);
 
         //     01
         // or  11
@@ -361,20 +362,20 @@ public class CriteoJavaQuest {
     }
 
     public static void formula28_2(int n) {
-        System.out.println("if n = " + n );
+        System.out.println("if n = " + n);
         BigDecimal result = BigDecimal.ZERO;
         BigDecimal factorialN = new BigDecimal(1);
         BigDecimal factorialNminusM = new BigDecimal(1);
-        int factorialM = 2*1;
+        int factorialM = 2 * 1;
 
         int solutionIndex = 2;
 
-        for( int i = 1; i< n+1 ; i++) {
+        for (int i = 1; i < n + 1; i++) {
             factorialN = factorialN.multiply(new BigDecimal(i));
         }
         //System.out.println("n! = " + factorialN);
 
-        for( int i = 1; i< n-2+1 ; i++) {
+        for (int i = 1; i < n - 2 + 1; i++) {
             factorialNminusM = factorialNminusM.multiply(new BigDecimal(i));
         }
         //System.out.println("(n-m)! = " + factorialNminusM);
@@ -386,35 +387,35 @@ public class CriteoJavaQuest {
     public static void formula28(int n) {
         // The formula is " n!/m!(n-m)! "
 
-        System.out.println("if n = " + n );
+        System.out.println("if n = " + n);
         long result = 0;
         long factorialN = 1;
         int factorialNminusM = 1;
-        int factorialM = 2*1;
+        int factorialM = 2 * 1;
 
         int solutionIndex = 2;
         switch (solutionIndex) {
             case 1: // for solution 1
 
-                for( int i = 1; i< n+1 ; i++) {
+                for (int i = 1; i < n + 1; i++) {
                     factorialN = factorialN * i;
                 }
                 System.out.println("n! = " + factorialN);
 
-                for( int i = 1; i< n-2+1 ; i++) {
+                for (int i = 1; i < n - 2 + 1; i++) {
                     factorialNminusM = factorialNminusM * i;
                 }
                 System.out.println("(n-m)! = " + factorialNminusM);
 
-                result = factorialN/(factorialM*factorialNminusM);
+                result = factorialN / (factorialM * factorialNminusM);
                 System.out.println("then return " + result);
 
                 break;
             case 2: // for solution 2
                 // Solution 2.
-                for( int i = 1; i< n+1 ; i++) {
+                for (int i = 1; i < n + 1; i++) {
 
-                    if(i < n-2+1) {
+                    if (i < n - 2 + 1) {
                         //factorialN =
                     } else {
                         factorialN = factorialN * i;
@@ -422,7 +423,7 @@ public class CriteoJavaQuest {
                     }
                 }
 
-                result = factorialN/(factorialM);
+                result = factorialN / (factorialM);
                 System.out.println("then return " + result);
 
                 break;
@@ -435,6 +436,16 @@ public class CriteoJavaQuest {
     }
 
     public static void QuestionNo28() {
+        System.out.println("You have to organize a chess tournament in which players will compete head-to-head");
+        System.out.println("Here is how we proceed to form the duels: select a first player randomly, " +
+                "then, select this opponent at random among the remaining participants. " +
+                "The pair of competitors obtained forms one of the duels of the tournament. " +
+                "We proceed in the same manner to form all the other pairs." +
+                "In this exercise, we would like to know many pairs it is possible to form knowing that the order of opponents in a pair does not matter." +
+                "For example, with 3 players named A,B,C and D, it is possible to get 6 different pairs: AB, AC, AD, BC, BD, CD." +
+                "Implement count to return the number of possible pairs. Parameter n corresponds to the number of players." +
+                "Try to optimize your solution so that, ideally, the duration of treatment is the same of any n. " +
+                "Input: 2 <= n <= 10000.");
         // Ref: http://wywu.pixnet.net/blog/post/27455156-%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F
         // The formula is " n!/m!(n-m!) "
         formula28(4);
@@ -461,10 +472,9 @@ public class CriteoJavaQuest {
     }
 
 
-
     public static void main(String[] args) {
 
-        for(int i=1; i< 38; i++) {
+        for (int i = 1; i < 38; i++) {
             showQuestion(i);
         }
     }
@@ -475,7 +485,7 @@ class A5 {
     public static boolean isFoo(String params) {
         boolean result = false;
 
-        if(params.equals("foo")) {
+        if (params.equals("foo")) {
             result = true;
         }
 
@@ -500,31 +510,35 @@ class A14 {
 
 interface Service {
     void execute() throws Exception;
+
     void setConnection(Connection c);
 }
 
-interface Connection{
+interface Connection {
     void commit();
+
     void rollback();
+
     void close();
 }
 
 class Counter {
     private static int count = 0;
+
     synchronized public static int increment() {
         count = count + 1;
         return count;
     }
 }
 
-class A30{
+class A30 {
 
 }
 
-class B30 extends A30{
+class B30 extends A30 {
 }
 
-abstract class Animal{
+abstract class Animal {
 }
 
 class Dog extends Animal {
@@ -541,9 +555,11 @@ class Dog extends Animal {
 
 class Cat extends Animal {
     String name;
+
     Cat(String name) {
         this.name = name;
     }
+
     String getName() {
         return name;
     }
@@ -552,17 +568,18 @@ class Cat extends Animal {
 class Application {
     static String getAnimalName(Animal a) {
         String name = null;
-        if(a instanceof  Dog) {
-            name = ((Dog)a).getName();
+        if (a instanceof Dog) {
+            name = ((Dog) a).getName();
         } else if (a instanceof Cat) {
-            name = ((Cat)a).getName();
+            name = ((Cat) a).getName();
         }
         return name;
     }
 }
 
-abstract class Animal2{
+abstract class Animal2 {
     String name;
+
     String getName() {
         return this.name;
     }
