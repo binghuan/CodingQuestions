@@ -10,8 +10,17 @@ let showMatrix = function (columnCount, rowCount) {
     let totalCells = 0;
     let answer = "";
     totalCells = columnCount * rowCount;
+
+    let getNumber = function(value) {
+        if(parseInt(value) < 10) {
+            return "0" + value;
+        } else {
+            return value;
+        }
+    }
+
     for (let i = 0; i < totalCells; i++) {
-        answer = answer + number;
+        answer = answer + getNumber(number);
 
         if (number % (columnCount) == 0) {
             answer = answer + "\n";
@@ -23,4 +32,4 @@ let showMatrix = function (columnCount, rowCount) {
     console.log(answer);
 };
 
-showMatrix(3, 3);
+showMatrix(3, 4);
