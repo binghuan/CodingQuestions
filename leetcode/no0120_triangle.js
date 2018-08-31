@@ -179,3 +179,85 @@ if (DBG) {
     //minimumTotal(input);
 }
 
+
+
+// ### SOLUTION 2 ###
+function minimumTotal2(triangle) {
+
+    console.log("## INPUT:", triangle);
+
+    if (triangle.length == 0) {
+        return 0;
+    }
+    
+    let dp = [];// this value is actually the bottom element count
+    console.log("dp: ", dp);
+    for (let i= triangle.length -1; i>=0; i--) {
+        console.log("@@@@@@@@@@@@@@@@@@@@ IN LEVEL:", i);
+        for (let j=0; j<triangle[i].length; j++) {
+            console.log(" -- [", i, "][", j , "] ==> ", triangle[i][j]);
+            let value = Math.min(dp[j], dp[j+1]);
+            let validValue = value?value:0;
+            dp[j] = validValue + triangle[i][j];
+            console.log("## : j = ", j, ", ", validValue,"+" , triangle[i][j], " = ", dp[j]);
+            console.log("dp: ", dp);
+            console.log("---------------");
+        }
+    }
+
+    console.log("stack: ", dp)
+    console.log("## ANSWER: ", dp[0]);
+    return dp[0];
+}
+
+// ### OUTPUT ###
+/* 
+## INPUT: [ [ 2 ], [ 3, 4 ], [ 6, 5, 7 ], [ 4, 1, 8, 3 ] ]
+dp:  []
+@@@@@@@@@@@@@@@@@@@@ IN LEVEL: 3
+ -- [ 3 ][ 0 ] ==>  4
+## : j =  0 ,  0 + 4  =  4
+dp:  [ 4 ]
+---------------
+ -- [ 3 ][ 1 ] ==>  1
+## : j =  1 ,  0 + 1  =  1
+dp:  [ 4, 1 ]
+---------------
+ -- [ 3 ][ 2 ] ==>  8
+## : j =  2 ,  0 + 8  =  8
+dp:  [ 4, 1, 8 ]
+---------------
+ -- [ 3 ][ 3 ] ==>  3
+## : j =  3 ,  0 + 3  =  3
+dp:  [ 4, 1, 8, 3 ]
+---------------
+@@@@@@@@@@@@@@@@@@@@ IN LEVEL: 2
+ -- [ 2 ][ 0 ] ==>  6
+## : j =  0 ,  1 + 6  =  7
+dp:  [ 7, 1, 8, 3 ]
+---------------
+ -- [ 2 ][ 1 ] ==>  5
+## : j =  1 ,  1 + 5  =  6
+dp:  [ 7, 6, 8, 3 ]
+---------------
+ -- [ 2 ][ 2 ] ==>  7
+## : j =  2 ,  3 + 7  =  10
+dp:  [ 7, 6, 10, 3 ]
+---------------
+@@@@@@@@@@@@@@@@@@@@ IN LEVEL: 1
+ -- [ 1 ][ 0 ] ==>  3
+## : j =  0 ,  6 + 3  =  9
+dp:  [ 9, 6, 10, 3 ]
+---------------
+ -- [ 1 ][ 1 ] ==>  4
+## : j =  1 ,  6 + 4  =  10
+dp:  [ 9, 10, 10, 3 ]
+---------------
+@@@@@@@@@@@@@@@@@@@@ IN LEVEL: 0
+ -- [ 0 ][ 0 ] ==>  2
+## : j =  0 ,  9 + 2  =  11
+dp:  [ 11, 10, 10, 3 ]
+---------------
+stack:  [ 11, 10, 10, 3 ]
+## ANSWER:  11
+*/
