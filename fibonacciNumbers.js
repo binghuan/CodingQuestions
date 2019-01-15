@@ -2,24 +2,21 @@
     Page: https://en.wikipedia.org/wiki/Fibonacci_number
 */
 
-let fibonacciNumbers = function (numberLength) {
+var fibonacciNumbers = function (n) {
 
     let number = 1;
-
-    let numArray = [];
-
-    // 1st, put 1 number into array.
+    let numArray = [0];
     numArray.push(number);
 
     // main function. 
-    for (let i = 0; i < numberLength; i++) {
+    for (let i = 0; i < n; i++) {
 
         let lastOne = numArray.pop();
         let lastTwo = numArray.pop();
         let sum = 0;
 
         if (lastTwo != null) {
-            sum = lastOne + lastTwo;
+            sum = BigInt(lastOne) + BigInt(lastTwo);
             numArray.push(lastTwo);
         } else {
             sum = lastOne;
@@ -27,8 +24,10 @@ let fibonacciNumbers = function (numberLength) {
         number = sum;
         numArray.push(lastOne);
         numArray.push(number);
-        console.log(numArray);
+
     }
+
+    console.log(numArray[n]);
 }
 
-fibonacciNumbers(9);
+fibonacciNumbers(8181);

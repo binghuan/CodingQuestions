@@ -13,11 +13,11 @@ public class Find1stNonRepeatedChar {
     //## HOW TO RUN
     //javac com/bh/Find1stNonRepeatedChar.java ; java com.bh.Find1stNonRepeatedChar
 
-    //--------------------------------
+    //----------hamlet----------------------
     //Find first non repeated character
     //--------------------------------
     //
-    //"bbb c ddd" -> c
+    //"bbb c ddd" -> camleth
     //
     //String input = "scrum of scrums"
     //
