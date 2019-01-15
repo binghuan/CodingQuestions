@@ -1,12 +1,16 @@
 package com.bh;
 
+import java.util.ArrayList;
+
 public class CodingQuestFromMarshBlockchain {
 
-    // linkedIn for this company: https://www.linkedin.com/company/marsblockchain/ 
+    // linkedIn for this company: https://www.linkedin.com/company/marsblockchain/
 
     public static void main(String[] args) {
-
-
+        SolutionForTask3(2);
+        SolutionForTask3(3);
+        SolutionForTask3(4);
+        SolutionForTask3(5);
     }
 
     /* Task 1:
@@ -49,5 +53,68 @@ public class CodingQuestFromMarshBlockchain {
         }
         return output;
     }
-    
+
+    public static int fibonacci(int n) {
+        if (n <= 1) return n;
+        else return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    /*
+
+        Write a function
+
+        that, given an integer N (1 <= N <= 100), returns an array containing N distinct integers that sum up to 0.
+        the function can return any such array.
+
+        For example:, given N = 4, the function could return [1,0,-3,2], and for N = 3,
+        one of the possible answers is [-1,0,1] (but there are many more correct answers). 
+
+     */
+    public static int[] SolutionForTask3(int N) {
+
+        ArrayList<Integer> numberArray = new ArrayList<Integer>();
+
+        if (N == 2) {
+
+            numberArray.add(1);
+            numberArray.add(-1);
+
+        } else if (N % 2 == 0) {
+
+            numberArray.add(0);
+
+            for (int i = 1; i < 101; i++) {
+                if (numberArray.size() < (N - 1)) {
+                    numberArray.add(i);
+                } else {
+                    numberArray.add(fibonacci(i + 1) * -1);
+                    break;
+                }
+            }
+
+        } else {
+
+            numberArray.add(0);
+
+            for (int i = 1; i < 101; i++) {
+                if (numberArray.size() < N) {
+                    numberArray.add(i);
+                    numberArray.add(-i);
+                } else {
+                    break;
+                }
+
+            }
+        }
+
+        int[] ret = new int[numberArray.size()];
+        for (int i = 0; i < ret.length; i++) {
+            ret[i] = numberArray.get(i).intValue();
+        }
+
+        System.out.println("N = " + N + ", output => " + numberArray.toString());
+
+        return ret;
+    }
+
 }
