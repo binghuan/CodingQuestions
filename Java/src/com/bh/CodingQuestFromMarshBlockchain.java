@@ -9,7 +9,7 @@ public class CodingQuestFromMarshBlockchain {
     public static void main(String[] args) {
 
         // Test Solution for Task 3
-        for(int i =0; i< 10; i++) {
+        for(int i =1; i< 10; i++) {
             SolutionForTask3(i);
         }
     }
@@ -114,5 +114,16 @@ public class CodingQuestFromMarshBlockchain {
 
         return ret;
     }
+    /*  Sample of Output.
+        N = 1, output => [0]
+        N = 2, output => [1, -1]
+        N = 3, output => [0, 1, -1]
+        N = 4, output => [0, 1, 2, -3]
+        N = 5, output => [0, 1, -1, 2, -2]
+        N = 6, output => [0, 1, 2, 3, 4, -10]
+        N = 7, output => [0, 1, -1, 2, -2, 3, -3]
+        N = 8, output => [0, 1, 2, 3, 4, 5, 6, -21]
+        N = 9, output => [0, 1, -1, 2, -2, 3, -3, 4, -4]
+     */
 
 }
