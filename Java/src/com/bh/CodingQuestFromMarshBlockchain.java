@@ -55,15 +55,6 @@ public class CodingQuestFromMarshBlockchain {
         return output;
     }
 
-    public static int getSum(ArrayList<Integer> arrayList) {
-        int sum = 0;
-        for(int i =0; i< arrayList.size(); i++) {
-            sum += arrayList.get(i);
-        }
-
-        return sum;
-    }
-
     /*
 
         Write a function
@@ -88,11 +79,13 @@ public class CodingQuestFromMarshBlockchain {
 
             numberArray.add(0);
 
+            int sumForMinus = 0;
             for (int i = 1; i < 101; i++) {
                 if (numberArray.size() < (N - 1)) {
+                    sumForMinus += i;
                     numberArray.add(i);
                 } else {
-                    numberArray.add(getSum(numberArray) * -1);
+                    numberArray.add(sumForMinus * -1);
                     break;
                 }
             }
