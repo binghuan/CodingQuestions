@@ -11,6 +11,7 @@ public class CodingQuestFromMarshBlockchain {
         SolutionForTask3(3);
         SolutionForTask3(4);
         SolutionForTask3(5);
+        SolutionForTask3(6);
     }
 
     /* Task 1:
@@ -54,9 +55,13 @@ public class CodingQuestFromMarshBlockchain {
         return output;
     }
 
-    public static int fibonacci(int n) {
-        if (n <= 1) return n;
-        else return fibonacci(n - 1) + fibonacci(n - 2);
+    public static int getSum(ArrayList<Integer> arrayList) {
+        int sum = 0;
+        for(int i =0; i< arrayList.size(); i++) {
+            sum += arrayList.get(i);
+        }
+
+        return sum;
     }
 
     /*
@@ -67,7 +72,7 @@ public class CodingQuestFromMarshBlockchain {
         the function can return any such array.
 
         For example:, given N = 4, the function could return [1,0,-3,2], and for N = 3,
-        one of the possible answers is [-1,0,1] (but there are many more correct answers). 
+        one of the possible answers is [-1,0,1] (but there are many more correct answers).
 
      */
     public static int[] SolutionForTask3(int N) {
@@ -87,7 +92,7 @@ public class CodingQuestFromMarshBlockchain {
                 if (numberArray.size() < (N - 1)) {
                     numberArray.add(i);
                 } else {
-                    numberArray.add(fibonacci(i + 1) * -1);
+                    numberArray.add(getSum(numberArray) * -1);
                     break;
                 }
             }
