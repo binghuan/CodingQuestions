@@ -7,11 +7,11 @@ public class CodingQuestFromMarshBlockchain {
     // linkedIn for this company: https://www.linkedin.com/company/marsblockchain/
 
     public static void main(String[] args) {
-        SolutionForTask3(2);
-        SolutionForTask3(3);
-        SolutionForTask3(4);
-        SolutionForTask3(5);
-        SolutionForTask3(6);
+
+        // Test Solution for Task 3
+        for(int i =0; i< 10; i++) {
+            SolutionForTask3(i);
+        }
     }
 
     /* Task 1:
