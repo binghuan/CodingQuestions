@@ -34,9 +34,6 @@ var commonChars = function (A) {
         if (DBG) console.log("Check Key: ", key, charsTable[key]);
         if (Object.keys(charsTable[key]).length == MATCH_LENGTH) {
 
-            let first = Object.keys(charsTable[key])[0];
-            let chars = [];
-            let isNeededToAdd = false;
             let min = 0;
             if (Object.keys(charsTable[key]).length == MATCH_LENGTH) {
                 let countArray = [];
