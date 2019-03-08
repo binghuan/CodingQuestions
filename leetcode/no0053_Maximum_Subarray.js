@@ -51,7 +51,7 @@ var maxSubArray = function (nums) {
         }
 
         if (DBG) console.log("after round ", i,
-            "maxValueArrayInTheRound:", maxValueArrayInTheRound);
+            "maxValueArrayInTheRound:", maxValueArrayInTheRound, "total:", maxValueInTheRound);
 
         if (max == null || maxValueInTheRound > max) {
             max = maxValueInTheRound;
