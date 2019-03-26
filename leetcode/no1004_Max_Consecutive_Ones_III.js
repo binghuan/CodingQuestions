@@ -4,56 +4,63 @@
  * @return {number}
  */
 var longestOnes = function (A, K) {
-
     let DBG = true;
+    let max1sLength = 0;
 
-    if (DBG) console.log("## INPUT: A = ", A.toString(), "K=", K);
-
-    let backupA = A.slice(0);
+    let inputArray = A.slice(0);
+    if (DBG) console.log('## INPUT: A = ', A, 'K=', K);
 
     let quota = K;
-    let max1s = 0;
-    let length = backupA.length;
-    for (let j = 0; j < length; j++) {
-        if (DBG) console.log("start index: ", j, "length:", length);
-        A = backupA.slice(0);
+    for (let i = 0; i < (inputArray.length - max1sLength); i++) {
+        if (DBG) console.log(
+            '-------------- ROUND ', i,
+            '--------------- max1sLength:', max1sLength);
+        inputArray = A.slice(0);
+        let current1sLength = 0;
         quota = K;
-        let indexArray = [];
-        for (let i = j; i < length; i++) {
-            //if(DBG)console.log("indexI: ", i, "=", A[i], A[i] == 0, "quota =", quota);
-            if (A[i] == 0) {
-                if (quota > 0
-                    && (length - i) >= quota
-                ) {
-                    A[i] = 1;
+        let isbreaking1s = false;
+        // if ((A.length - i + 1) < max1sLength) {
+        //     if (DBG) console.log("PASS");
+        //     continue;
+        // }
+        for (let j = i; j < inputArray.length; j++) {
+
+            if (inputArray[j] == 1) {
+                current1sLength += 1;
+                if (DBG) console.log(
+                    'index:   ', j, '+1', inputArray, 'max1s:', current1sLength);
+            } else if (inputArray[j] == 0) {
+                if (quota > 0) {
+                    inputArray[j] = 1;
                     quota -= 1;
-                    indexArray.push(i);
+                    current1sLength += 1;
+                    if (DBG) console.log(
+                        '^index:  ', j, '+1', inputArray, 'max1s:', current1sLength);
+                } else {
+                    if (DBG) console.log('no quota');
+                    isbreaking1s = true;
                 }
             }
 
-            if (A[i] == 1 && quota == 0) {
-                let items = A.toString().replace(/,/g, "").split("0");
-                while (items[items.length -1 ] == "") {
-                    items.pop();
-                }
+            if (current1sLength > max1sLength) {
+                max1sLength = current1sLength;
+            }
 
-                //let max = items.sort(function (a, b) { return b.length - a.length })[0];
-                let max = items.reduce(function (a, b) { return a.length > b.length ? a : b; });
-                if (DBG) console.log("check items- A:" + A, "indexArray: ", indexArray, indexArray.length, "max = ", max, max.length);
-                if (max.length > max1s) {
-                    if (DBG) console.log("@@@@@@@@@@ repleace max1s from ", max1s, "to", max.length, "@@@@@@@@@@");
-                    max1s = max.length;
-                }
-                indexArray = [];
-                break;
+            if (isbreaking1s == true) {
+                current1sLength = 0;
+                isbreaking1s = false;
             }
         }
     }
 
-    console.log(max1s);
+    console.log('max1s:', max1sLength);
 
-    return max1s;
+    return max1sLength;
 };
 
-let input = [1,1,1,0,0,0,1,1,1,1,0], K = 2;
-longestOnes(input, K);
+let A = [0, 0, 0, 1], K = 4;
+A = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], K = 2;
+A = [0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], K = 3;
+A = [1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1], K = 144;
+A = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], K = 2;
+longestOnes(A, K);
