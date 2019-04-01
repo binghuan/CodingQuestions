@@ -4,7 +4,7 @@
  */
 var fib = function(N) {
     
-    if(N == 0) {
+    if(N <= 0) {
         return 0;
     }
     
