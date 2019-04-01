@@ -18,7 +18,7 @@ var fibonacciNumbers = function (n) {
 
         sum = BigInt(lastOne) + BigInt(lastTwo);
         numArray.push(lastTwo);
-        console.log("+ ", lastTwo);
+        //console.log("+ ", lastTwo);
 
         number = sum;
         numArray.push(lastOne);
@@ -27,7 +27,8 @@ var fibonacciNumbers = function (n) {
     }
 
     console.log(numArray);
-    console.log(numArray[n]);
+    console.log("## OUTPUT: ", numArray[n]);
+    console.log("=========================");
 }
 
 fibonacciNumbers(0);
@@ -36,3 +37,4 @@ fibonacciNumbers(2);
 fibonacciNumbers(3);
 fibonacciNumbers(4);
 fibonacciNumbers(5);
+fibonacciNumbers(6);
