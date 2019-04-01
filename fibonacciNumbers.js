@@ -3,6 +3,7 @@
 */
 
 var fibonacciNumbers = function (n) {
+    console.log("## INPUT:", n);
 
     let number = 1;
     let numArray = [0];
@@ -15,19 +16,23 @@ var fibonacciNumbers = function (n) {
         let lastTwo = numArray.pop();
         let sum = 0;
 
-        if (lastTwo != null) {
-            sum = BigInt(lastOne) + BigInt(lastTwo);
-            numArray.push(lastTwo);
-        } else {
-            sum = lastOne;
-        }
+        sum = BigInt(lastOne) + BigInt(lastTwo);
+        numArray.push(lastTwo);
+        console.log("+ ", lastTwo);
+
         number = sum;
         numArray.push(lastOne);
         numArray.push(number);
 
     }
 
+    console.log(numArray);
     console.log(numArray[n]);
 }
 
-fibonacciNumbers(8181);
+fibonacciNumbers(0);
+fibonacciNumbers(1);
+fibonacciNumbers(2);
+fibonacciNumbers(3);
+fibonacciNumbers(4);
+fibonacciNumbers(5);
