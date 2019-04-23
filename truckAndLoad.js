@@ -42,7 +42,7 @@ function findIdsOfPackages(truckSpace, packagesSpace) {
             break;
         }
         let basePackage = packagesSpace[i];
-        for (let j = i; j < packagesSpace.length; j++) {
+        for (let j = i + 1; j < packagesSpace.length; j++) {
             let sum = basePackage + packagesSpace[j];
             if (sum == targetSUM) {
                 result.push(i);
