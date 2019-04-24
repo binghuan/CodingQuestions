@@ -13,7 +13,8 @@ var lengthOfLIS = function (nums) {
     for(let baseIndex = 0; baseIndex < nums.length; baseIndex++) {
         for(let targetIndex = baseIndex + 1; targetIndex < nums.length ; targetIndex++) {
             if(nums[targetIndex] > nums[baseIndex]) {
-                lengthTable[targetIndex] = Math.max(lengthTable[targetIndex], lengthTable[baseIndex] + 1);
+                lengthTable[targetIndex] = 
+                    Math.max(lengthTable[targetIndex], lengthTable[baseIndex] + 1);
             }
         }
 
