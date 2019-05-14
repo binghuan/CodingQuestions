@@ -4,12 +4,12 @@ function bubbleSort(arr) {
 
     console.log("## INPUT: ", arr);
 
-    for (let i = 0; i < arr.length -1 ; i++) {
+    for (let i = 0; i < arr.length - 1; i++) {
         for (let j = 0; j < arr.length - 1; j++) {
-            console.log("check arr[",j,"]:", arr[j], "arr[",j+1,"]:", arr[j+1]);
-            if(arr[j] > arr[j+1]) {
-                let temp = arr[j+1];
-                arr[j+1] = arr[j];
+            console.log("check arr[", j, "]:", arr[j], "arr[", j + 1, "]:", arr[j + 1]);
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j + 1];
+                arr[j + 1] = arr[j];
                 arr[j] = temp;
                 console.log("DO SWAP --> ", arr);
             }
@@ -19,5 +19,36 @@ function bubbleSort(arr) {
     console.log("## OUTPUT: ", arr);
 }
 
+function bubbleSort2(arr) {
+
+    console.log("## INPUT: ", arr);
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+
+            if (i == j) {
+                continue;
+            }
+
+            if (arr[i] < arr[j]) {
+                let temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+                console.log("DO SWAP --> ", arr);
+            }
+
+            // console.log("check arr[",j,"]:", arr[j], "arr[",j+1,"]:", arr[j+1]);
+            // if(arr[j] > arr[j+1]) {
+            //     let temp = arr[j+1];
+            //     arr[j+1] = arr[j];
+            //     arr[j] = temp;
+            //     console.log("DO SWAP --> ", arr);
+            // }
+        }
+    }
+
+    console.log("## OUTPUT: ", arr);
+}
+
 let input = [5, 4, 3, 2, 1];
-bubbleSort(input);
+bubbleSort2(input);
