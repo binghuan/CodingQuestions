@@ -1,4 +1,5 @@
 /*
+source: https://www.ptt.cc/bbs/Soft_Job/M.1557909494.A.2A0.html
     Question: 
         Give a width = N , 
         N must be odd. 
