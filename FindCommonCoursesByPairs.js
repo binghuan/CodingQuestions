@@ -10,8 +10,6 @@ Coding Quest from Karat Interview (Indeed)
 
 // 20200124@BH_Lin ------------------------------------------------------------>
 function printOutCommonCoursesByIds(studentCoursePairs) {
-
-    console.log("+++ printOutCommonCoursesByIds +++");
     let coursesByIds = {}
 
     studentCoursePairs.forEach(element => {
@@ -32,7 +30,6 @@ function printOutCommonCoursesByIds(studentCoursePairs) {
             let id_A = ids[i];
             let id_B = ids[j];
             let pair = [id_A, id_B];
-            console.log("pair: ", pair);
             let coursesForId_A = coursesByIds[id_A];
             let coursesForId_B = coursesByIds[id_B];
             const commonCourses = coursesForId_A.filter(element => coursesForId_B.includes(element));
@@ -40,9 +37,6 @@ function printOutCommonCoursesByIds(studentCoursePairs) {
             pairsWithCommonCourses[pair] = commonCourses;
         }
     }
-    console.log("coursesByIds:", coursesByIds);
-    console.log("pairsWithCommonCourses:", pairsWithCommonCourses);
-    console.log("--- printOutCommonCoursesByIds ---");
     return pairsWithCommonCourses;
     // Time complexity: O(N^2)
 }
