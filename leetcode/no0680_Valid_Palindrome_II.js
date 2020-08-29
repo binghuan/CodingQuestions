@@ -21,70 +21,32 @@ The string will only contain lowercase characters a-z. The maximum length of the
  * @param {string} s
  * @return {boolean}
  */
-var validPalindrome = function(s) {
-  
-    let reverseString = function(input) {
-
-        let output = "";
-
-        for(let i =0 ; i< input.length; i++) {
-            output = input[i] + output;
-        }
-
-        return output;
-    }
-
+var validPalindrome = function (s) {
 
     let ans = false;
-    
-    let reversedS = reverseString(s);
-    if(reversedS == s ) {
-        ans = true;
-        console.log("@@ OUTPUT: ", ans);
-        return ans;
-    }
 
-    let stringWithoutChar = function(input, ignoreCharIndex) {
-
-        let output = "";
-        for( let i =0; i< input.length; i++) {
-            if( i != ignoreCharIndex) {
-                output = output + input[i];
-            }
-        }
-
-        return output;
-    }
-
-    let compareStringByRemoveChar = function(input, ignoreCharIndex) {
+    let compareStringByRemoveChar = function (input, ignoreCharIndex) {
         let output = "";
         let output2 = "";
-        for( let i =0; i< input.length; i++) {
-            if( i != ignoreCharIndex) {
+        for (let i = 0; i < input.length; i++) {
+            if (i != ignoreCharIndex) {
                 output = output + input[i];
                 output2 = input[i] + output2;
             }
         }
 
         //console.log("Compare:", ignoreCharIndex, "Remove ", input[ignoreCharIndex],output, output2);
-        if(output == output2) {
+        if (output == output2) {
             return true;
         } else {
             return false;
         }
     }
 
-    for(let i =0; i< s.length; i++) {
-        // let newWords = stringWithoutChar(s, i);
-        // let reversedNewWords = reverseString(newWords);
-        // if(newWords == reversedNewWords ) {
-        //     console.log("Compare:", i, "Remove ", s[i],newWords, reversedNewWords);
-        //     ans = true;
-        //     break; 
-        // }
+    for (let i = -1; i < s.length; i++) {
 
         let result = compareStringByRemoveChar(s, i);
-        if(result == true) {
+        if (result == true) {
             ans = true;
             break;
         }
