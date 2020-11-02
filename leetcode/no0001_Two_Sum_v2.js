@@ -17,11 +17,7 @@ return [0, 1].
  * @param {number} target
  * @return {number[]}
  */
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
+
 var twoSum = function (nums, target) {
 
     let indexResultMap = {};
