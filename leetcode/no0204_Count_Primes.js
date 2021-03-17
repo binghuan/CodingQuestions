@@ -3,13 +3,24 @@
  * @return {number}
  */
 var countPrimes = function (n) {
+    const DBG = false;
     let primeArray = [];
+    let amountOfPrimes = 0;
+    let ignoreSet = new Set();
 
-    let checkIfPrimieOrNot = (number) => {
+    for (let j = 2; j < n; j++) {
+        
+        if (ignoreSet.has(j)) {
+            if (DBG) console.log("ignore ", j)
+            continue;
+        }
+        ignoreSet.add(j*j);
+
+        let number = j;
         let isPrime = true;
-        console.log("check number: ", number);
+        if (DBG) console.log("check number: ", number);
 
-        for (let i = 2; i < parseInt(number / 2) + 1; i++) {
+        for (let i = 2; i < (number / i); i++) {
             let result = number % i;
             if (result == 0) {
                 isPrime = false;
@@ -17,21 +28,16 @@ var countPrimes = function (n) {
             }
         }
         if (isPrime) {
-            console.log("--> is Prime");
-            primeArray.push(number);
+            if (DBG) console.log(`-------------------> ${number} is Prime`);
+            //primeArray.push(number);
+            amountOfPrimes += 1;
         }
     }
 
-    for (let i = 2; i < n; i++) {
-        if (i == 2) {
-            primeArray.push(2);
-            continue;
-        }
-        checkIfPrimieOrNot(i);
-    }
-
-    console.log(primeArray);
-    return primeArray.length;
+    if (DBG) console.log(primeArray);
+    //console.log(ignoreSet);
+    //return primeArray.length;
+    return amountOfPrimes;
 };
 
 countPrimes(10);
