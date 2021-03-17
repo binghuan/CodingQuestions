@@ -2,23 +2,16 @@
  * @param {number} n
  * @return {number}
  */
- var countPrimes = function (n) {
+var countPrimes = function (n) {
     let primeArray = [];
-    let ignoreSet = new Set();
 
     let checkIfPrimieOrNot = (number) => {
         let isPrime = true;
-        console.log("check number: ", number, ignoreSet);
-        
-        let lastValue = Array.from(ignoreSet).pop();
+        console.log("check number: ", number);
 
-        for (let i = 2; i < parseInt(number/2)+1; i++) {
-            if(ignoreSet.has(number)){
-                continue;
-            }
+        for (let i = 2; i < parseInt(number / 2) + 1; i++) {
             let result = number % i;
             if (result == 0) {
-                ignoreSet.add(number);
                 isPrime = false;
                 break;
             }
