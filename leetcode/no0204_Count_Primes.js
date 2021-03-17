@@ -7,20 +7,21 @@ var countPrimes = function (n) {
     let primeArray = [];
     let amountOfPrimes = 0;
     let ignoreSet = new Set();
+    let lastIgnoreNumber = 2;
 
     for (let j = 2; j < n; j++) {
-        
+
         if (ignoreSet.has(j)) {
             if (DBG) console.log("ignore ", j)
             continue;
         }
-        ignoreSet.add(j*j);
+        ignoreSet.add(j * j);
 
         let number = j;
         let isPrime = true;
         if (DBG) console.log("check number: ", number);
 
-        for (let i = 2; i < (number / i); i++) {
+        for (let i = lastIgnoreNumber; i < (number / i); i++) {
             let result = number % i;
             if (result == 0) {
                 isPrime = false;
