@@ -8,7 +8,6 @@ Coding Question from Grab Taipei.
 */
 
 let strTransfer = (input) => {
-    const DBG = true;
     console.log("INPUT :", input);
     let result = [];
     let chars = input.split("");
@@ -22,8 +21,7 @@ let strTransfer = (input) => {
     }
 
     let ans = result.toString().replace(/,/, "");
-    console.log("OUTPUT:", ans);
-    console.log("------------");
+    console.log("OUTPUT:", ans, "\n------------");
 }
 
 strTransfer("ab#c")
