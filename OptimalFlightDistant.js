@@ -1,44 +1,3 @@
-function optimalUtilization(maxTravelDist, forwardRouteLit, returnRouteList) {
-    console.log("## --------------------------------------------------------->");
-    console.log("## INPUT:", "maxTravelDist:", maxTravelDist,
-        "\nforwardRouteLit:", forwardRouteLit,
-        "\nreturnRouteList:", returnRouteList);
-
-    let maxMiles = 0;
-    let pairs = [];
-    for (let i = 0; i < forwardRouteLit.length; i++) {
-
-        let base = forwardRouteLit[i][1];
-
-        for (let j = 0; j < returnRouteList.length; j++) {
-            let value = returnRouteList[j][1];
-
-            let total = base + value;
-            if (total <= maxTravelDist) {
-                if (total > maxMiles) {
-                    maxMiles = total;
-                    pairs = [];
-                    pairs.push([i + 1, j + 1]);
-                } else if (total == maxMiles) {
-                    pairs.push([i + 1, j + 1]);
-                }
-            }
-
-        }
-    }
-
-    console.log("## OUTPUT:", pairs);
-}
-
-let maxTravelDist = 20,
-    forwardRouteLit = [[1, 8], [2, 7], [3, 14]],
-    returnRouteList = [[1, 5], [2, 10], [3, 14]];
-optimalUtilization(maxTravelDist, forwardRouteLit, returnRouteList);
-maxTravelDist = 20,
-    forwardRouteLit = [[1, 8], [2, 15], [3, 9]],
-    returnRouteList = [[1, 8], [2, 11], [3, 12]];
-optimalUtilization(maxTravelDist, forwardRouteLit, returnRouteList);
-
 /*
 Amazon Prime Air is developing a system that divides shipping routes
 using flight optimization routing systems to a cluster of aircraft that can
@@ -90,3 +49,44 @@ route is possible, return an empty list.
 
 reference: https://www.careercup.com/question?id=5750442676453376
 */
+
+function optimalUtilization(maxTravelDist, forwardRouteLit, returnRouteList) {
+    console.log("## --------------------------------------------------------->");
+    console.log("## INPUT:", "maxTravelDist:", maxTravelDist,
+        "\nforwardRouteLit:", forwardRouteLit,
+        "\nreturnRouteList:", returnRouteList);
+
+    let maxMiles = 0;
+    let pairs = [];
+    for (let i = 0; i < forwardRouteLit.length; i++) {
+
+        let base = forwardRouteLit[i][1];
+
+        for (let j = 0; j < returnRouteList.length; j++) {
+            let value = returnRouteList[j][1];
+
+            let total = base + value;
+            if (total <= maxTravelDist) {
+                if (total > maxMiles) {
+                    maxMiles = total;
+                    pairs = [];
+                    pairs.push([i + 1, j + 1]);
+                } else if (total == maxMiles) {
+                    pairs.push([i + 1, j + 1]);
+                }
+            }
+
+        }
+    }
+
+    console.log("## OUTPUT:", pairs);
+}
+
+let maxTravelDist = 20,
+    forwardRouteLit = [[1, 8], [2, 7], [3, 14]],
+    returnRouteList = [[1, 5], [2, 10], [3, 14]];
+optimalUtilization(maxTravelDist, forwardRouteLit, returnRouteList);
+maxTravelDist = 20,
+    forwardRouteLit = [[1, 8], [2, 15], [3, 9]],
+    returnRouteList = [[1, 8], [2, 11], [3, 12]];
+optimalUtilization(maxTravelDist, forwardRouteLit, returnRouteList);
