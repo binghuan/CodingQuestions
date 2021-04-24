@@ -4,7 +4,6 @@
  */
 var secondHighest = function (s) {
 
-    // reference: https://stackoverflow.com/questions/1862130/strip-all-non-numeric-characters-from-string-in-javascript
     // Use the string's .replace method with a regex of \D, which is a shorthand character class that matches all non-digits
     let numberOnlyString = s.replace(/\D/g, '').split("");
     let sortedArray = numberOnlyString.sort((a, b) => { return b - a });
