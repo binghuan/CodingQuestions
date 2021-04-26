@@ -1,3 +1,4 @@
+// ※ 文章網址: https://www.ptt.cc/bbs/Soft_Job/M.1555603421.A.415.html
 // a. 給定 n, 給出 n*(n-1)*…*1 的乘積, 分別用 loop / recursive 去作
 
 function recursive(n) {
