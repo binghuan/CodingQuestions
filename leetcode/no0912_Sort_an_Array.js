@@ -26,37 +26,37 @@ function bubbleSort(nums) {
     }
 }
 
-function quickSort(arr, head, tail) {
+function quickSort(numArray, head, tail) {
     const DBG = true;
 
-    if (DBG) console.log(">> quickSort:", arr, "head: ", head, "tail: ", tail);
+    if (DBG) console.log(">> quickSort:", numArray, "head: ", head, "tail: ", tail);
 
-    if (head >= tail || arr == null || arr.length <= 1) {
+    if (head >= tail || numArray == null || numArray.length <= 1) {
         return;
     }
-    let pivotIndex = parseInt((head + tail) / 2);
-    let i = head, j = tail, pivot = arr[pivotIndex];
-    if (DBG) console.log("--> head:", head, "tail:", tail, "pivotIndex:", pivotIndex, "pivot:", pivot);
+    let indexOfPivot = parseInt((head + tail) / 2);
+    let i = head, j = tail, pivot = numArray[indexOfPivot];
+    if (DBG) console.log("--> head:", head, "tail:", tail, "pivotIndex:", indexOfPivot, "pivot:", pivot);
     while (i <= j) {
-        while (arr[i] < pivot) {
+        while (numArray[i] < pivot) {
             let originali = i;
             ++i;
             console.log(`Move head from ${originali} to ${i}`);
         }
-        if (DBG) console.log("arr[i:", i, "]=", arr[i], " >= ", pivot, " by pivotIndex:", pivotIndex);
+        if (DBG) console.log("arr[i:", i, "]=", numArray[i], " >= ", pivot, " by pivotIndex:", indexOfPivot);
 
-        while (arr[j] > pivot) {
+        while (numArray[j] > pivot) {
             let originalJ = j;
             --j;
             console.log(`Move tail from ${originalJ} to ${j}`);
         }
-        if (DBG) console.log("arr[j:", j, "]=", arr[j], " <= ", pivot, " by pivotIndex:", pivotIndex);
+        if (DBG) console.log("arr[j:", j, "]=", numArray[j], " <= ", pivot, " by pivotIndex:", indexOfPivot);
 
         if (i < j) {
-            if (DBG) console.log("!! Swap arr[", i, "]=", arr[i], "arr[", j, "]=", arr[j]);
-            let t = arr[i];
-            arr[i] = arr[j];
-            arr[j] = t;
+            if (DBG) console.log("!! Swap arr[", i, "]=", numArray[i], "arr[", j, "]=", numArray[j]);
+            let t = numArray[i];
+            numArray[i] = numArray[j];
+            numArray[j] = t;
             ++i;
             --j;
         } else if (i == j) {
@@ -64,9 +64,9 @@ function quickSort(arr, head, tail) {
         }
     }
     if (DBG) console.log("check left...");
-    quickSort(arr, head, j);
+    quickSort(numArray, head, j);
     if (DBG) console.log("check right...");
-    quickSort(arr, i, tail);
+    quickSort(numArray, i, tail);
 }
 
 sortArray([5, 2, 3, 1]);
