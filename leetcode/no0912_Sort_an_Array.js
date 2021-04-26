@@ -54,9 +54,9 @@ function quickSort(numArray, head, tail) {
 
         if (i < j) {
             if (DBG) console.log("!! Swap arr[", i, "]=", numArray[i], "arr[", j, "]=", numArray[j]);
-            let t = numArray[i];
+            let temp = numArray[i];
             numArray[i] = numArray[j];
-            numArray[j] = t;
+            numArray[j] = temp;
             ++i;
             --j;
         } else if (i == j) {
