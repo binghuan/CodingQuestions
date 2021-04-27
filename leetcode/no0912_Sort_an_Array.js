@@ -69,4 +69,5 @@ function quickSort(numArray, head, tail) {
     quickSort(numArray, i, tail);
 }
 
-sortArray([5, 2, 3, 1]);
+//sortArray([5, 2, 3, 1]);
+sortArray([3,2,1]);

@@ -27,10 +27,10 @@ var topKFrequent = function (nums, k) {
     }
 
     let result = [];
-    let sortedArray = countedArray.sort((a, b) => { return b.value - a.value });
+    let sortedArray = countedArray.sort((a, b) => { return b.count - a.count });
     if (DBG) console.log("sortedArray:", sortedArray)
     for (let i = 0; i < k; i++) {
-        result.push(sortedArray[i].count);
+        result.push(sortedArray[i].value);
     }
 
     return result;
