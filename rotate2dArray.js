@@ -28,3 +28,23 @@ for (var i = 0; i < array1.length; i++) {
 for (var i = 0; i < array2.length; i++) {
 	console.log("Output: ", array2[i]);
 }
+
+/*
+
+Original:  [ 'A', 'B', 'C' ]
+Original:  [ 'D', 'E', 'F' ]
+Original:  [ 'G', 'H', 'I' ]
+set:  0 2 A
+set:  0 1 B
+set:  0 0 C
+set:  1 2 D
+set:  1 1 E
+set:  1 0 F
+set:  2 2 G
+set:  2 1 H
+set:  2 0 I
+Output:  [ 'C', 'F', 'I' ]
+Output:  [ 'B', 'E', 'H' ]
+Output:  [ 'A', 'D', 'G' ]
+
+*/
