@@ -1,8 +1,19 @@
-// Question: check if you can swap the node to make two tree to be the same.
-function isRecoverableTree(treeA, treeB, DBG) {
-
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root1
+ * @param {TreeNode} root2
+ * @return {boolean}
+ */
+var flipEquiv = function (root1, root2) {
+    const DBG = true;
     let finalResult = true;
-
     function isTheSameChild(nodeA, nodeB) {
         let result = true;
         if (nodeA != null && nodeB != null) {
@@ -21,19 +32,15 @@ function isRecoverableTree(treeA, treeB, DBG) {
                     if (DBG) console.log("X> right child is not the same");
                     result = false;
                 }
-            }
-
-            if (nodeA.right != null && nodeB.right != null) {
+            } else if (nodeA.right != null && nodeB.right != null) {
                 if (nodeA.right.val != nodeB.right.val) {
                     if (DBG) console.log("X> left child is not the same");
                     result = false;
                 }
             }
         }
-
         if (DBG) console.log(">> isTheSameChild", result);
         return result;
-
     }
 
     function isTheSameNode(nodeA, nodeB) {
@@ -50,7 +57,6 @@ function isRecoverableTree(treeA, treeB, DBG) {
             if (DBG) console.log("values are not the same");
             result = false;
         }
-
         if (DBG) console.log(">> isTheSameNode", result, nodeA ? nodeA.val : nodeA, nodeB ? nodeB.val : nodeB);
         return result;
     }
@@ -61,115 +67,41 @@ function isRecoverableTree(treeA, treeB, DBG) {
         node.right = tempNode;
     }
 
-    function traversal(nodeA, nodeB) {
+    function traversal(root1, root2) {
 
-        if (DBG) console.log(">> traveral", nodeA, nodeB);
-
-        if (nodeA == null || nodeB == null) {
+        if (DBG) console.log(">> traveral", root1, root2);
+        if (root1 == null && root2 == null) {
             return;
         }
-
-        if (!isTheSameNode(nodeA, nodeB)) {
+        if (!isTheSameNode(root1, root2)) {
             finalResult = false;
             return;
         }
 
         // Try to swape child once, if child was not the same.
-        if (!isTheSameChild(nodeA, nodeB)) {
-            swapNodes(nodeA)
+        let swapped = false;
+        if (!isTheSameChild(root1, root2)) {
+            swapNodes(root1)
+            swapped = true;
         }
 
-        if (!isTheSameChild(nodeA, nodeB)) {
+        if (swapped && !isTheSameChild(root1, root2)) {
             finalResult = false;
             return;
         }
 
         // Before doing traversal, we need to make sure child nodes are the same
-        if (nodeA.left != null) {
-            traversal(nodeA.left, nodeB.left)
+        if (root1.left != null) {
+            traversal(root1.left, root2.left)
         }
 
-        if (nodeA.right != null) {
-            traversal(nodeA.right, nodeA.right)
+        if (root1.right != null) {
+            traversal(root1.right, root2.right)
         }
     }
 
-    traversal(treeA, treeB)
+    traversal(root1, root2);
 
     if (DBG) console.log("OUTPUT:", finalResult);
     return finalResult;
 }
-
-let dataSet = {
-    "A": {
-        treeInTest: {
-            val: 1,
-            left: {
-                val: 3
-            },
-            right: {
-                val: 2
-            }
-        },
-        targetTree: {
-            val: 1,
-            left: {
-                val: 2
-            },
-            right: {
-                val: 3
-            }
-        }
-    },
-    "B": {
-        treeInTest: {
-            val: 1,
-            left: {
-                val: 3,
-                left: {
-                    val: 4
-                }
-            },
-            right: {
-                val: 2
-            }
-        },
-        targetTree: {
-            val: 1,
-            left: {
-                val: 2
-            },
-            right: {
-                val: 3,
-                right: {
-                    val: 4
-                }
-            }
-        }
-    },
-    "C": {
-        treeInTest: {
-            val: 1,
-            left: {
-                val: 4
-            },
-            right: {
-                val: 2
-            }
-        },
-        targetTree: {
-            val: 1,
-            left: {
-                val: 2
-            },
-            right: {
-                val: 3
-            }
-        }
-    }
-}
-
-const isDebugEnabled = false;
-console.log("TEST A: -----------------", isRecoverableTree(dataSet.A.treeInTest, dataSet.A.targetTree, isDebugEnabled));
-console.log("TEST B: -----------------", isRecoverableTree(dataSet.B.treeInTest, dataSet.B.targetTree, isDebugEnabled));
-console.log("TEST C: -----------------", isRecoverableTree(dataSet.C.treeInTest, dataSet.C.targetTree, isDebugEnabled));
