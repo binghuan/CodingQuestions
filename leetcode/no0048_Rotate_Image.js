@@ -27,7 +27,6 @@ var rotate = function (matrix) {
         console.log("Fill: ", rowY);
         for (let i = 0; i < rowY.length; i++) {
             let value = rowY[i];
-            //console.log("setup value: ", value);
             newMatrix[i][matrix.length - y - 1] = value;
         }
 
