@@ -24,10 +24,14 @@ var rotate = function (matrix) {
 
     for (let y = 0; y < matrix.length; y++) {
         let rowY = matrix[y];
-        console.log("Fill: ", rowY);
+        console.log("Try to Fill: ", rowY);
         for (let i = 0; i < rowY.length; i++) {
-            let value = rowY[i];
-            newMatrix[i][matrix.length - y - 1] = value;
+            let temp = matrix[i][matrix.length - y - 1];
+            console.log("temp:", temp);
+            let value = matrix[y][i];
+            console.log("set value:", value);
+            newMatrix[i][matrix.length - y - 1] = matrix[y][i];
+            matrix[y][i] = temp;
         }
 
         console.log("--> after loop", y + 1);
