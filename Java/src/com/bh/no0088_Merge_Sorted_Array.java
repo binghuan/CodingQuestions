@@ -1,7 +1,9 @@
+package com.bh;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class Solution {
+class no0088_Merge_Sorted_Array {
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int indexB = 0;
@@ -38,17 +40,17 @@ class Solution {
         }
     }
 
-}
-
-class Main {
     public static void main(String[] args) {
-        int[] nums1 = { 1, 2, 3, 0, 0, 0 };
-        int[] nums2 = { 2, 5, 6 };
+        int[] nums1 = {1, 2, 3, 0, 0, 0};
+        int[] nums2 = {2, 5, 6};
 
         System.out.println("nums1:" + Arrays.toString(nums1));
         System.out.println("nums2:" + Arrays.toString(nums2));
-        Solution s = new Solution();
+        no0088_Merge_Sorted_Array s = new no0088_Merge_Sorted_Array();
         s.merge(nums1, 3, nums2, 3);
         System.out.println("answer:" + Arrays.toString(nums1));
     }
+
 }
+
+
