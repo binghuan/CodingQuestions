@@ -9,33 +9,15 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    let numArray = [];
-    
-    let node = head;
-    while (node != null) {
-        numArray.push(node.val);
-        node = node.next;
-    }
-   
-    if(numArray.length == 0) {
-        return null;
-    }
-    console.log("numArray: ", numArray);
-    
-    let nodeList = getNode(numArray);
-    
-    return nodeList;
-};
+var reverseList = function (head) {
 
-function getNode(numArray) {
-    let val = numArray.pop();
-    let node = {
-        val: val
+    let prev = null;
+    let curr = head;
+    while (curr != null) {
+        let nextTemp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextTemp;
     }
-    if(numArray.length > 0) {
-        node.next = getNode(numArray);
-    }
-    
-    return node;
+    return prev;
 }
