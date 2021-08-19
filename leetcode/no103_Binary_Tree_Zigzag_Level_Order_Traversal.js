@@ -46,3 +46,22 @@ var zigzagLevelOrder = function (root) {
 
     return nodeByLevel;
 };
+
+// Sample of BFS
+function traverseByBFS(root) {
+
+    let queue = []; 
+    queue.push(root);
+
+    while(queue.length > 0 ) {
+
+        let curr = queue.shift();
+        if(curr.left != null) {
+            queue.push(curr.left);
+        }
+
+        if(curr.right != null) {
+            queue.push(curr.right);   
+        }
+    }
+}
