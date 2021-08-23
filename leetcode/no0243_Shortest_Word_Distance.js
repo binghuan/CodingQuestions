@@ -31,41 +31,45 @@ var shortestDistance = function (words, word1, word2) {
 
     console.log("INPUT:", words, word1, word2);
 
-    let index1 = -1;
-    let index2 = -1;
+    let indexesA = [];
+    let indexesB = [];
 
     for (let i = 0; i < words.length; i++) {
         let word = words[i];
 
         if (word == word1) {
-            index1 = i;
+            indexesA.push(i);
         }
 
         if (word == word2) {
-            index2 = i;
+            indexesB.push(i);
         }
     }
 
-    if (index2 < index1) {
-        let temp = index2;
-        index2 = index1;
-        index1 = temp;
+    let minDistance = null;
+    let indexAandB = [];
+
+    for (let i = 0; i < indexesA.length; i++) {
+
+        let indexA = indexesA[i];
+
+        for (let j = 0; j < indexesA.length; j++) {
+            let indexB = indexesB[j];
+
+            let diff = Math.abs(indexA - indexB);
+            if (minDistance == null || diff < minDistance) {
+                minDistance = diff;
+                indexAandB = [i, j];
+            }
+        }
+
     }
-    console.log("index:", index1, index2);
 
-    distanceA = index2 - index1;
-    distanceB = index1 + (words.length - index2);
-
-    let result = -1;
-    result = distanceA;
-    // if(distanceB < distanceA) {
-    //     result = distanceB;
-    // }
-
-    console.log("OUTPUT:", result);
-    return result;
+    console.log("OUTPUT:", minDistance, indexAandB);
+    return minDistance;
 
 };
 
 shortestDistance(["practice", "makes", "perfect", "coding", "makes"], "coding", "practice")
 shortestDistance(["practice", "makes", "perfect", "coding", "makes"], "makes", "coding")
+shortestDistance(["a", "a", "a", "b", "b", "b"], "a", "b")
