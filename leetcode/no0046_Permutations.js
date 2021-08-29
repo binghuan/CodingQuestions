@@ -17,20 +17,20 @@ var permute = function (nums) {
 var checkPermute = function (nums, checkingNums, numsInUse, result) {
 
     if (nums.length == checkingNums.length) {
-        console.log(">> Add Result: ", checkingNums);
+        console.log("Add Result: ", checkingNums);
         result.add(checkingNums.slice(0));
     } else {
-
         for (let i = 0; i < nums.length; i++) {
             let num = nums[i];
             if (!numsInUse.has(num)) {
-                numsInUse.add(num);
                 console.log("--> Take ", num, "for use");
+                numsInUse.add(num);
                 checkingNums.push(num);
-                console.log("CheckingNums: ", checkingNums);
+                console.log("> CheckingNums: ", checkingNums);
                 checkPermute(nums, checkingNums, numsInUse, result);
                 numsInUse.delete(num);// remove element. 
                 checkingNums.pop();
+                console.log("< CheckingNums: ", checkingNums);
             }
         }
     }
