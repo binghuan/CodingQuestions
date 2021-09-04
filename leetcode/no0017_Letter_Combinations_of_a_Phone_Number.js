@@ -4,6 +4,10 @@
  */
 var letterCombinations = function (digits) {
 
+    if (digits == "") {
+        return [];
+    }
+
     let DBG = false;
 
     let keyMapping = {};
