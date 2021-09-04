@@ -1,6 +1,7 @@
 package com.bh;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,7 +9,8 @@ public class no0017_Letter_Combinations_of_a_Phone_Number {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        solution.letterCombinations("23");
+        //solution.letterCombinations("23");
+        solution.letterCombinations("");
     }
 }
 
@@ -21,15 +23,22 @@ class Solution {
             ArrayList<String> answer
     ) {
 
-        if (selectedIndex == digits.length()) {
-            answer.add(currentCombination.toString());
-            System.out.println(currentCombination.toString());
+        if (digits.length() == 0) {
             return;
         }
 
-        for (int i = 0; i < digits.length(); i++) {
-            char theChar = digits.charAt(i);
-            currentCombination.add(String.valueOf(theChar));
+        if (selectedIndex == digits.length()) {
+            String combination = String.join("", currentCombination);
+            answer.add(combination);
+            System.out.println("PUSH: " + combination);
+            return;
+        }
+
+        char theChar = digits.charAt(selectedIndex);
+
+        for (String element : keyMapping.get(theChar)) {
+            System.out.println("Get Char: " + element);
+            currentCombination.add(element);
             String combination = String.join("", currentCombination);
             System.out.println("currentCombination: " + combination);
 
@@ -42,6 +51,7 @@ class Solution {
             );
             currentCombination.remove(currentCombination.size() - 1);
         }
+
     }
 
     public List<String> letterCombinations(String digits) {
@@ -60,8 +70,8 @@ class Solution {
 
         ArrayList<String> currentCombination = new ArrayList<>();
         ArrayList<String> output = new ArrayList<>();
-        dfs(digits, keyMapping, 0, currentCombination, output);
 
+        dfs(digits, keyMapping, 0, currentCombination, output);
         System.out.println("OUTPUT: " + output.toString());
         return output;
     }
