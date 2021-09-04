@@ -20,8 +20,6 @@ var guessNumber = function (n) {
     }
 
     let answer = -1;
-
-
     let startIndex = 0;
     let endIndex = n;
     let counter = 0;
