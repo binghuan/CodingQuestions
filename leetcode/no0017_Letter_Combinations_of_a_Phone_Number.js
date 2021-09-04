@@ -11,16 +11,23 @@ var letterCombinations = function (digits) {
     let DBG = false;
 
     let keyMapping = {};
-    keyMapping[0] = [" "];
-    keyMapping[1] = [""];
-    keyMapping[2] = ["a", "b", "c"];
-    keyMapping[3] = ["d", "e", "f"];
-    keyMapping[4] = ["g", "h", "i"];
-    keyMapping[5] = ["j", "k", "l"];
-    keyMapping[6] = ["m", "n", "o"];
-    keyMapping[7] = ["p", "q", "r", "s"];
-    keyMapping[8] = ["t", "u", "v"];
-    keyMapping[9] = ["w", "x", "y", "z"];
+    let keys = [
+        [" "],
+        [""],
+        ["a", "b", "c"],
+        ["d", "e", "f"],
+        ["g", "h", "i"],
+        ["j", "k", "l"],
+        ["m", "n", "o"],
+        ["p", "q", "r", "s"],
+        ["t", "u", "v"],
+        ["w", "x", "y", "z"]
+    ]
+    for (let i = 0; i < 10; i++) {
+        console.log("index: ", i);
+        keyMapping[i] = keys[i];
+
+    }
 
     let currentCombination = [];
     let index = 0;
