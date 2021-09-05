@@ -19,7 +19,7 @@ public class no0039_Combination_Sum {
 
             // sorting array
             Arrays.sort(candidates);
-            System.out.println("INPUT: " + candidates.toString());
+            //System.out.println("INPUT: " + candidates.toString());
 
             List<Integer> currentCombination = new ArrayList<>();
             List<List<Integer>> output = new ArrayList<>();
@@ -32,7 +32,7 @@ public class no0039_Combination_Sum {
                     output
             );
 
-            System.out.println("OUTPUT: " + Arrays.toString(output.toArray()));
+            //System.out.println("OUTPUT: " + Arrays.toString(output.toArray()));
             return output;
         }
 
@@ -45,7 +45,7 @@ public class no0039_Combination_Sum {
         ) {
 
             if (remainingSum == 0) {
-                System.out.println("Add: " + Arrays.toString(currentCombination.toArray()));
+                //System.out.println("Add: " + Arrays.toString(currentCombination.toArray()));
                 ArrayList cloned = new ArrayList(currentCombination);
                 answer.add(cloned);
                 return;
