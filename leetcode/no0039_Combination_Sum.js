@@ -18,7 +18,7 @@ var combinationSum = function (candidates, target) {
         currentCombination,
         answer
     ) {
-        //console.log("Try", currentCombination, "from index", selectedIndex);
+        console.log("Try", currentCombination, "from index", startedIndex);
         if (remainingTarget == 0) {
             answer.push(currentCombination.slice(0));
             return;
