@@ -7,8 +7,8 @@ var combinationSum = function (candidates, target) {
 
     console.log("INPUT:", candidates, "target should be", target)
 
-    candidates.sort((a,b) => {
-        return a-b;
+    candidates.sort((a, b) => {
+        return a - b;
     })
 
     function dfs(
