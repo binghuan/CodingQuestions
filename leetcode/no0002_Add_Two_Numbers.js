@@ -36,17 +36,11 @@ var addTwoNumbers = function (l1, l2) {
         sum += valueToPlus;
         valueToPlus = 0;
 
-        console.log(num1, "+", num2, "=", sum);
-
         if (sum >= 10) {
-
             let a = sum / 10;
-            console.log(">= 10 sum=", sum);
             if (a >= 1) {
                 let b = parseInt(a.toString().split(".")[0]);
-                console.log("b=", b);
                 sum = sum - 10 * b;
-                console.log("sum=", sum);
                 valueToPlus += b;
             }
         }
@@ -66,10 +60,6 @@ var addTwoNumbers = function (l1, l2) {
         }
     }
 
-    console.log("final valueToPlus:", valueToPlus);
-
-
-    console.log("OUTPUT:", newNodeValues);
     newNodeValues = newNodeValues.reverse();
 
     function genNode() {
