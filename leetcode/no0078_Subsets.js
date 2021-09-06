@@ -42,3 +42,6 @@ var subsets = function (nums) {
 
     return output;
 };
+
+// Reference: 
+// https://leetcode.com/problems/subsets/solution/
