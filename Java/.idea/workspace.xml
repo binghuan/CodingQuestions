@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c192c1c3-4d03-459b-b053-8f8a42404ac1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../leetcode/no0046_Permutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/no0046_Permutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leetcode/no0017_Letter_Combinations_of_a_Phone_Number.playground/playground.xcworkspace/xcuserdata/BH_Lin.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/no0017_Letter_Combinations_of_a_Phone_Number.playground/playground.xcworkspace/xcuserdata/BH_Lin.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +151,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager" selected="Application.no0206_Reverse_Linked_List">
+  <component name="RunManager" selected="Application.no0039_Combination_Sum">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -194,20 +195,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Find1stNonRepeatedChar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.Find1stNonRepeatedChar" />
-      <module name="CodingQuestions" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bh.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ListNode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bh.ListNode" />
       <module name="CodingQuestions" />
@@ -222,8 +209,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MeetingRoomArrangment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.MeetingRoomArrangment" />
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="no0017_Letter_Combinations_of_a_Phone_Number" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0017_Letter_Combinations_of_a_Phone_Number" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -236,8 +229,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration name="no0039_Combination_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0039_Combination_Sum" />
+      <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bh.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -303,11 +304,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.no0039_Combination_Sum" />
+        <item itemvalue="Application.no0017_Letter_Combinations_of_a_Phone_Number" />
         <item itemvalue="Application.no0206_Reverse_Linked_List" />
         <item itemvalue="Application.no0088_Merge_Sorted_Array" />
         <item itemvalue="Application.ListNode" />
-        <item itemvalue="Application.MeetingRoomArrangment" />
-        <item itemvalue="Application.Find1stNonRepeatedChar" />
       </list>
     </recent_temporary>
   </component>
@@ -368,6 +369,11 @@
           <url>file://$PROJECT_DIR$/src/com/bh/no0206_Reverse_Linked_List.java</url>
           <line>59</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bh/no0039_Combination_Sum.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
