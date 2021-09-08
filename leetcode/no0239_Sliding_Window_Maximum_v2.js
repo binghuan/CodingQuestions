@@ -5,35 +5,44 @@
  */
 var maxSlidingWindow = function (nums, k) {
     console.log("INPUT:", nums, k);
-    let q = [];
+    let q = [];// Keep largest number's index
     let ans = [];
 
+    // Filter number and save the index, 
+    // ------------------------------------------------------------------------>
     for (let i = 0; i < k; i++) {
+        console.log("check index", i, "value=", nums[i]);
         while (q.length > 0 && nums[i] > nums[q[q.length - 1]]) {
-            console.log("q = ", q);
+            console.log("!! pop");
             q.pop();
+            console.log("q to ", q);
         }
+        console.log("!! push");
         q.push(i);
+        console.log("q -> ", q);
     }
     ans.push(nums[q[0]]);
-
-    console.log("================");
-    console.log("final q = ", q);
+    // ------------------------------------------------------------------------<
+    console.log("-------------------------------------------------------------");
+    console.log("After 1st filter, q = ", q);
     console.log("ans = ", ans);
 
     for (let i = k; i < nums.length; i++) {
-        //firstly we would check if the higest 
-        // element in the deque lies in the current window
+        // Remove the index out of range for window size
+        // for example: [ index: 0 , 1, 2], 
+        // but the started index is 3, so, we need to remove the index: 0 from q.
         if (q[0] <= i - k) {
             q.shift();
         }
 
-        //now we do the same which we did for the first k elements
+        // Next, we do the same which we did for the first k elements
+        // -------------------------------------------------------------------->
         while (q.length > 0 && nums[i] > nums[q[q.length - 1]]) {
             q.pop();
         }
         q.push(i);
         ans.push(nums[q[0]]);
+        // --------------------------------------------------------------------<
     }
     return ans;
 };
