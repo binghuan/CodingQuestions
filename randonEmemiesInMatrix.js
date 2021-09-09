@@ -20,15 +20,13 @@ function printMatrix(width, height, enemies) {
     // allocate enemy in some box. 
     let enemyBox = [];
     for (let i = 0; i < width * height; i++) {
-
-        console.log(i, enemies);
         if (i < enemies) {
             enemyBox.push(1);
         } else {
             enemyBox.push(0);
         }
     }
-    console.log("enemyBox:", enemyBox);
+    //console.log("enemyBox:", enemyBox);
     function drawEnemy() {
         let randonBoxIndex = Math.floor(Math.random() * enemyBox.length);
         let isEnemyExisted = enemyBox[randonBoxIndex];
@@ -36,11 +34,10 @@ function printMatrix(width, height, enemies) {
         enemyBox = enemyBox.filter(function (value, index, arr) {
             return index != randonBoxIndex;
         })
-
-        console.log("remaining box: ", enemyBox);
         return isEnemyExisted;
     }
 
+    console.log("// --------------------------------------------------------->");
     let rows = [];
     for (let i = 0; i < height; i++) {
         let columns = [];
@@ -51,6 +48,7 @@ function printMatrix(width, height, enemies) {
         rows.push(columns);
         console.log(columns.toString() + ",");
     }
+    console.log("// ---------------------------------------------------------<");
     console.log("OUTPUT", rows);
 }
 printMatrix(3, 4, 2);
