@@ -4,18 +4,23 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function (nums, k) {
-    console.log('## INPUT: ', nums, 'steps=', k);
-    for (let j = 0; j < k; j++) {
-        let temp = nums[nums.length - 1];
-        for (let i = nums.length - 1; i > 0; i--) {
-            // console.log("i=", i);
-            nums[i] = nums[i - 1];
+    let shiftCount = k % nums.length;
+    let map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        let targetIndex = (i + shiftCount) % nums.length;
+        //console.log(`move index from ${i} to ${targetIndex} `);
+        let temp = nums[targetIndex];
+        if (map.get(i) == null) {
+            nums[targetIndex] = nums[i];
+            map.set(targetIndex, temp);
+        } else {
+            nums[targetIndex] = map.get(i);
         }
-        nums[0] = temp;
-        console.log(' -------> ', nums, ', ROUND ', j);
+        map.set(targetIndex, temp);
     }
+
+    //console.log("OUTPUT:", nums);
 };
 
-let input = [1, 2, 3, 4, 5, 6, 7], k = 3;
-// input = [-1,-100,3,99], k = 2;
-rotate(input, k);
+rotate([1, 2, 3, 4, 5, 6, 7], 3);// expected: [5,6,7,1,2,3,4]
+//rotate([1, 2, 3], 2);// Expected: [2,3,1]
