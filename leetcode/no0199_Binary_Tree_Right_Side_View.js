@@ -38,3 +38,5 @@ var rightSideView = function (root) {
     traverse(root, 0);
     return result;
 };
+
+// Reference: https://leetcode.com/problems/binary-tree-right-side-view/discuss/1451097/Javascript-solution-using-pre-order-(96)
