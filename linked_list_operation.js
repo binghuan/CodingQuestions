@@ -1,11 +1,13 @@
 /*
  -- List of function to handle linkedList -- 
+ 
 function genLinkedList() 
 function printLinkedList(head) 
 function reverseLinkedList(head) 
 function moveToHead(head, targetVal) 
 function removeSpecificValFromLinkedList(head, targetVal) 
 function removeNthNodeFromLinkedList(head, n) 
+
 */
 
 function genLinkedList() {
