@@ -113,7 +113,6 @@ function removeKeyFromLinkedList(head, key) {
 
 function moveToHead(head, key, targetVal) {
     if (DBG) console.log(">> moveToHead key: ", key, "value:", targetVal);
-    // 1st remvoe element; 
     let node = removeKeyFromLinkedList(head, key);
     let result = {
         key: key,
