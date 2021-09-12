@@ -1,6 +1,6 @@
 /*
  -- List of function to handle linkedList -- 
- 
+
 function genLinkedList() 
 function printLinkedList(head) 
 function reverseLinkedList(head) 
@@ -55,7 +55,7 @@ function reverseLinkedList(head) {
 function moveToHead(head, targetVal) {
     if (DBG) console.log(">> moveToHead", targetVal);
     // 1st remvoe element; 
-    let node = removeNthNodeFromLinkedList(head, targetVal);
+    let node = removeValFromLinkedList(head, targetVal);
     let result = {
         val: targetVal,
         next: node
@@ -65,8 +65,8 @@ function moveToHead(head, targetVal) {
     return result;
 }
 
-function removeSpecificValFromLinkedList(head, targetVal) {
-    if (DBG) console.log(">> removeNthNodeFromLinkedList", targetVal);
+function removeValFromLinkedList(head, targetVal) {
+    if (DBG) console.log(">> removeValFromLinkedList", targetVal);
     let result = head;
     let curr = head;
     if (curr != null && curr.val == targetVal) {
@@ -74,7 +74,7 @@ function removeSpecificValFromLinkedList(head, targetVal) {
     } else {
         while (curr != null && curr.next != null) {
             if (curr.next.val == targetVal) {
-                if (DBG) console.log("Remove n=", depth, "val=", curr.next.val);
+                if (DBG) console.log("Remove val=", curr.next.val);
                 curr.next = curr.next.next;
             }
             curr = curr.next;
