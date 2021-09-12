@@ -15,7 +15,7 @@ var getDecimalValue = function (head) {
         numArray.push(head.val);
         head = head.next;
     }
-
+    
     var digit = parseInt(numArray.join(""), 2);
     return digit;
 };
