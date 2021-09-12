@@ -2,10 +2,10 @@
  * @param {number} capacity
  */
 
+const DBG = false;
 let map = new Map();
 let maxCap = 0;
 let actionNo = 0;
-const DBG = true;
 let linkedList = null;
 
 var LRUCache = function (capacity) {
@@ -35,7 +35,7 @@ LRUCache.prototype.get = function (key) {
         map.set(key, node);
     }
 
-    if (DBG) console.log(map);
+    //if (DBG) console.log(map);
     return result.val;
 };
 
@@ -51,25 +51,28 @@ LRUCache.prototype.put = function (key, value) {
         let node = addNodeToHead(linkedList, key, value);
         map.set(key, node);
     } else {
-        removeKeyFromLinkedList(linkedList, key, value);
-        let node = addNodeToHead(linkedList, key, value);
-        map.set(key, node);
+        let node = map.get(key);
+        node.val = value;
+        let newNode = moveToHead(linkedList, key, value);
+        map.set(key, newNode);
+
     }
     if (map.size > maxCap) {
         let lastKey = removeNthNodeFromLinkedList(linkedList, maxCap + 1)
-        console.log("lastKey = ", lastKey);
+        if (DBG) console.log("lastKey = ", lastKey);
         map.delete(lastKey);
     }
-    if (DBG) console.log(map);
+    //if (DBG) console.log(map);
 };
 
 function printLinkedList(head) {
+    if (!DBG) return;
     let valArray = [];
     while (head != null) {
         valArray.push(head.key);
         head = head.next;
     }
-    if (DBG) console.log("Currnet => [", valArray.join("->"), "]");
+    console.log("Currnet => [", valArray.join("->"), "]");
 }
 
 function addNodeToHead(head, key, value) {
@@ -98,10 +101,12 @@ function removeKeyFromLinkedList(head, key) {
             if (curr.next.key == key) {
                 if (DBG) console.log("Remove key=", curr.next.key);
                 curr.next = curr.next.next;
+                break;
             }
             curr = curr.next;
         }
     }
+    linkedList = result;
     printLinkedList(result);
     return result;
 }
@@ -136,6 +141,7 @@ function removeNthNodeFromLinkedList(head, n) {
                 lastKey = curr.next.key;
                 curr.next = curr.next.next;
                 depth += 1;
+                break;
             }
             curr = curr.next;
             depth += 1;
@@ -181,4 +187,4 @@ lRUCache.get(1);    // return -1 (not found)
 lRUCache.get(3);    // return 3
 lRUCache.get(4);    // return 4
 
-//[null,null,null,1,null,-1,null,-1,3,4]
+  //[null,null,null,1,null,-1,null,-1,3,4]
