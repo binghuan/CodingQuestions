@@ -27,6 +27,39 @@ Output: 1->2->3
  */
 var deleteDuplicates = function (head) {
 
+
+    let node = head;
+    while (node != null) {
+
+        console.log("node.val = ", node.val);
+
+        if (node.next != null && node.val == node.next.val) {
+            console.log("->->");
+            node.next = node.next.next;
+        } else {
+            node = node.next;
+        }
+    }
+
+
+    return head;
+};
+
+
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicatesV1 = function (head) {
+
     if (head == null) {
         return null;
     }
