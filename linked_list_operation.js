@@ -95,7 +95,7 @@ function removeNthNodeFromLinkedList(head, n) {
     } else {
         while (curr != null && curr.next != null) {
             if (depth + 1 == n) {
-                console.log("HIT");
+                console.log(`${n} was found`);
                 curr.next = curr.next.next;
                 depth += 1;
             }
