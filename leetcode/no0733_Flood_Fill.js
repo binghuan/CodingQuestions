@@ -7,6 +7,7 @@
  */
 var floodFill = function (image, sr, sc, newColor) {
 
+    const DBG = false;
     function printImage(image) {
         console.log("-------------------------------------------------------->");
         for (let i = 0; i < image.length; i++) {
@@ -14,11 +15,11 @@ var floodFill = function (image, sr, sc, newColor) {
         }
         console.log("--------------------------------------------------------<");
     }
-    console.log("INPUT:");
+    if (DBG) console.log("INPUT:");
     printImage(image);
 
     let color = image[sr][sc];
-    if(color == newColor) {
+    if (color == newColor) {
         return image;
     }
 
@@ -27,7 +28,7 @@ var floodFill = function (image, sr, sc, newColor) {
     ) {
         if (image[rowIndex][columnIndex] == color) {
             image[rowIndex][columnIndex] = newColor;
-            printImage(image);
+            if (DBG) printImage(image);
             if (rowIndex >= 1) {
                 dfs(image, rowIndex - 1, columnIndex, color, newColor);
             }
