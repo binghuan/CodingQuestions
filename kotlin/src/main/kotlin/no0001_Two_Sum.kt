@@ -1,4 +1,3 @@
-import java.util.*
 fun main(args: Array<String>) {
     class Solution {
         fun twoSum(nums: IntArray, target: Int): IntArray {
@@ -12,7 +11,7 @@ fun main(args: Array<String>) {
                     if (nums[i] + nums[j] == target) {
                         println("hit ~~");
                         val integers = intArrayOf(i, j);
-                        println("OUTPUT: ${Arrays.toString(integers)}");
+                        println("OUTPUT: ${integers.contentToString()}");
                         return integers;
                     }
                 }

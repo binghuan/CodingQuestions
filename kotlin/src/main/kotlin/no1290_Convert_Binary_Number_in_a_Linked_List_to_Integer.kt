@@ -21,9 +21,7 @@ fun main(args: Array<String>) {
                 numString += node.`val`
                 node = node.next
             }
-
-            var digit = Integer.parseInt(numString, 2)
-            return digit
+            return Integer.parseInt(numString, 2)
         }
     }
 }

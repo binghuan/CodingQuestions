@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
             var ans = "";
             for (index in 0..s.length - 1) {
 
-                val char = s.get(index);
+                val char = s[index];
 
                 val pos = temp.indexOf(char);
 

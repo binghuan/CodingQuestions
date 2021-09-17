@@ -21,9 +21,7 @@ fun main(args: Array<String>) {
 
             fun traverse(node: TreeNode, depth: Int) {
 
-                if (node == null) {
-                    return
-                }
+                if (node == null) return
 
                 if (!mySet.contains(depth)) {
                     mySet += depth
