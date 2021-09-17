@@ -52,19 +52,6 @@ function reverseLinkedList(head) {
     return prev;
 };
 
-function moveToHead(head, targetVal) {
-    if (DBG) console.log(">> moveToHead", targetVal);
-    // 1st remvoe element; 
-    let node = removeValFromLinkedList(head, targetVal);
-    let result = {
-        val: targetVal,
-        next: node
-    }
-
-    printLinkedList(result);
-    return result;
-}
-
 function removeValFromLinkedList(head, targetVal) {
     if (DBG) console.log(">> removeValFromLinkedList", targetVal);
     let result = head;
@@ -107,11 +94,56 @@ function removeNthNodeFromLinkedList(head, n) {
     return result;
 }
 
+function moveToHead(head, targetVal) {
+    if (DBG) console.log(">> moveToHead", targetVal);
+    // 1st remvoe element; 
+    let node = removeValFromLinkedList(head, targetVal);
+    let result = {
+        val: targetVal,
+        next: node
+    }
+
+    printLinkedList(result);
+    return result;
+}
+
+function moveToHeadV2(head, targetVal) {
+    if (DBG) console.log(">> moveToHeadV2", targetVal);
+    let curr = head;
+
+    // Q: How to cut the link to previous node.
+    let previousNode = null;
+    let topNode = null;
+    let next = null;
+    while (curr != null && curr.next != null) {
+
+        if(curr.next.val == targetVal) {
+            next = curr.next 
+            topNode = next;
+            curr.next = curr.next.next;
+            console.log("topNode:");
+            printLinkedList(topNode)
+            console.log("curr:");
+            printLinkedList(curr)
+            break;
+        }
+
+        previousNode = curr;
+        curr = curr.next;
+    }
+
+    console.log("OUTPUT");
+    printLinkedList(topNode);
+    return topNode;
+}
+
 // Test.
 //reverseLinkedList(genLinkedList());
 //removeSpecificValFromLinkedList(genLinkedList(), 2);
 //removeSpecificValFromLinkedList(genLinkedList(), 1);
 //removeSpecificValFromLinkedList(genLinkedList(), 3);
 //removeNthNodeFromLinkedList(genLinkedList(), 2)
-removeNthNodeFromLinkedList(genLinkedList(), 3)
+//removeNthNodeFromLinkedList(genLinkedList(), 3)
 //moveToHead(genLinkedList(), 2)
+//moveToHeadV2(genLinkedList(), 3)
+moveToHeadV2(genLinkedList(), 2)
