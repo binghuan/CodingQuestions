@@ -149,7 +149,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager" selected="Application.no0509_Fibonacci_Number">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.bh" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.no0048_Rotate_Image">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -227,8 +232,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0088_Merge_Sorted_Array" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0088_Merge_Sorted_Array" />
+    <configuration name="no0048_Rotate_Image" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0048_Rotate_Image" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -302,11 +307,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.no0048_Rotate_Image" />
         <item itemvalue="Application.no0509_Fibonacci_Number" />
         <item itemvalue="Application.no0039_Combination_Sum" />
         <item itemvalue="Application.no0017_Letter_Combinations_of_a_Phone_Number" />
         <item itemvalue="Application.no0206_Reverse_Linked_List" />
-        <item itemvalue="Application.no0088_Merge_Sorted_Array" />
       </list>
     </recent_temporary>
   </component>
