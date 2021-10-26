@@ -14,7 +14,7 @@ function getTimes(inputString) {
 
     console.log(alphabetMap);
 
-    let totalSteps = 0;
+    let totalSeconds = 0;
 
     let currIndex = 0;
     for (let i = 0; i < inputString.length; i++) {
@@ -36,12 +36,12 @@ function getTimes(inputString) {
             choosedOption = b;
         }
         console.log("A:", a, "B:", b, "->", choosedOption);
-        totalSteps += choosedOption;
+        totalSeconds += choosedOption;
         currIndex = alphabetMap[symbol];
-        console.log("Move to Index:", currIndex, "Steps: ", choosedOption);
+        console.log("Move to Index:", currIndex, "Need", choosedOption, "Second(s)");
     }
 
-    console.log("OUTPUT:", totalSteps);
+    console.log("OUTPUT:", totalSeconds);
 
 }
 
