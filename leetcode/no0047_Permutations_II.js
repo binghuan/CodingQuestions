@@ -3,16 +3,13 @@
  * @return {number[][]}
  */
 var permuteUnique = function (nums) {
-
     var checkPermute = function (nums, curr, numIndexesInUse, ans) {
-
         if (nums.length == curr.length) {
             let temp = JSON.stringify(curr.slice(0));
             if (!ans.has(temp)) {
                 ans.add(temp);
                 //console.log("Add:", temp);
             }
-
         } else {
             for (let i = 0; i < nums.length; i++) {
                 if (numIndexesInUse.has(i)) {
