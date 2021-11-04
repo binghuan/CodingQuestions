@@ -51,3 +51,4 @@ maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3);
 // Output: [3,3,5,5,6,7]
 
 // reference: https://leetcode.com/problems/sliding-window-maximum/discuss/1448050/Dequeue-solution-O(N)-time-and-O(K)-space-with-explanation
+// Related problem: https://leetcode.com/problems/largest-rectangle-in-histogram/
