@@ -9,12 +9,7 @@ var change = function (amount, coins) {
         return a - b;
     })
 
-    function dfs(
-        coins,
-        remainingAmount,
-        selectedIndex,
-        currentCombination,
-        answer) {
+    function dfs(coins, remainingAmount, selectedIndex, currentCombination, answer) {
 
         if (remainingAmount == 0) {
             answer.push(currentCombination.slice(0));
@@ -42,13 +37,7 @@ var change = function (amount, coins) {
 
     let combination = [];
     let output = [];
-    dfs(
-        coins,
-        amount,
-        0,
-        combination,
-        output
-    )
+    dfs(coins, amount, 0, combination, output)
     console.log("OUTPUT:", output);
     return output.length;
 
