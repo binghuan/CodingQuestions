@@ -54,4 +54,4 @@ var change = function (amount, coins) {
 
 };
 
-change(500, [3,5,7,8,9,10,11]);
+change(500, [3, 5, 7, 8, 9, 10, 11]);
