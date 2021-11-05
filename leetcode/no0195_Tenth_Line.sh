@@ -3,7 +3,7 @@ index=1
 lines=$(cat file.txt)
 while read line ; do 
 
-    echo "#${index}: ${line}"
+    #echo "#${index}: ${line}"
     if [ $index == 10 ]; then 
         echo $line
     fi
