@@ -1,30 +1,35 @@
 /*
  -- List of function to handle linkedList -- 
-
 function genLinkedList() 
 function printLinkedList(head) 
 function reverseLinkedList(head) 
 function moveToHead(head, targetVal) 
-function removeSpecificValFromLinkedList(head, targetVal) 
+function removeValFromLinkedList(head, targetVal) 
 function removeNthNodeFromLinkedList(head, n) 
-
 */
 
-function genLinkedList() {
-    let root = {
-        val: 1,
-        next: {
-            val: 2,
-            next: {
-                val: 3,
-                next: null
+const DBG = true;
+
+function createNodeFromArray(arr) {
+    let elements = arr;
+    function createNode() {
+        let element = elements.shift();
+        if (element != null) {
+            return {
+                val: element,
+                next: createNode()
             }
+        } else {
+            return null;
         }
-    };
-    return root;
+    }
+    return createNode();
 }
 
-const DBG = true;
+function genLinkedList() {
+    let nums = [1, 2, 3];
+    return createNodeFromArray(nums);
+}
 
 function printLinkedList(head) {
     let valArray = [];
@@ -77,12 +82,14 @@ function removeNthNodeFromLinkedList(head, n) {
     let curr = head;
     let depth = 1;
     if (curr != null && depth == n) {
+        if (DBG) console.log(`Check Depth#${depth + 1}: ${curr.val}`);
         result = curr.next;
         depth += 1;
     } else {
         while (curr != null && curr.next != null) {
+            if (DBG) console.log(`Check Depth#${depth + 1}: ${curr.val}`);
             if (depth + 1 == n) {
-                console.log(`${n} was found`);
+                if (DBG) console.log(`${n} was found`);
                 curr.next = curr.next.next;
                 depth += 1;
             }
@@ -117,8 +124,8 @@ function moveToHeadV2(head, targetVal) {
     let next = null;
     while (curr != null && curr.next != null) {
 
-        if(curr.next.val == targetVal) {
-            next = curr.next 
+        if (curr.next.val == targetVal) {
+            next = curr.next
             topNode = next;
             curr.next = curr.next.next;
             console.log("topNode:");
@@ -139,11 +146,12 @@ function moveToHeadV2(head, targetVal) {
 
 // Test.
 //reverseLinkedList(genLinkedList());
-//removeSpecificValFromLinkedList(genLinkedList(), 2);
-//removeSpecificValFromLinkedList(genLinkedList(), 1);
-//removeSpecificValFromLinkedList(genLinkedList(), 3);
+removeValFromLinkedList(genLinkedList(), 2);
+//removeValFromLinkedList(genLinkedList(), 1);
+//removeValFromLinkedList(genLinkedList(), 3);
 //removeNthNodeFromLinkedList(genLinkedList(), 2)
 //removeNthNodeFromLinkedList(genLinkedList(), 3)
 //moveToHead(genLinkedList(), 2)
 //moveToHeadV2(genLinkedList(), 3)
-moveToHeadV2(genLinkedList(), 2)
+//moveToHeadV2(genLinkedList(), 2)
+//printLinkedList(genLinkedList());
