@@ -3,8 +3,8 @@
  */
 let data = [];
 let size = 0;
-let isReady = false;
 let step = 0;
+const DBG = false;
 var MyCircularQueue = function (k) {
     step = 0;
     data = [];
@@ -17,7 +17,7 @@ var MyCircularQueue = function (k) {
  */
 MyCircularQueue.prototype.enQueue = function (value) {
     step += 1;
-    console.log("#", step, "enQueue", data.length, `Size=${data.length}/${size}`, (data.length + 1) > size);
+    if (DBG) console.log("#", step, "enQueue", data.length, `Size=${data.length}/${size}`, (data.length + 1) > size);
     let result = false;
     if ((data.length + 1) > size) {
         result = false;
@@ -25,7 +25,7 @@ MyCircularQueue.prototype.enQueue = function (value) {
         data.push(value);
         result = true;
     }
-    console.log("-->", result);
+    if (DBG) console.log("-->", result);
     return result;
 };
 
@@ -34,13 +34,13 @@ MyCircularQueue.prototype.enQueue = function (value) {
  */
 MyCircularQueue.prototype.deQueue = function () {
     step += 1;
-    console.log("#", step, "deQueue", data.length, `Size=${data.length}/${size}`);
+    if (DBG) console.log("#", step, "deQueue", data.length, `Size=${data.length}/${size}`);
     if (data.length <= 0) {
-        console.log("-->", false);
+        if (DBG) console.log("-->", false);
         return false;
     }
     data.shift();
-    console.log("-->", true);
+    if (DBG) console.log("-->", true);
     return true;
 };
 
@@ -49,12 +49,12 @@ MyCircularQueue.prototype.deQueue = function () {
  */
 MyCircularQueue.prototype.Front = function () {
     step += 1;
-    console.log("#", step, "Front", data.length, `Size=${data.length}/${size}`);
+    if (DBG) console.log("#", step, "Front", data.length, `Size=${data.length}/${size}`);
     let result = data[0];
     if (result == null) {
         result = -1;
     }
-    console.log("-->", result);
+    if (DBG) console.log("-->", result);
     return result;
 };
 
@@ -64,11 +64,11 @@ MyCircularQueue.prototype.Front = function () {
 MyCircularQueue.prototype.Rear = function () {
     step += 1;
     let result = data[data.length - 1];
-    console.log("#", step, "Rear", data.length, `Size=${data.length}/${size}`);
+    if (DBG) console.log("#", step, "Rear", data.length, `Size=${data.length}/${size}`);
     if (result == null) {
         result = -1;
     }
-    console.log("-->", result);
+    if (DBG) console.log("-->", result);
     return result;
 };
 
@@ -78,8 +78,8 @@ MyCircularQueue.prototype.Rear = function () {
 MyCircularQueue.prototype.isEmpty = function () {
     step += 1;
     let result = (data.length <= 0);
-    console.log("#", step, "isEmpty", data.length, `Size=${data.length}/${size}`);
-    console.log("-->", result);
+    if (DBG) console.log("#", step, "isEmpty", data.length, `Size=${data.length}/${size}`);
+    if (DBG) console.log("-->", result);
     return result;
 };
 
@@ -89,8 +89,8 @@ MyCircularQueue.prototype.isEmpty = function () {
 MyCircularQueue.prototype.isFull = function () {
     step += 1;
     let result = data.length >= size;
-    console.log("#", step, "isFull", data.length, `Size=${data.length}/${size}`);
-    console.log("-->", result);
+    if (DBG) console.log("#", step, "isFull", data.length, `Size=${data.length}/${size}`);
+    if (DBG) console.log("-->", result);
     return result
 };
 
