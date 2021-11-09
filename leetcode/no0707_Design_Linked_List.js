@@ -1,8 +1,9 @@
 
+const DBG = true;
 let head = null;
-
 var MyLinkedList = function () {
-    console.log(">> MyLinkedList");
+    if (DBG) console.log("+++ MyLinkedList");
+    head = null;
 };
 
 /** 
@@ -10,8 +11,8 @@ var MyLinkedList = function () {
  * @return {number}
  */
 MyLinkedList.prototype.get = function (index) {
-    let result = null;
-    console.log(">> Get Index:", index);
+    let result = -1;
+    if (DBG) console.log("+++ Get Index:", index);
 
     let clone = head;
     let depth = 0;
@@ -24,7 +25,7 @@ MyLinkedList.prototype.get = function (index) {
         depth += 1;
     }
 
-    console.log("-->", result);
+    if (DBG) console.log("-->", result);
     printLinkedList(head);
     return result;
 };
@@ -34,7 +35,7 @@ MyLinkedList.prototype.get = function (index) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtHead = function (val) {
-    console.log(">> addAtHead:", val);
+    if (DBG) console.log("+++ addAtHead:", val);
     let newNode = {
         val: val,
         next: head
@@ -50,7 +51,7 @@ MyLinkedList.prototype.addAtHead = function (val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtTail = function (val) {
-    console.log(">> addAtTail:", val);
+    if (DBG) console.log("+++ addAtTail:", val);
     let clone = head;
     while (clone != null) {
         if (clone.next == null) {
@@ -63,6 +64,12 @@ MyLinkedList.prototype.addAtTail = function (val) {
             clone = clone.next;
         }
     }
+    if (head == null) {
+        head = {
+            val: val, //
+            next: null
+        }
+    }
 
     printLinkedList(head);
 };
@@ -73,19 +80,47 @@ MyLinkedList.prototype.addAtTail = function (val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtIndex = function (index, val) {
-    console.log(">> addAtIndex:", index, "val:", val);
+    if (DBG) console.log("+++ addAtIndex:", index, "val:", val);
 
     let clone = head;
     let depth = 0;
     let previous = null;
+    let isHit = false;
     while (clone != null) {
         if (depth == index) {
-            
+            if (previous == null) {
+                head = {
+                    val: val,
+                    next: clone
+                }
+            } else {
+                previous.next = {
+                    val: val,
+                    next: clone
+                }
+            }
+
+            isHit = true;
             break;
         }
         previous = clone;
         clone = clone.next;
         depth += 1;
+    }
+
+    if (isHit == false && depth >= index) {
+        if (previous == null) {
+            head = {
+                val: val,
+                next: null
+            }
+        } else {
+            previous.next = {
+                val: val,
+                next: null
+            }
+        }
+
     }
 
     printLinkedList(head);
@@ -97,7 +132,25 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
  * @return {void}
  */
 MyLinkedList.prototype.deleteAtIndex = function (index) {
-    console.log(">> deleteAtIndex:", index);
+    if (DBG) console.log("+++ deleteAtIndex:", index);
+    let clone = head;
+    let depth = 0;
+    let previous = null;
+    while (clone != null) {
+        if (depth == index) {
+            if (previous != null) {
+                previous.next = clone.next
+            } else {
+                head = clone.next;
+            }
+
+            break;
+        }
+        previous = clone;
+        clone = clone.next;
+        depth += 1;
+    }
+    printLinkedList(head);
 };
 
 function printLinkedList(node) {
@@ -108,8 +161,8 @@ function printLinkedList(node) {
         valArray.push(node.val);
         node = node.next;
     }
-    console.log(nodesInString);
-    console.log("LinkedList:", valArray);
+    if (DBG) console.log(nodesInString);
+    if (DBG) console.log("LinkedList:", valArray);
     function createNode() {
         let val = valArray.shift();
         if (val != null) {
@@ -170,3 +223,24 @@ function test(
 
 test(["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"],
     [[], [1], [3], [1, 2], [1], [1], [1]]);
+// Expected Output: [ null,               null,           null,          null,    2,          null,          3]
+
+// test(["MyLinkedList", "addAtHead", "deleteAtIndex"],
+//     [[], [1], [0]]);
+
+// test(["MyLinkedList", "addAtHead", "addAtHead", "addAtHead", "addAtIndex", "deleteAtIndex", "addAtHead", "addAtTail", "get", "addAtHead", "addAtIndex", "addAtHead"],
+//     [[],                    [7],        [2],        [1],        [3, 0],         [2],            [6],        [4],        [4],        [4],    [5, 0], [6]]);
+// Expected output: 
+// [null,                   null,       null,       null,       null,           null,           null,       null,       4,          null,   null,   null]
+
+// test(["MyLinkedList", "addAtIndex", "addAtIndex", "addAtIndex", "get"],
+//     [[], [0, 10], [0, 20], [1, 30], [0]]);
+
+// test(["MyLinkedList", "addAtTail", "get"],
+//     [[], [1], [0]]); // [null,null,1]
+
+// test(["MyLinkedList", "addAtHead", "get", "addAtHead", "addAtHead", "deleteAtIndex", "addAtHead", "get", "get", "get", "addAtHead", "deleteAtIndex"],
+//     [[], [4], [1], [1], [5], [3], [7], [3], [3], [3], [1], [4]]); // [null,null,-1,null,null,null,null,4,4,4,null,null]
+
+// test(["MyLinkedList", "addAtIndex", "get"],
+//     [[], [1, 0], [0]])// [null,null,-1]
