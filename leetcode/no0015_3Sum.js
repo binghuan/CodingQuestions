@@ -64,7 +64,7 @@ var threeSum = function (nums) {
     )
 
 
-    console.log("OUTPUT:", output);
+    //console.log("OUTPUT:", output);
     return output;
 
 };

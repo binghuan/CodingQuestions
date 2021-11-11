@@ -2,35 +2,35 @@
  * @param {string} s
  * @return {string}
  */
- var decodeString = function(s) {
-    
-    let stack = [];
+var decodelet = function (s) {
 
-    let ready2push = false;
-    let tempString = "";
-    for(let i =0; i< s.length; i++) {
-
-        let char = s[i];
-        if(char == "[") {
-            stack.push(tempString);
-            tempString = "";
-        } else if (char == "]") {
-            let count = parseInt(stack.pop());
-            let temp = "";
-            for(let j = 0; j< count ; j++) {
-                temp = `${temp}${tempString}`;
+    let t = "";
+    let s_num = [];
+    let s_str = [];
+    let cnt = 0;
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] >= '0' && s[i] <= '9') {
+            cnt = 10 * cnt + s[i] - '0';
+        } else if (s[i] == '[') {
+            s_num.push(cnt);
+            s_str.push(t);
+            cnt = 0; t = "";
+        } else if (s[i] == ']') {
+            let k = s_num[0]; s_num.pop();
+            for (let j = 0; j < k; ++j) {
+                s_str[0] += t;
             }
-            tempString = temp;
-
+            t = s_str[0]; s_str.pop();
         } else {
-            tempString = `${tempString}${char}`;
+            t += s[i];
         }
-
     }
-
+    return s_str.trim().length == 0 ? t : s_str[0];
 };
 
-let s = "3[a]2[bc]";
-let s = "3[a2[c]]";
+(decodeString("3[a]2[bc]") == "aaabcbc") ? console.log("PASS") : console.log("FAIL");
+//(decodeString("3[a2[c]]") == "accaccacc")?console.log("PASS"):console.log("FAIL");
+//(decodeString("2[abc]3[cd]ef") == "abcabccdcdcdef") ? console.log("PASS") : console.log("FAIL");
+//(decodeString("abc3[cd]xyz") == "abccdcdcdxyz") ? console.log("PASS") : console.log("FAIL");
 
-decodeString(s);
+// Reference: https://www.cnblogs.com/grandyang/p/5849037.html
