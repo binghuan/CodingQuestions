@@ -19,6 +19,9 @@ fun main(args: Array<String>) {
                 1.0 -> {
                     true;
                 }
+                0.0 -> {
+                    false;
+                }
                 else -> {
                     isHappy(total.toInt())
                 }
@@ -31,7 +34,7 @@ fun main(args: Array<String>) {
 //    Input: n = 19
 //    Output: true
 
-    val result = solution.isHappy(19)
+    val result = solution.isHappy(0)
     println("OUTPUT: $result")
 
 }
