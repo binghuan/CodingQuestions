@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
 
     val solution = Solution()
 
-    // Run Test Case
+    // Run Test Cases
     println(solution.speaking("1111000 2 10") == "0000120")
     println(solution.speaking("1111000 2 16") == "0000078")
     println(solution.speaking("2102101 3 10") == "0001765")
