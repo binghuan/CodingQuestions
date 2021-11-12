@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
             val numString = items[0]
             val base = items[1]
             val target = items[2].toInt()
-            var decimal: Int = Integer.valueOf(numString, base.toInt()) //8进制转换成10进制
+            var decimal = Integer.valueOf(numString, base.toInt()) //8进制转换成10进制
             if (debug) println("Decimal = $decimal")
             val intStrMap = mapOf("10" to "A", "11" to "B", "12" to "C", "13" to "D", "14" to "E", "15" to "F")
             val binary = arrayOf("0", "0", "0", "0", "0", "0", "0")
