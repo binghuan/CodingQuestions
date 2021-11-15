@@ -17,12 +17,9 @@ var myPow = function (x, n) {
             } else {
                 return -1;
             }
-
         } else {
-
             return 1;
         }
-
     }
 
     for (let i = 1; i < Math.abs(n); i++) {
