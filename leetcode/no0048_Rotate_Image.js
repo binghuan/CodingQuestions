@@ -2,54 +2,67 @@
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-function showMatrix(matrix) {
-    for (let i = 0; i < matrix.length; i++) {
-        console.log(matrix[i]);
+var rotate = function (matrix) {
+
+    console.log("INPUT:");
+    printMatrix(matrix);
+
+    let height = matrix.length;
+    let width = matrix[0].length;
+    let middle = width / 2;
+
+    /* For Example: A -> B -> D -> C
+        A, B
+        C, D
+    */
+
+    for (let y = 0; y < middle; y++) {
+        for (let x = 0; x < parseInt(middle); x++) {
+
+            // Store C to Temp 
+            let temp = matrix[height - 1 - x][y];
+            //  "temp"              "C"
+
+            // Move D to C
+            matrix[height - 1 - x][y] = matrix[height - 1 - y][width - 1 - x];
+            //              "C"                         "D"
+
+            // Move B to D
+            matrix[height - 1 - y][width - 1 - x] = matrix[x][width - 1 - y];
+            //              "D"                         "B"
+
+            // Move A to B: [0, 0] -> [1, 0] -> [2, 0] on 1st round
+            matrix[x][width - 1 - y] = matrix[y][x];
+            //              "B"             "A"
+
+            // Move temp to A
+            matrix[y][x] = temp;
+            //  "B"         "A"
+        }
     }
+
+    console.log("OUTPUT:");
+    printMatrix(matrix);
+
 }
 
-var rotate = function (matrix) {
-    console.log("## INPUT:", matrix.length);
-    showMatrix(matrix)
-
-    let newMatrix = [];
-
-    // initializing...
-    for (let y = 0; y < matrix.length; y++) {
-        newMatrix[y] = [];
-        for (let x = 0; x < matrix.length; x++) {
-            newMatrix[y][x] = null;
-        }
-    }
-
-    for (let y = 0; y < matrix.length; y++) {
-        let rowY = matrix[y];
-        console.log("Try to Fill: ", rowY);
-        for (let i = 0; i < rowY.length; i++) {
-            let temp = matrix[i][matrix.length - y - 1];
-            console.log("temp:", temp);
-            let value = matrix[y][i];
-            console.log("set value:", value);
-            newMatrix[i][matrix.length - y - 1] = matrix[y][i];
-            matrix[y][i] = temp;
-        }
-
-        console.log("--> after loop", y + 1);
-        showMatrix(newMatrix)
-
-        console.log("--------------------");
-    }
+function printMatrix(matrix) {
+    console.log("-------------------------------------------------------->");
+    matrix.forEach((row) => {
+        console.log(row);
+    })
+    console.log("--------------------------------------------------------<");
+}
 
 
-    console.log("## OUTPUT:");
-    showMatrix(newMatrix)
-};
+rotate([
+    [1, 2],
+    [3, 4]
+]);
+rotate([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
 
-let myMatrix =
-    [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ];
-
-rotate(myMatrix);
+// Reference: https://leetcode.com/problems/rotate-image/solution/
