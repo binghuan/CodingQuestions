@@ -2,15 +2,15 @@ function swap(array, left, right) {
     if (left === right) {
         return;
     }
-    console.log("+++ swap +++", array, "left=", left, "value=", array[left], "right=", right, "value=", array[right]);
+    console.log("+++ swap +++", array, "left [", left, "]=", array[left], "right [", right, "]=", array[right]);
     let temp = array[left];
     array[left] = array[right];
     array[right] = temp;
-    console.log("--- swap ---", array, "left=", left, "value=", array[left], "right=", right, "value=", array[right]);
+    console.log("--- swap ---", array, "left [", left, "]=", array[left], "right [", right, "]=", array[right]);
 }
 
 function partition(array, left, right, pivot) {
-    console.log("+++ partition +++", array, "left=", left, "right=", right, "pivot=", pivot);
+    console.log("--- partition ---", array, "left [", left, "] right [", right, "], pivot=", pivot);
     while (left <= right) {
         while (array[left] < pivot) {
             left++;
@@ -24,7 +24,7 @@ function partition(array, left, right, pivot) {
             right--;
         }
     }
-    console.log("--- partition ---", array, "left=", left, "right=", right, "pivot=", pivot);
+    console.log("--- partition ---", array, "left [", left, "] right [", right, "], pivot=", pivot);
     return left;
 }
 
