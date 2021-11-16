@@ -1,4 +1,7 @@
 function swap(array, left, right) {
+    if (left === right) {
+        return;
+    }
     console.log("+++ swap +++", array, "left=", left, "value=", array[left], "right=", right, "value=", array[right]);
     let temp = array[left];
     array[left] = array[right];
@@ -43,11 +46,10 @@ function quickSort(array, left, right) {
 
     quickSort(array, left, index - 1);
     quickSort(array, index, right);
-
-
 }
 
-let input = [5, 3, 1, 2, 4];
+//let input = [5, 3, 1, 2, 4];
+let input = [5, 2, 3, 1];
 console.log("INPUT  :", input);
 quickSort(input, 0, input.length - 1);
 console.log("OUOTPUT:", input);
