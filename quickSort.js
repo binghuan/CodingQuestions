@@ -1,7 +1,9 @@
 function swap(array, left, right) {
+    console.log("+++ swap +++", array, "left=", left, "value=", array[left], "right=", right, "value=", array[right]);
     let temp = array[left];
     array[left] = array[right];
     array[right] = temp;
+    console.log("--- swap ---", array, "left=", left, "value=", array[left], "right=", right, "value=", array[right]);
 }
 
 function partition(array, left, right, pivot) {
@@ -19,14 +21,12 @@ function partition(array, left, right, pivot) {
             right--;
         }
     }
-
     console.log("--- partition ---", array, "left=", left, "right=", right, "pivot=", pivot);
     return left;
 }
 
 let numberOfCall = 0;
 function quickSort(array, left, right) {
-
     let indexOfCall = ++numberOfCall;
     console.log("#", indexOfCall++, "+++ quickSort +++", array, "left=", left, "right=", right);
 
@@ -34,14 +34,17 @@ function quickSort(array, left, right) {
         return;
     }
 
-    let pivot = array[parseInt((left + right) / 2)];
+    let pivotIndex = parseInt((left + right) / 2);// Middle Index
+    let pivot = array[pivotIndex];
+    console.log("+++ pivot +++", "value=", pivot, "index=", pivotIndex);
 
     let index = partition(array, left, right, pivot);
+    console.log("--- quickSort ---", array, "left=", left, "right=", right);
 
     quickSort(array, left, index - 1);
     quickSort(array, index, right);
 
-    console.log("#", indexOfCall, "--- quickSort ---", array, "left=", left, "right=", right);
+
 }
 
 let input = [5, 3, 1, 2, 4];
@@ -49,5 +52,10 @@ console.log("INPUT  :", input);
 quickSort(input, 0, input.length - 1);
 console.log("OUOTPUT:", input);
 
-
 // Reference: https://www.youtube.com/watch?app=desktop&v=SLauY6PpjW4&ab_channel=HackerRank
+/*
+-- Time Complexity --
+Worst-case performance	O(n^2)
+Best-case performance	O(n log n) or O(n)
+Average performance	O(n log n)
+*/
