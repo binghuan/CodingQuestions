@@ -45,6 +45,7 @@ function quickSort(array, left, right) {
     console.log(`+++ pivot +++ [${pivotIndex}]= ${pivot}`);
 
     let index = partition(array, left, right, pivot);
+    console.log("index =>", index)
     console.log("--- quickSort ---", array, "left [", left, "]=", array[left], ", right [", right, "]=", array[right]);
 
     console.log("Sort part 1:", "left [", left, "]=", array[left], ", right [", index - 1, "]=", array[index - 1]);

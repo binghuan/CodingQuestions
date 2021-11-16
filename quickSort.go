@@ -38,7 +38,7 @@ func quickSort(array []int, left int, right int) {
 		return
 	}
 
-	pivotIndex := (right - left) / 2
+	pivotIndex := (left + right) / 2
 	pivot := array[pivotIndex]
 	fmt.Println("pivot [", pivotIndex, "]=", pivot)
 
