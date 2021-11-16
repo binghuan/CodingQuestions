@@ -47,8 +47,8 @@ function quickSort(array, left, right) {
     let index = partition(array, left, right, pivot);
     console.log("--- quickSort ---", array, "left [", left, "]=", array[left], ", right [", right, "]=", array[right]);
 
-    console.log("Next: sort part 1", "left [", left, "]=", array[left], ", right [", index - 1, "]=", array[index - 1]);
-    console.log("Next: sort part 2", "left [", index, "]=", array[index], ", right [", right, "]=", array[right]);
+    console.log("Sort part 1:", "left [", left, "]=", array[left], ", right [", index - 1, "]=", array[index - 1]);
+    console.log("Sort part 2:", "left [", index, "]=", array[index], ", right [", right, "]=", array[right]);
     quickSort(array, left, index - 1);
     quickSort(array, index, right);
 }
