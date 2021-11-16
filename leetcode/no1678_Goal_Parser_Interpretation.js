@@ -3,5 +3,5 @@
  * @return {string}
  */
 var interpret = function (command) {
-    return command.replace(/\(\)/g, "o").replace(/\(/g, "").replace(/\)/g, "");
+    return command.replace(/\(\)/g, "o").replace(/\(|\)/g, "");
 };
