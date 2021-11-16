@@ -19,7 +19,7 @@ var findShortestSubArray = function (nums) {
             maxAmountOfAppear = map[num];
         }
     }
-
+    
     let numArray = [];
     for (let i = 0; i < Object.keys(map).length; i++) {
         let key = Object.keys(map)[i];
