@@ -31,7 +31,7 @@ function partition(array, left, right, pivot) {
 let numberOfCall = 0;
 function quickSort(array, left, right) {
     let indexOfCall = ++numberOfCall;
-    console.log("#", indexOfCall++, "+++ quickSort +++", array, "left=", left, "right=", right);
+    console.log("#", indexOfCall++, "+++ quickSort +++", array, "left [", left, "], right [", right, "]");
 
     if (left >= right) {
         return;
@@ -39,10 +39,10 @@ function quickSort(array, left, right) {
 
     let pivotIndex = parseInt((left + right) / 2);// Middle Index
     let pivot = array[pivotIndex];
-    console.log("+++ pivot +++", "value=", pivot, "index=", pivotIndex);
+    console.log(`+++ pivot +++ [${pivotIndex}]= ${pivot}`);
 
     let index = partition(array, left, right, pivot);
-    console.log("--- quickSort ---", array, "left=", left, "right=", right);
+    console.log("--- quickSort ---", array, "left [", left, "], right [", right, "]");
 
     quickSort(array, left, index - 1);
     quickSort(array, index, right);
