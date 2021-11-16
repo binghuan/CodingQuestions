@@ -10,7 +10,7 @@ function swap(array, left, right) {
 }
 
 function partition(array, left, right, pivot) {
-    console.log("--- partition ---", array, "left [", left, "] right [", right, "], pivot=", pivot);
+    console.log("+++ partition +++", array, "left [", left, "] right [", right, "], pivot=", pivot);
     while (left <= right) {
         // move left pointer to pos which value is greater than pivot.
         while (array[left] < pivot) {
