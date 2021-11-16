@@ -8,7 +8,6 @@ var numberOfMatches = function (n) {
 
 
 var numberOfMatchesV1 = function (n) {
-
     console.log("INPUT:", n);
 
     // Step 1.
@@ -16,18 +15,14 @@ var numberOfMatchesV1 = function (n) {
 
     // Step 2.
     function checkBattle(N) {
-
         currentBattleCount = parseInt(N / 2);
         seedCount = N % 2;
-
         totalBattleCount += currentBattleCount;
         remainTeams = currentBattleCount + seedCount;
-
         if (remainTeams >= 2) {
             checkBattle(remainTeams);
         }
     }
-
     checkBattle(n);
 
     console.log("OUTPUT:", totalBattleCount);
