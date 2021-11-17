@@ -3,14 +3,14 @@
  * @return {number[]}
  */
 var sortArray = function (nums) {
-
-
+    console.log("INPUT:", nums);
     //bubbleSort(nums);
     quickSort(nums, 0, nums.length - 1);
-
+    console.log("OUTPUT:", nums);
     return nums;
-
 };
+
+const DBG = false;
 
 // Solution: Bubble Sort
 function bubbleSort(nums) {
@@ -26,58 +26,62 @@ function bubbleSort(nums) {
     }
 }
 
-function quickSort(numArray, head, tail) {
-    const DBG = true;
-    if (DBG) console.log(">> quickSort:", numArray, "head: ", head, "tail: ", tail);
-    if (head >= tail || numArray == null || numArray.length <= 1) {
-        if(DBG)console.log("------------------------------------------------");
+function swap(array, left, right) {
+    if (left === right) {
         return;
     }
-    let indexOfPivot = parseInt((head + tail) / 2);
-    let i = head, j = tail, pivot = numArray[indexOfPivot];
-    if (DBG) console.log("--> head:", head, "tail:", tail, "indexOfPivot:", indexOfPivot, "pivot:", pivot);
-    while (i <= j) {
-        
-        console.log("i:", i, "j:", j, "pivot:", pivot);
-        while (numArray[i] < pivot) {
-            if (DBG) console.log("!! check numArray[i] < pivot", numArray[i], pivot);
-            let originali = i;
-            ++i;
-            if (DBG) console.log(`-> move i from ${originali} to ${i}`);
-        }
-        if (DBG) console.log("arr[i:", i, "]=", numArray[i], " >= ", pivot, " by indexOfPivot:", indexOfPivot);
-
-        while (numArray[j] > pivot) {
-            if (DBG) console.log("!! check numArray[j] > pivot: ", numArray[i], pivot);
-            let originalJ = j;
-            --j;
-            if (DBG) console.log(`-> move j from ${originalJ} to ${j}`);
-        }
-        if (DBG) console.log("arr[j:", j, "]=", numArray[j], " <= ", pivot, " by indexOfPivot:", indexOfPivot);
-        if (i < j) {
-            if (DBG) console.log("!! Swap arr[", i, "]=", numArray[i], "arr[", j, "]=", numArray[j]);
-            if (DBG) console.log("before => ",numArray);
-            let temp = numArray[i];
-            numArray[i] = numArray[j];
-            numArray[j] = temp;
-            if (DBG) console.log("after  => ",numArray);
-            let originali = i;
-            let originalJ = j;
-            ++i;
-            --j;
-            if (DBG) console.log(`-> move i from ${originali} to ${i}`);
-            if (DBG) console.log(`-> move j from ${originalJ} to ${j}`);
-        } else if (i == j) {
-            let originali = i;
-            ++i;
-            if (DBG) console.log(`-> move i from ${originali} to ${i}`);
-        }
-    }
-    if (DBG) console.log("VV check left... head:", head, "j:", j);
-    quickSort(numArray, head, j);
-    if (DBG) console.log("VV check right... i:", i, "tail:", tail);
-    quickSort(numArray, i, tail);
+    if (DBG) console.log("+++ swap +++", array, "left [", left, "]=", array[left], "right [", right, "]=", array[right]);
+    let temp = array[left];
+    array[left] = array[right];
+    array[right] = temp;
+    if (DBG) console.log("--- swap ---", array, "left [", left, "]=", array[left], "right [", right, "]=", array[right]);
 }
 
+function partition(array, left, right, pivot) {
+    if (DBG) console.log("+++ partition +++", array, "left [", left, "] right [", right, "], pivot=", pivot);
+    while (left <= right) {
+        // move left pointer to pos which value is greater than pivot.
+        while (array[left] < pivot) {
+            left++;
+        }
+        // move right pointer to pos which value is less than pivot.
+        while (array[right] > pivot) {
+            right--;
+        }
+        // If the left index is to the left of the right index.
+        if (left <= right) {
+            swap(array, left, right);
+            left++;
+            right--;
+        }
+    }
+    if (DBG) console.log("--- partition ---", array, "left [", left, "] right [", right, "], pivot=", pivot);
+    return left;
+}
+
+let numberOfCall = 0;
+function quickSort(array, left, right) {
+    let indexOfCall = ++numberOfCall;
+    if (DBG) console.log("#", indexOfCall++, "+++ quickSort +++", array, "left [", left, "]=", array[left], ", right [", right, "]=", array[right]);
+
+    if (left >= right) {
+        return;
+    }
+
+    let pivotIndex = parseInt((left + right) / 2);// Middle Index
+    let pivot = array[pivotIndex];
+    if (DBG) console.log(`+++ pivot +++ [${pivotIndex}]= ${pivot}`);
+
+    let index = partition(array, left, right, pivot);
+    if (DBG) console.log("index =>", index)
+    if (DBG) console.log("--- quickSort ---", array, "left [", left, "]=", array[left], ", right [", right, "]=", array[right]);
+
+    if (DBG) console.log("Sort part 1:", "left [", left, "]=", array[left], ", right [", index - 1, "]=", array[index - 1]);
+    if (DBG) console.log("Sort part 2:", "left [", index, "]=", array[index], ", right [", right, "]=", array[right]);
+    quickSort(array, left, index - 1);
+    quickSort(array, index, right);
+}
+
+
 //sortArray([5, 2, 3, 1]);
-sortArray([3,2,1]);
+sortArray([3, 2, 1]);
