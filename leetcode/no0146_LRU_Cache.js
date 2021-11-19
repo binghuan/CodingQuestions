@@ -1,85 +1,84 @@
+// type LinkNode struct{
+//     key, value int
+//     pre, next *LinkNode
+// }
+
+// type LRUCache struct {
+//     m map[int]*LinkNode
+//     capacity int
+//     head, tail *LinkNode
+// }
+
+let map = new Map();
+let cachedHead = null;
+let cachedTail = null;
+let maxCapacity = 0;
+let output = [];
+const DBG = true;
+
 /**
  * @param {number} capacity
  */
-
-let map = new Map();
-let valueArray = [];
-let maxCap = 0;
-let actionNo = 0;
-const DBG = false;
-
 var LRUCache = function (capacity) {
-    actionNo = 0;
-    myMap = new Map();
-    map.clear()
-    maxCap = capacity;
-    valueArray = [];
-    if (DBG) console.log("#", actionNo, "Init with capacity", capacity);
+    if (DBG) console.log("+++ init: LRUCache with capacity:", capacity);
+    maxCapacity = capacity;
+    map.clear();
+    cachedHead = {
+        key: null,
+        value: null,
+        next: null,
+        previous: null
+    }
+
+    cachedTail = {
+        key: null,
+        value: null,
+        next: null,
+        previous: null
+    }
+
+    cachedHead.next = cachedTail;
+    cachedTail.previous = cachedHead;
+    if (DBG) console.log("return", null);
+    output.push(null);
 };
+
+function printNodes() {
+    if (!DBG) {
+        return;
+    }
+    if (DBG) console.log("--- printNodes ---");
+    let node = cachedHead;
+    let result = "";
+    while (node != null) {
+        if (node.value != null) {
+            result = result + "->" + node.value;
+        }
+        node = node.next;
+    }
+
+    if (DBG) console.log("linkedList:[START]->", result, "[END]");
+}
 
 /** 
  * @param {number} key
  * @return {number}
  */
 LRUCache.prototype.get = function (key) {
-
-    actionNo += 1;
-    let result = map.get(key);
-    if (result == null) {
-        result = -1;
-    } else {
-        cleanUpValueArray(key);
+    if (DBG) console.log("+++ get:", key);
+    let value = -1;
+    let node = map.get(key);
+    if (node != null) {
+        moveToHead(node);
+        value = node.value;
     }
-    if (DBG) console.log("#", actionNo, "get", key, "-> ", result);
-    if (DBG) console.log(map);
-    if (DBG) console.log("values:", valueArray);
+    output.push(value);
+    if (DBG) console.log("return", value, output);
+    printNodes();
 
-    return result;
-
+    return value;
 };
 
-function binarySearch(arr, val) {
-    var low = 0,
-        high = arr.length - 1;
-    while (low <= high) {
-        var mid = parseInt((low + high) / 2);
-        if (val == arr[mid]) {
-            return mid;
-        } else if (val > arr[mid]) {
-            low = mid + 1;
-        } else if (val < arr[mid]) {
-            high = mid - 1;
-        }
-    }
-    return -1;
-};
-
-function cleanUpValueArray(key) {
-    if (DBG) console.log(">> cleanValueArray", key);
-
-    let targetIndex = binarySearch(valueArray.slice(0).sort((a, b) => {
-        return a - b;
-    }), key);
-
-    if (targetIndex != -1) {
-        for (let i = 0; i < valueArray.length; i++) {
-            let theKey = valueArray[i];
-            if (theKey == key) {
-                valueArray.splice(i, 1);
-                valueArray.push(theKey);
-                break;
-            }
-        }
-    } else {
-        valueArray.push(key);
-    }
-
-    if (valueArray.length > maxCap) {
-        let removedKey = valueArray.shift();
-        map.delete(removedKey);
-    }
-    if (DBG) console.log("Values:", valueArray);
-}
 
 /** 
  * @param {number} key 
@@ -87,15 +86,56 @@ function cleanUpValueArray(key) {
  * @return {void}
  */
 LRUCache.prototype.put = function (key, value) {
-    actionNo += 1;
-    if (DBG) console.log("#", actionNo, "put", key, value);
+    if (DBG) console.log("+++ put:", key);
+    let node = map.get(key);
+    if (node != null) {
+        node.value = value;
+        moveToHead(node);
+    } else {
+        let newNode = {
+            previous: null,
+            next: null,
+            key: key,
+            value: value
+        }
+        if (DBG) console.log("map.size:", map.size);
+        map.set(key, newNode);
+        addNode(newNode);
+        if (map.size > maxCapacity) {
+            if (DBG) console.log("!!!!!! checkpoint");
+            let keyOnTail = cachedTail.previous.key;
+            if (DBG) console.log("cachedTail.previous.key:", keyOnTail);
+            if (keyOnTail != null) {
+                map.delete(keyOnTail);
+                removeNode(cachedTail.previous);
+            }
+        }
+    }
 
-    cleanUpValueArray(key);
-    map.set(key, value)
+    output.push(null);
+    if (DBG) console.log("return", null, output);
 
-    if (DBG) console.log("-->", valueArray);
-    if (DBG) console.log(map);
+    printNodes();
 };
+
+function moveToHead(node) {
+    removeNode(node)
+    addNode(node)
+}
+
+function removeNode(node) {
+    //console.log("removeNode:", node);
+    node.previous.next = node.next;
+    node.next.previous = node.previous;
+}
+
+function addNode(node) {
+    node.previous = cachedHead;
+    node.next = cachedHead.next;
+
+    cachedHead.next = node;
+    node.next.previous = node;
+}
 
 /**
  * Your LRUCache object will be instantiated and called as such:
