@@ -161,3 +161,5 @@ lRUCache.get(4);    // return 4
 // https://www.gushiciku.cn/pl/pFvk/zh-tw?utm_source=pocket_mylist
 // linkedList: https://leetcode.com/tag/linked-list/
 // Related problem: https://leetcode.com/problems/lfu-cache/
+// 單向鏈結： Singly linked list
+// 雙向鏈結： Doubly linked list
