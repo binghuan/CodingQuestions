@@ -31,8 +31,8 @@ LRUCache.prototype.get = function (key) {
         if (DBG) console.log(`key ${key} was not found`);
         result = { val: -1 };
     } else {
-        let node = moveToHead(linkedList, result.key, result.val);
         map.set(key, node);
+        let node = moveToHead(linkedList, result.key, result.val);
     }
 
     //if (DBG) console.log(map);
@@ -57,6 +57,7 @@ LRUCache.prototype.put = function (key, value) {
         map.set(key, newNode);
 
     }
+
     if (map.size > maxCap) {
         let lastKey = removeNthNodeFromLinkedList(linkedList, maxCap + 1)
         if (DBG) console.log("lastKey = ", lastKey);
