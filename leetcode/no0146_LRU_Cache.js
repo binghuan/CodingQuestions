@@ -118,13 +118,13 @@ LRUCache.prototype.put = function (key, value) {
     printNodes();
 };
 
+// Common Operations ---------------------------------------------------------->
 function moveToHead(node) {
     removeNode(node)
     addNode(node)
 }
 
 function removeNode(node) {
-    //console.log("removeNode:", node);
     node.previous.next = node.next;
     node.next.previous = node.previous;
 }
@@ -136,6 +136,7 @@ function addNode(node) {
     cachedHead.next = node;
     node.next.previous = node;
 }
+// Common Operations ----------------------------------------------------------<
 
 /**
  * Your LRUCache object will be instantiated and called as such:
