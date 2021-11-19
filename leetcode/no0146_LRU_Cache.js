@@ -10,8 +10,8 @@
 // }
 
 let map = new Map();
-let cachedHead = null;
-let cachedTail = null;
+let head = null;
+let tail = null;
 let maxCapacity = 0;
 let output = [];
 const DBG = true;
@@ -23,22 +23,22 @@ var LRUCache = function (capacity) {
     if (DBG) console.log("+++ init: LRUCache with capacity:", capacity);
     maxCapacity = capacity;
     map.clear();
-    cachedHead = {
+    head = {
         key: null,
         value: null,
         next: null,
         previous: null
     }
 
-    cachedTail = {
+    tail = {
         key: null,
         value: null,
         next: null,
         previous: null
     }
 
-    cachedHead.next = cachedTail;
-    cachedTail.previous = cachedHead;
+    head.next = tail;
+    tail.previous = head;
     if (DBG) console.log("return", null);
     output.push(null);
 };
@@ -48,7 +48,7 @@ function printNodes() {
         return;
     }
     if (DBG) console.log("--- printNodes ---");
-    let node = cachedHead;
+    let node = head;
     let result = "";
     while (node != null) {
         if (node.value != null) {
@@ -103,11 +103,11 @@ LRUCache.prototype.put = function (key, value) {
         addNode(newNode);
         if (map.size > maxCapacity) {
             if (DBG) console.log("!!!!!! checkpoint");
-            let keyOnTail = cachedTail.previous.key;
+            let keyOnTail = tail.previous.key;
             if (DBG) console.log("cachedTail.previous.key:", keyOnTail);
             if (keyOnTail != null) {
                 map.delete(keyOnTail);
-                removeNode(cachedTail.previous);
+                removeNode(tail.previous);
             }
         }
     }
@@ -130,10 +130,9 @@ function removeNode(node) {
 }
 
 function addNode(node) {
-    node.previous = cachedHead;
-    node.next = cachedHead.next;
-
-    cachedHead.next = node;
+    node.previous = head;
+    node.next = head.next;
+    head.next = node;
     node.next.previous = node;
 }
 // Common Operations ----------------------------------------------------------<
