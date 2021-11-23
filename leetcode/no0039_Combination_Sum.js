@@ -11,13 +11,7 @@ var combinationSum = function (candidates, target) {
         return a - b;
     })
 
-    function dfs(
-        candidates,
-        startedIndex,
-        remainingTarget,
-        currentCombination,
-        answer
-    ) {
+    function dfs(candidates, startedIndex, remainingTarget, currentCombination, answer) {
         //console.log("Try", currentCombination, "from index", selectedIndex);
         if (remainingTarget == 0) {
             answer.push(currentCombination.slice(0));
@@ -30,31 +24,17 @@ var combinationSum = function (candidates, target) {
                 break;
             }
 
-
             currentCombination.push(choosedNum);
             console.log("Try", currentCombination);
 
-            dfs(
-                candidates,
-                i,
-                remainingTarget - choosedNum,
-                currentCombination,
-                output
-            )
+            dfs(candidates, i, remainingTarget - choosedNum, currentCombination, output)
 
             currentCombination.pop();
         }
     }
-
     let output = [];
     let curr = [];
-    dfs(
-        candidates,
-        0,
-        target,
-        curr,
-        output
-    )
+    dfs(candidates, 0, target, curr, output)
 
     console.log("OUTPUT", output);
     return output;
