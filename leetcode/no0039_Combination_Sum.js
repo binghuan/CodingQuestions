@@ -3,12 +3,12 @@
  * @param {number} target
  * @return {number[][]}
  */
- var combinationSum = function (candidates, target) {
+var combinationSum = function (candidates, target) {
 
     console.log("INPUT:", candidates, "target should be", target)
 
-    candidates.sort((a,b) => {
-        return a-b;
+    candidates.sort((a, b) => {
+        return a - b;
     })
 
     function dfs(
@@ -30,9 +30,9 @@
                 break;
             }
 
-            
+
             currentCombination.push(choosedNum);
-            console.log("Try" , currentCombination);
+            console.log("Try", currentCombination);
 
             dfs(
                 candidates,
@@ -60,5 +60,5 @@
     return output;
 };
 
-let candidates = [2,3,6,7], target = 7
+let candidates = [2, 3, 6, 7], target = 7
 combinationSum(candidates, target);
