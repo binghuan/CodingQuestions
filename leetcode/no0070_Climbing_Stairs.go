@@ -28,7 +28,7 @@ func climbStairs(n int) int {
 		}
 
 		total := doClimb(steps-1) + doClimb(steps-2)
-		stepHistory[n] = total
+		stepHistory[steps] = total
 		return total
 	}
 
