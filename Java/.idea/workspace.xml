@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c192c1c3-4d03-459b-b053-8f8a42404ac1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/bh/no0912_Sort_an_Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../kotlin/src/main/kotlin/no0912_Sort_an_Array.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../quickSort.playground/playground.xcworkspace/xcuserdata/BH_Lin.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../quickSort.playground/playground.xcworkspace/xcuserdata/BH_Lin.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
