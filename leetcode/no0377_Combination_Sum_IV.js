@@ -31,12 +31,12 @@
         })
     }
     let result = pathsToTargetSum[target];
-    if(DBG)console.log("OUTPUT:", result);
+    console.log("OUTPUT:", result);
     return result;
 };
 
-//combinationSum4([1, 2, 3], 4)
-combinationSum4([1, 2], 2)
+combinationSum4([1, 2, 3], 4)
+//combinationSum4([1, 2], 2)
 /*
 (1,1)
 (2)
