@@ -22,47 +22,23 @@ which is more subtle.
  */
 var maxSubArray = function (nums) {
 
-    const DBG = true;
-
-    if (DBG) console.log("## INPUT: ", nums, "length: ", nums.length);
-
-    let max = null;
-    let maxNumbers = [];
-
-    // 1st, try to get 
-    for (let i = 0; i < nums.length; i++) {
-
-        if (DBG) console.log("@@@@@@@ start round ", i);
-        let numArray = [];
-        let maxValueInTheRound = nums[i];
-        let maxValueArrayInTheRound = [];
-        maxValueArrayInTheRound.push(nums[i]);
-        let total = nums[i];
-        numArray.push(nums[i]);
-
-        for (let j = i + 1; j < nums.length; j++) {
-            total += nums[j];
-            numArray.push(nums[j]);
-            if (total > maxValueInTheRound) {
-                maxValueInTheRound = total;
-                maxValueArrayInTheRound = numArray.slice(0);
-                //if(DBG)console.log("total >nums[j]", maxValueInTheRound);
-            }
-        }
-
-        if (DBG) console.log("after round ", i,
-            "maxValueArrayInTheRound:", maxValueArrayInTheRound, "total:", maxValueInTheRound);
-
-        if (max == null || maxValueInTheRound > max) {
-            max = maxValueInTheRound;
-            maxNumbers = maxValueArrayInTheRound.slice(0);
-            if (DBG) console.log("!! Replace - total: ", max, "array: ", maxNumbers);
-        }
+    let maxNumHistory = [];
+    maxNumHistory[0] = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        maxNumHistory[i] = Math.max(nums[i] + maxNumHistory[i - 1], nums[i])
     }
-
-    if (DBG) console.log("## OUTPUT: ", "!! Replace - total: ", max, "array: ", maxNumbers);
-    return max;
+    maxNumHistory.sort((a, b) => {
+        return b - a;
+    })
+    let result = maxNumHistory[0];
+    console.log("OUTPUT:", result);
+    return result;
 };
 
+/*
+nums: [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+f:    [-2, 1, -2, 4, 3, 5, 6, 1, 5]
+tips: Decide add prevoius result or not.
+*/
 let input = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 maxSubArray(input);
