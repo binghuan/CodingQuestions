@@ -3,34 +3,35 @@
  * @param {number} target
  * @return {number}
  */
-var combinationSum4 = function (nums, target) {
+ var combinationSum4 = function (nums, target) {
+    
+    const DBG = false;
 
-    console.log("INPUT:", nums, target);
+    if(DBG)console.log("INPUT:", nums, target);
     let pathsToTargetSum = []; // pathsToTargetSum[i] # of combinations sum up to i
     pathsToTargetSum[0] = 1;
 
     for (let i = 1; i <= target; i++) {
         pathsToTargetSum[i] = 0;
     }
-    console.log("init table=", pathsToTargetSum);
+    if(DBG)console.log("init table=", pathsToTargetSum);
 
     for (let value = 1; value <= target; ++value) {
 
-        console.log("check value:", value);
+        if(DBG)console.log("check value:", value);
 
         nums.forEach((choosedNum) => {
-            console.log("Take", choosedNum, "from", nums);
+            if(DBG)console.log("Take", choosedNum, "from", nums);
             let remaining = value - choosedNum;
-            console.log(`value: ${value} - num: ${choosedNum} = ${remaining}`);
+            if(DBG)console.log(`value: ${value} - num: ${choosedNum} = ${remaining}`);
             if (remaining >= 0) {
                 pathsToTargetSum[value] += pathsToTargetSum[remaining];
             }
-            console.log(pathsToTargetSum)
+            if(DBG)console.log(pathsToTargetSum)
         })
     }
     let result = pathsToTargetSum[target];
-    console.log(pathsToTargetSum);
-    console.log("OUTPUT:", result);
+    if(DBG)console.log("OUTPUT:", result);
     return result;
 };
 
