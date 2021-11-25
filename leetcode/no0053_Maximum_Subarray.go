@@ -12,7 +12,6 @@ func maxSubArray(nums []int) int {
 
 	var getMax func(numA int, numB int) int
 	getMax = func(numA int, numB int) int {
-
 		if numA > numB {
 			return numA
 		} else {
