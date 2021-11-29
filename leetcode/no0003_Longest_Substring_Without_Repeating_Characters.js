@@ -16,35 +16,37 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+let lengthOfLongestSubstring = function (s) {
     console.log(">> lengthOfLongestSubstring:", s);
-    var DBG = false;
-    var temp = "";
-    var ans = "";
-    for(var i =0; i< s.length; i++) {
-        if(DBG)console.log("check ", s[i], " in ", temp, temp.indexOf([s[i]]));
-        var pos = temp.indexOf([s[i]])
-        if(temp.indexOf([s[i]]) === -1) {
+
+    let temp = "", ans = "";
+    for (let i = 0; i < s.length; i++) {
+        if (DBG) console.log("check ", s[i], " in ", temp, temp.indexOf([s[i]]));
+        let pos = temp.indexOf([s[i]])
+        if (temp.indexOf([s[i]]) === -1) {
             temp += "" + s[i];
-            if(DBG)console.log("--> Append", s[i], " --> ", temp );
+            if (DBG) console.log("--> Append", s[i], " --> ", temp);
         } else {
-            
-            if(temp.length > ans.length) {
+            if (temp.length > ans.length) {
                 ans = temp;
             }
-
             temp += s[i];
-
-            temp = temp.substring(pos+1);
-
-            if(DBG)console.log("--> Reset ", s[i], " --> ", temp );
+            temp = temp.substring(pos + 1);
+            if (DBG) console.log("--> Reset ", s[i], " --> ", temp);
         }
     }
-
-    if(temp.length > ans.length) {
+    if (temp.length > ans.length) {
         ans = temp;
     }
-
-    if(DBG)console.log("######## ANSWER: ", ans, ans.length);
+    if (DBG) console.log("######## ANSWER: ", ans, ans.length);
     return ans.length;
 };
+let DBG = false;
+
+/*
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+*/
+DBG = true;
+lengthOfLongestSubstring("abcabcbb")
