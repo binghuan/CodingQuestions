@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c192c1c3-4d03-459b-b053-8f8a42404ac1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../leetcode/no0377_Combination_Sum_IV.js" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/no0377_Combination_Sum_IV.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
