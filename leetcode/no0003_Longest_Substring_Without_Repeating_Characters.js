@@ -16,30 +16,23 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
  * @param {string} s
  * @return {number}
  */
-let lengthOfLongestSubstring = function (s) {
-    console.log(">> lengthOfLongestSubstring:", s);
-
-    let temp = "", ans = "";
-    for (let i = 0; i < s.length; i++) {
-        if (DBG) console.log("check ", s[i], " in ", temp, temp.indexOf([s[i]]));
-        let pos = temp.indexOf([s[i]])
-        if (temp.indexOf([s[i]]) === -1) {
-            temp += "" + s[i];
-            if (DBG) console.log("--> Append", s[i], " --> ", temp);
-        } else {
-            if (temp.length > ans.length) {
-                ans = temp;
-            }
-            temp += s[i];
-            temp = temp.substring(pos + 1);
-            if (DBG) console.log("--> Reset ", s[i], " --> ", temp);
+var lengthOfLongestSubstring = function (s) {
+    let length = s.length;
+    let charIndexMap = {};
+    let startIndex = 0;
+    let maxLength = 0;
+    for (let i = 0; i < length; i++) {
+        let char = s[i];
+        if(charIndexMap[char] == null) {
+            charIndexMap[char] = -1;
         }
+        startIndex = Math.max(startIndex,charIndexMap[s[i]] + 1);
+        maxLength = Math.max(maxLength, i - startIndex + 1); 
+        charIndexMap[char] = i;
     }
-    if (temp.length > ans.length) {
-        ans = temp;
-    }
-    if (DBG) console.log("######## ANSWER: ", ans, ans.length);
-    return ans.length;
+
+    console.log("OUTPUT:", maxLength);
+    return maxLength;
 };
 let DBG = false;
 
