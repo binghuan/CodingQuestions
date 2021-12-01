@@ -31,3 +31,4 @@ largestNumber([3, 30, 34, 5, 9]);
 //     console.log("compare", _a, _b, result);
 //     return result;
 // }));
+// Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
