@@ -3,15 +3,14 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function (s) {
+ var isValid = function (s) {
 
-    let chars = s.split("");
 
     let checkedChars = [];
     let result = true;
 
-    for (let i = 0; i < chars.length; i++) {
-        let char = chars[i];
+    for (let i = 0; i < s.length; i++) {
+        let char = s[i];
 
         if (char == "(" ||
             char == "{" ||
