@@ -28,9 +28,9 @@ var numberToWords = function (num) {
 
     for (let i = 21; i <= 999; i++) {
 
-        let tens = 0; parseInt(i.toString()[0]) * 10;
-        let digits = 0; parseInt(i.toString()[1]);
-        let HundredsDigit = 0; parseInt(i.toString()[2]);
+        let tens = 0;
+        let digits = 0;
+        let HundredsDigit = 0;
         if (i < 100) {
             tens = parseInt(i.toString()[0]) * 10;
             digits = parseInt(i.toString()[1]);
