@@ -81,11 +81,13 @@ var numberToWords = function (num) {
             if (HundredsDigit == 0) {
                 numberToSpeech[i] = `${numberToSpeech[tens]}${dashOrNot}${numberToSpeech[digits]}`
             } else {
+                let restOfNumbers = "";
                 if (tens < 21) {
-                    numberToSpeech[i] = `${numberToSpeech[HundredsDigit]} ${numberToSpeech[100]} ${numberToSpeech[tens + digits] ? numberToSpeech[tens + digits] : ""}`
+                    restOfNumbers = `${numberToSpeech[tens + digits] ? numberToSpeech[tens + digits] : ""}`;
                 } else {
-                    numberToSpeech[i] = `${numberToSpeech[HundredsDigit]} ${numberToSpeech[100]} ${numberToSpeech[tens] ? numberToSpeech[tens] + dashOrNot : ""}${numberToSpeech[digits] ? numberToSpeech[digits] : ""}`
+                    restOfNumbers = `${numberToSpeech[tens] ? numberToSpeech[tens] + dashOrNot : ""}${numberToSpeech[digits] ? numberToSpeech[digits] : ""}`;
                 }
+                numberToSpeech[i] = `${numberToSpeech[HundredsDigit]} ${numberToSpeech[100]} ${restOfNumbers}`
 
             }
             if (DBG) console.log(`${i} = ${numberToSpeech[i]}`);
@@ -111,8 +113,7 @@ var numberToWords = function (num) {
             } else {
                 result += `${space}${numberToSpeech[numbersOfUnit]} ${unitTable[i].unit}`
             }
-
-            if (DBG) console.log("result -> ", result);
+            if (DBG) console.log("to", result);
         }
     }
 
