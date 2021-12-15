@@ -3,9 +3,7 @@
  * @return {string}
  */
 var numberToWords = function (num) {
-
     const DBG = false;
-
     if (num == 0) {
         return "Zero";
     } else if (num == 100) {
