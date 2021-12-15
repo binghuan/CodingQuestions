@@ -60,8 +60,7 @@ var numberToWords = function (num) {
 
     let result = "";
     for (let i = 0; i < unitTable.length; i++) {
-        if (DBG) console.log("check num:", num);
-        while (num / unitTable[i].value >= 1) {
+        if (num / unitTable[i].value >= 1) {
             // numbersOfUnit = 1 ~ 999
             let numbersOfUnit = parseInt(num / unitTable[i].value);
             num -= unitTable[i].value * numbersOfUnit;
