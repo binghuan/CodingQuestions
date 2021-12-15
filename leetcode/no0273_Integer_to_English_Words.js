@@ -6,6 +6,25 @@ var numberToWords = function (num) {
 
     const DBG = false;
 
+    let unitTable = [
+        {
+            unit: "Trillion",
+            value: 1000000000000
+        },
+        {
+            unit: "Billion",
+            value: 1000000000
+        },
+        {
+            unit: "Million",
+            value: 1000000
+        },
+        {
+            unit: "Thousand",
+            value: 1000
+        }
+    ]
+
     let numberToSpeech = {
         1: "One",
         2: "Two",
@@ -73,24 +92,6 @@ var numberToWords = function (num) {
         }
     }
 
-    let unitTable = [
-        {
-            unit: "Trillion",
-            value: 1000000000000
-        },
-        {
-            unit: "Billion",
-            value: 1000000000
-        },
-        {
-            unit: "Million",
-            value: 1000000
-        },
-        {
-            unit: "Thousand",
-            value: 1000
-        }
-    ]
     let result = "";
     for (let i = 0; i < unitTable.length; i++) {
         if (DBG) console.log("check num:", num);
