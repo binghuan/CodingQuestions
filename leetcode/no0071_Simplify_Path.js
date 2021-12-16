@@ -3,60 +3,51 @@
  * @return {string}
  */
 var simplifyPath = function (path) {
-    console.log("INPUT:", path);
+
+    const DBG = false;
+    if (DBG) console.log(`------------------- INPUT: "${path}"`);
+
+    path = path.replace(/\/\//g, "/");
+
     let items = path.split("/");
-    console.log("Items:", items.length);
-    let result = [];
+    console.log(items);
+
+    let folders = [];
+
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
-        console.log("check ", i, `__${item}__`);
-        if (item == ".") {
-            continue;
-        }
+
         if (item == "") {
-            console.log("path 1");
-            if (result.slice(-1) != "/" && i != items.length - 1) {
-                console.log("path 2");
-                result.push("/");
-            }
-        } else if (item == "...") {
-            if (result.slice(-1) != "/") {
-                console.log("path x");
-                result.push("/");
-            }
-            result.push(item);
-        } else if (item == "..") {
-            console.log("path 3");
-            result.pop();
-            result.pop();
             continue;
-        } else {
-            result.push(item);
-            console.log("+", item);
         }
+        if (DBG) console.log("check", item);
 
-        console.log("--> ", result);
+        if (item == "..") {
+            if (DBG) console.log("--> cd ..");
+            folders.pop();
+        } else if (item == ".") {
+            if (DBG) console.log("--> ignore");
+        } else {
+            folders.push(item);
+        }
+        if (DBG) console.log("folders=", folders);
     }
 
-    if (result.length == 0) {
-        result.push("/")
+    let output = folders.join("/");
+    if (output.length > 1 && output[output.length - 1] == "/") {
+        output = output.substring(0, output.length - 1);
     }
-    if (result[0] != "/") {
-        result = ["/"].concat(result);
+    if (output[0] != "/") {
+        output = `/${output}`;
     }
-    if (result.length > 1 && result[result.length - 1] == "/") {
-        result.pop();
-    }
-
-    let finalPath = result.toString().replace(/,/g, "");
-    console.log("OUTPUT:", finalPath);
-    return finalPath;
-
+    if (DBG) console.log("==> OUTPUT:", output);
+    return output;
 };
 
-//simplifyPath("/home/");
-if (simplifyPath("/../") != "/") { console.log("NG"); return; };
-if (simplifyPath("/abc/...") != "/abc/...") { console.log("NG"); return; };
-//simplifyPath("/a/./b/../../c/");
-//simplifyPath("/a/../../b/../c//.//");
-
+if (simplifyPath("/home/") != "/home") { console.log("!!! FAIL"); return; }
+if (simplifyPath("/../") != "/") { console.log("!!! FAIL"); return; };
+if (simplifyPath("/abc/...") != "/abc/...") { console.log("!!! FAIL"); return; };
+if (simplifyPath("/a/./b/../../c/") != "/c") { console.log("!!! FAIL"); return; };
+if (simplifyPath("/a/../../b/../c//.//") != "/c") { console.log("!!! FAIL"); return; };
+if (simplifyPath("/a//b////c/d//././/..") != "/a/b/c") { console.log("!!! FAIL"); return; };
+if (simplifyPath("/a/./b///../c/../././../d/..//../e/./f/./g/././//.//h///././/..///") != "/e/f/g") { console.log("!!! FAIL"); return; };
