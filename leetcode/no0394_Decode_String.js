@@ -64,11 +64,11 @@ function locateCharByIndex(input, targetIndex) {
     console.log(input);
 }
 
-// if (decodeString("sd2[f2[e]g]i") != "sdfeegfeegi") { console.log("NG> FAIL"); return };
+if (decodeString("sd2[f2[e]g]i") != "sdfeegfeegi") { console.log("NG> FAIL"); return };
 // if (decodeString("leetcode") != "leetcode") { console.log("NG> FAIL"); return };
 // if (decodeString("3[2[bc]1[d]]") != "bcbcdbcbcdbcbcd") { console.log("NG> FAIL"); return };
 // if (decodeString("3[a]2[bc]") != "aaabcbc") { console.log("NG> FAIL"); return };
-if (decodeString("3[a2[c]]") != "accaccacc") { console.log("NG> FAIL"); return };
+// if (decodeString("3[a2[c]]") != "accaccacc") { console.log("NG> FAIL"); return };
 // if (decodeString("2[abc]3[cd]ef") != "abcabccdcdcdef") { console.log("NG> FAIL"); return };
 // if (decodeString("abc3[cd]xyz") != "abccdcdcdxyz") { console.log("NG> FAIL"); return };
 // if (decodeString("100[leetcode]") != "leetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcodeleetcode") { console.log("NG> FAIL"); return };
