@@ -4,10 +4,23 @@
  */
 var decodeString = function (s) {
     const DBG = true;
+    function locateCharByIndex(input, targetIndex) {
+        let secondLine = "";
+        for (let i = 0; i < input.length; i++) {
+            if (i == targetIndex) {
+                secondLine += "_";
+            } else {
+                secondLine += " ";
+            }
+        }
+        if (DBG) console.log(secondLine);
+        if (DBG) console.log(input);
+    }
     if (DBG) console.log("INPUT:", s);
     let buffer = "", multiplierStack = [], currLevel = 0, result = [[]];
     for (let i = 0; i < s.length; i++) {
         let char = s[i];
+        locateCharByIndex(s, i);
         if (DBG) console.log("index=", i, `---- Checking: "${char}", level = ${currLevel}`, "Buffer:", buffer, "Stack:", multiplierStack, "Result=", result);
         if (char == "[") {
             currLevel += 1;
@@ -34,7 +47,7 @@ var decodeString = function (s) {
             buffer = "";
             if (DBG) console.log("* level =", currLevel, ", result=", result);
             result[currLevel].push(temp);
-            if (DBG) console.log(`* Push ${temp} to result =>`,result);
+            if (DBG) console.log(`* Push ${temp} to result =>`, result);
             let tempToPush = result[currLevel].join("");
             result[currLevel] = [tempToPush];
             if (DBG) console.log("* Finalize Result on the level =>", result);
