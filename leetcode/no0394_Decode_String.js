@@ -8,7 +8,7 @@ var decodeString = function (s) {
     let buffer = "", multiplierStack = [], currLevel = 0, result = [[]];
     for (let i = 0; i < s.length; i++) {
         let char = s[i];
-        locateCharByIndex(s, i);
+        if (DBG) locateCharByIndex(s, i);
         if (result[currLevel] == null) { result[currLevel] = []; }
         if (result[currLevel + 1] == null) { result[currLevel + 1] = []; }
         if (DBG) console.log("index=", i, `---- Checking: "${char}", level = ${currLevel}`, "Buffer:", buffer, "Stack:", multiplierStack, "Result=", result);
@@ -60,8 +60,8 @@ function locateCharByIndex(input, targetIndex) {
             secondLine += " ";
         }
     }
-    if (DBG) console.log(secondLine);
-    if (DBG) console.log(input);
+    console.log(secondLine);
+    console.log(input);
 }
 
 // if (decodeString("sd2[f2[e]g]i") != "sdfeegfeegi") { console.log("NG> FAIL"); return };
