@@ -3,7 +3,8 @@
  * @return {number[]}
  */
 var majorityElement = function (nums) {
-    let targetNumOfOccurrences = parseInt(nums.length / 3);
+
+    let numberOfoccurrences = parseInt(nums.length / 3);
     let answer = new Set();
     let map = new Map();
     nums.forEach((num) => {
@@ -15,10 +16,12 @@ var majorityElement = function (nums) {
             count = map.get(num) + 1;
             map.set(num, count);
         }
-        if (count > targetNumOfOccurrences) {
+
+        if (count > numberOfoccurrences) {
             answer.add(num);
         }
     })
+
     let output = Array.from(answer);
     return output;
 };
