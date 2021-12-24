@@ -11,12 +11,10 @@ var majorityElement = function (nums) {
         let count = 0;
         if (map.get(num) == null) {
             count = 1;
-            map.set(num, 1);
         } else {
             count = map.get(num) + 1;
-            map.set(num, count);
         }
-
+        map.set(num, count);
         if (count > numberOfoccurrences) {
             answer.add(num);
         }
