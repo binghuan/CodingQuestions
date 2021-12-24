@@ -12,7 +12,10 @@ func fib(n int) int {
 		} else if i == 1 {
 			m = append(m, 1)
 		} else {
-			m = append(m, m[i-1]+m[i-2])
+			m = append(m, m[0]+m[1])
+		}
+		if len(m) > 2 {
+			m = m[1:]
 		}
 	}
 	return m[len(m)-1]
