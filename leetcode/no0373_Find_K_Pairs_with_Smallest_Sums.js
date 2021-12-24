@@ -21,7 +21,6 @@ var kSmallestPairs = function (nums1, nums2, k) {
         let numA = nums1[i];
         for (let j = 0; j < lengthB; j++) {
             let numB = nums2[j];
-            let sum = numA + numB;
             candidates.push([numA, numB]);
         }
     }
