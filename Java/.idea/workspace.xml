@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c192c1c3-4d03-459b-b053-8f8a42404ac1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/no0227_Basic_Calculator_II.js" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/no0227_Basic_Calculator_II.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +165,7 @@
       <recent name="com.bh" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.no0912_Sort_an_Array">
+  <component name="RunManager" selected="Application.no0303_Range_Sum_Query_Immutable">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -258,8 +257,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0509_Fibonacci_Number" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0509_Fibonacci_Number" />
+    <configuration name="no0303_Range_Sum_Query_Immutable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0303_Range_Sum_Query_Immutable" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -319,11 +318,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.no0303_Range_Sum_Query_Immutable" />
         <item itemvalue="Application.no0912_Sort_an_Array" />
         <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.no0046_Permutations" />
         <item itemvalue="Application.no0048_Rotate_Image" />
-        <item itemvalue="Application.no0509_Fibonacci_Number" />
       </list>
     </recent_temporary>
   </component>
