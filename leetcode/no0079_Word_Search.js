@@ -5,6 +5,7 @@
  */
 var exist = function (board, word) {
 
+    const DBG = true;
     if (board.length == 0) {
         return false;
     }
@@ -13,14 +14,6 @@ var exist = function (board, word) {
     let height = board[0].length;
 
     function search(board, word, indexInSearch, x, y) {
-
-        function printBoard(board, indexInSearch, x, y) {
-            console.log("Check index:\"", indexInSearch, "\"from", word, "=", word[indexInSearch], "x=", x, "y=", y)
-            board.forEach((row) => {
-                console.log(row);
-            })
-            console.log("----------------------------------------------------<")
-        }
 
         if (x < 0 || x == width || y < 0 || y == height ||
             word[indexInSearch] != board[y][x]) {
@@ -42,8 +35,8 @@ var exist = function (board, word) {
         );
 
         board[y][x] = cur;// Rollback the path.
-        console.log("!!Rollback");
-        printBoard(board, indexInSearch, x, y);
+        if (DBG) console.log("!!Rollback");
+        if (DBG) printBoard(board, indexInSearch, x, y);
         return isFound;
     }
 
@@ -55,6 +48,14 @@ var exist = function (board, word) {
         }
     }
 };
+
+function printBoard(board, indexInSearch, x, y) {
+    console.log("Check index:\"", indexInSearch, "\"from", word, "=", word[indexInSearch], "x=", x, "y=", y)
+    board.forEach((row) => {
+        console.log(row);
+    })
+    console.log("----------------------------------------------------<")
+}
 
 exist([
     ["A", "B",],
