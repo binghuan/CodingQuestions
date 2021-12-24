@@ -21,4 +21,8 @@ func main() {
 	fmt.Println("INPUT:", n)
 	result := fib(n)
 	fmt.Println("OUTPUT:", result)
+	n = 10
+	fmt.Println("INPUT:", n)
+	result = fib(n)
+	fmt.Println("OUTPUT:", result)
 }
