@@ -3,6 +3,9 @@ package main
 import "fmt"
 
 func fib(n int) int {
+
+	m := make(map[int]*int)
+
 	var recursion func(num int) int
 	recursion = func(num int) int {
 		if num <= 0 {
@@ -10,7 +13,15 @@ func fib(n int) int {
 		} else if num == 1 {
 			return 1
 		}
-		return recursion(num-1) + recursion(num-2)
+
+		if m[num] != nil {
+			return *m[num]
+		}
+
+		sum := recursion(num-1) + recursion(num-2)
+		sumInHistory := int(sum)
+		m[num] = &sumInHistory
+		return sum
 	}
 	return recursion(n)
 }
