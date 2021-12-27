@@ -42,7 +42,7 @@ var isValidSudoku = function (board) {
                 rows[y] = [];
             }
             if (rows[y][num] == true) {
-                console.log("OUTPUT: rows", false);
+                if (DBG) console.log("OUTPUT: rows", false);
                 return false;
             } else {
                 rows[y][num] = true;
