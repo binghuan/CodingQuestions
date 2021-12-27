@@ -55,7 +55,7 @@ var solveSudoku = function (board) {
             let c = board[i][j];
             if (c != '.') {
                 let n = c;
-                
+
                 if (rows_[i] == null) {
                     rows_[i] = [];
                 }
