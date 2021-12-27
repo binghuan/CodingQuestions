@@ -27,6 +27,7 @@ var solveSudoku = function (board) {
         let next_X = (x + 1) % 9;
         let next_Y = (next_X == 0) ? y + 1 : y;
 
+        // if current char is NOT ".", go to check next position. 
         if (board[y][x] != '.') {
             return fill(board, next_X, next_Y);
         }
