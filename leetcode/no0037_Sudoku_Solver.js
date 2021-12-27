@@ -9,9 +9,9 @@ var solveSudoku = function (board) {
     if (DBG) printMatrix(board);
 
     function getBoxKey(x, y) {
-        let bx = x / 3;
-        let by = y / 3;
-        let boxKey = by * 3 + bx;
+        let box_X = x / 3;
+        let box_Y = y / 3;
+        let boxKey = box_Y * 3 + box_X;
         return boxKey;
     }
 
