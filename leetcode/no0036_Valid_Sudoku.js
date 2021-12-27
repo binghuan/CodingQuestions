@@ -8,10 +8,7 @@ var isValidSudoku = function (board) {
 
     const height = board.length;
     const width = board[0].length;
-
-    let rows = [];
-    let cols = [];
-    let boxes = [];
+    let rows = [], cols = [], boxes = [];
 
     function getIndexOfBox(x, y) {
         let box_X = parseInt(x / 3);
@@ -21,9 +18,7 @@ var isValidSudoku = function (board) {
     }
 
     for (let y = 0; y < height; y++) {
-
         for (let x = 0; x < width; x++) {
-
             let num = board[y][x];
             if (num == ".") {
                 continue;
