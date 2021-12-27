@@ -4,7 +4,9 @@
  */
 var isPalindrome = function (s) {
 
-    console.log("input:", s);
+    const DBG = false;
+
+    if (DBG) console.log("input:", s);
 
     var newS = s.replace(/[^a-zA-Z0-9]+/g, '');
 
@@ -15,13 +17,14 @@ var isPalindrome = function (s) {
     }
 
 
-    console.log("reversed: ", xS);
+    if (DBG) console.log("reversed: ", xS);
 
+    let result = false;
     if (newS.toLowerCase() == xS.toLowerCase()) {
-        console.log("true");
-        return true;
+        result = true;
     } else {
-        console.log("false");
-        return false;
+        result = false;
     }
+    if (DBG) console.log("OUTPUT:", result);
+    return result;
 };
