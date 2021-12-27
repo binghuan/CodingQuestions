@@ -4,8 +4,9 @@
  */
 var solveSudoku = function (board) {
 
-    console.log("INPUT:");
-    printMatrix(board);
+    const DBG = true;
+    if (DBG) console.log("INPUT:");
+    if (DBG) printMatrix(board);
 
     function getBoxKey(x, y) {
         let bx = x / 3;
@@ -15,68 +16,65 @@ var solveSudoku = function (board) {
     }
 
     function fill(board, x, y) {
-        if (y == 9)
+        if (y == 9) {
             return true;
+        }
 
-        let nx = (x + 1) % 9;
-        let ny = (nx == 0) ? y + 1 : y;
+        let next_X = (x + 1) % 9;
+        let next_Y = (next_X == 0) ? y + 1 : y;
 
-        if (board[y][x] != '.') return fill(board, nx, ny);
+        if (board[y][x] != '.') {
+            return fill(board, next_X, next_Y);
+        }
 
         for (let i = 1; i <= 9; i++) {
             let boxKey = getBoxKey(x, y);
-            if (boxes_[boxKey] == null) {
-                boxes_[boxKey] = [];
-            }
-            if (!rows_[y][i] && !cols_[x][i] && !boxes_[boxKey][i]) {
-                rows_[y][i] = 1;
-                cols_[x][i] = 1;
-                boxes_[boxKey][i] = 1;
+            if (!rows[y][i] && !cols[x][i] && !boxes[boxKey][i]) {
+                rows[y][i] = 1;
+                cols[x][i] = 1;
+                boxes[boxKey][i] = 1;
                 board[y][x] = i;
-                if (fill(board, nx, ny)) {
+                if (fill(board, next_X, next_Y)) {
                     return true;
                 }
                 board[y][x] = '.';
-                boxes_[boxKey][i] = 0;
-                cols_[x][i] = 0;
-                rows_[y][i] = 0;
+                boxes[boxKey][i] = 0;
+                cols[x][i] = 0;
+                rows[y][i] = 0;
             }
         }
         return false;
     }
 
+    // 
+    let rows = [];
+    let cols = [];
+    let boxes = [];
 
-    rows_ = [];
-    cols_ = [];
-    boxes_ = [];
-
-    for (let i = 0; i < 9; i++)
+    for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            let c = board[i][j];
-            if (c != '.') {
-                let n = c;
-
-                if (rows_[i] == null) {
-                    rows_[i] = [];
-                }
-                rows_[i][n] = 1;
-
-                if (cols_[j] == null) {
-                    cols_[j] = [];
-                }
-                cols_[j][n] = 1;
-
-                let boxKey = getBoxKey(j, i);
-                if (boxes_[boxKey] == null) {
-                    boxes_[boxKey] = [];
-                }
-                boxes_[boxKey][n] = 1;
+            let num = board[i][j];
+            let boxKey = getBoxKey(j, i);
+            if (boxes[boxKey] == null) {
+                boxes[boxKey] = [];
             }
+            if (num == '.') {
+                continue;
+            }
+            if (rows[i] == null) {
+                rows[i] = [];
+            }
+            rows[i][num] = 1;
+
+            if (cols[j] == null) {
+                cols[j] = [];
+            }
+            cols[j][num] = 1;
+            boxes[boxKey][num] = 1;
         }
-
+    }
     fill(board, 0, 0);
-
-    console.log("OUTPUT");
+    if (DBG) console.log("OUTPUT");
     printMatrix(board);
 };
 
