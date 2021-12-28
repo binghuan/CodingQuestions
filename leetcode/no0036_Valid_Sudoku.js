@@ -27,7 +27,7 @@ var isValidSudoku = function (board) {
 
             // Step 1: Check number in Box.
             let boxIndex = getIndexOfBox(x, y);
-            (boxes[boxIndex] == null) ? boxes[boxIndex] = [] : "";
+            (boxes[boxIndex] == null) ? (boxes[boxIndex] = []) : "";
             if (boxes[boxIndex][num] == true) {
                 if (DBG) console.log("OUTPUT: boxes", false);
                 return false;
@@ -36,7 +36,7 @@ var isValidSudoku = function (board) {
             }
 
             // Step 2: Check number in Row
-            (rows[y] == null) ? rows[y] = [] : "";
+            (rows[y] == null) ? (rows[y] = []) : "";
             if (rows[y][num] == true) {
                 if (DBG) console.log("OUTPUT: rows", false);
                 return false;
@@ -45,7 +45,7 @@ var isValidSudoku = function (board) {
             }
 
             // Step 3: Check number in Column
-            (cols[x] == null) ? cols[x] = [] : "";
+            (cols[x] == null) ? (cols[x] = []) : "";
             if (cols[x][num] == true) {
                 if (DBG) console.log("OUTPUT: cols", false);
                 return false;
