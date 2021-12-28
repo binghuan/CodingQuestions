@@ -10,8 +10,8 @@ var solveSudoku = function (board) {
 
     // Method to generate the ID for each box.
     function getBoxKey(x, y) {
-        let box_X = x / 3;
-        let box_Y = y / 3;
+        let box_X = parseInt(x / 3);
+        let box_Y = parseInt(y / 3);
         let boxKey = box_Y * 3 + box_X;
         return boxKey;
     }
