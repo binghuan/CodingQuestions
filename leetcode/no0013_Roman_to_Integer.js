@@ -3,8 +3,8 @@
  * @return {number}
  */
 var romanToInt = function (s) {
-
-    console.log("## INPUT:", s);
+    const DBG = true;
+    if (DBG) console.log("## INPUT:", s);
     let total = 0;
     let symbolArray = [
         { key: "VIII", value: 8 },
@@ -28,14 +28,16 @@ var romanToInt = function (s) {
     ];
 
     for (let i = 0; i < symbolArray.length; i++) {
-        //console.log("check : ", symbolArray[i].key);
+        if (DBG) console.log("check : ", symbolArray[i].key);
         while (s.indexOf(symbolArray[i].key) != -1) {
-            console.log("HIT: ", symbolArray[i].key, " = ", symbolArray[i].value);
+            if (DBG) console.log("HIT: ", symbolArray[i].key, " = ", symbolArray[i].value);
             total += symbolArray[i].value;
             s = s.replace(symbolArray[i].key, "");
         }
     }
 
-    console.log("## OUTPUT:", total);
+    if (DBG) console.log("## OUTPUT:", total);
     return total;
 };
+
+romanToInt("CD");
