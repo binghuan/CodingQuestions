@@ -4,7 +4,7 @@
  */
 var solveSudoku = function (board) {
 
-    const DBG = true;
+    const DBG = false;
     if (DBG) console.log("INPUT:");
     if (DBG) printMatrix(board);
 
@@ -42,7 +42,7 @@ var solveSudoku = function (board) {
                 rows[y][i] = 1; // Mark number "i" in the row has been taken.
                 cols[x][i] = 1; // Mark number "i" in the column has been taken.
                 boxes[boxKey][i] = 1; // Mark number "i" in the box has been taken.
-                board[y][x] = i; // Assign number "i" to the position.
+                board[y][x] = i.toString(); // Assign number "i" to the position.
                 if (fill(board, next_X, next_Y)) {
                     return true;
                 } else {
@@ -61,7 +61,7 @@ var solveSudoku = function (board) {
     let cols = [];  // if 1 was taken in column #1, so mark cols[0][1] = 1;
     let boxes = []; // if 1 was taken in Box #1, so mark boxes[1][1] = 1;
 
-    function cleanupMarkers() {
+    (function cleanupMarkers() {
         for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
                 let num = board[i][j];
@@ -84,12 +84,11 @@ var solveSudoku = function (board) {
                 boxes[boxKey][num] = 1;
             }
         }
-    };
-    cleanupMarkers();
+    })();
 
     fill(board, 0, 0);
     if (DBG) console.log("OUTPUT");
-    printMatrix(board);
+    if (DBG) printMatrix(board);
 };
 
 function printMatrix(matrix) {
