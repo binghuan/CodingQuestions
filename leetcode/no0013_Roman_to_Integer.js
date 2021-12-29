@@ -7,9 +7,11 @@ var romanToInt = function (s) {
     if (DBG) console.log("## INPUT:", s);
     let total = 0;
     let symbolArray = [
+        // Length: 3 ---------------------------------------------------------->
         { key: "VIII", value: 8 },
         { key: "VII", value: 7 },
         { key: "III", value: 3 },
+        // Length: 2 ---------------------------------------------------------->
         { key: "VI", value: 6 },
         { key: "IV", value: 4 },
         { key: "II", value: 2 },
@@ -18,6 +20,7 @@ var romanToInt = function (s) {
         { key: "CD", value: 400 },
         { key: "XC", value: 90 },
         { key: "XL", value: 40 },
+        // Length: 1 ---------------------------------------------------------->
         { key: "M", value: 1000 },
         { key: "D", value: 500 },
         { key: "C", value: 100 },
