@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
 
     class Solution {
         fun sortArray(nums: IntArray): IntArray {
@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
                     return
                 }
 
-                var temp = array[left]
+                val temp = array[left]
                 array[left] = array[right]
                 array[right] = temp
             }
@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
                         right--
                     }
                 }
-                return left;
+                return left
             }
 
             fun quickSort(array: IntArray, left: Int, right: Int) {
@@ -40,9 +40,9 @@ fun main(args: Array<String>) {
                     return
                 }
 
-                var pivotIndex = (left + right) / 2
-                var pivot = array[pivotIndex]
-                var index = partition(array, left, right, pivot)
+                val pivotIndex = (left + right) / 2
+                val pivot = array[pivotIndex]
+                val index = partition(array, left, right, pivot)
 
                 quickSort(array, left, index - 1)
                 quickSort(array, index, right)
@@ -54,7 +54,7 @@ fun main(args: Array<String>) {
         }
     }
 
-    var solution = Solution()
+    val solution = Solution()
 
     val input = intArrayOf(7, 2, 15, 11)
     print("INPUT: ${input.contentToString()}")
