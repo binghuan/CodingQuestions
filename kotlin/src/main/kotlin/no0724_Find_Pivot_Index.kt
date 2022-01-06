@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
 
     class Solution {
         fun pivotIndex(nums: IntArray): Int {
@@ -13,14 +13,14 @@ fun main(args: Array<String>) {
                 if (i > 0) {
                     sumOnTheLeft += nums[i - 1]
                 }
-                var sumOnTheRight = 0
+                var sumOnTheRight: Int
                 if (num < 0) {
                     sumOnTheRight = sum - sumOnTheLeft + Math.abs(num)
                 } else {
                     sumOnTheRight = sum - sumOnTheLeft - Math.abs(num)
                 }
                 if (sumOnTheLeft == sumOnTheRight) {
-                    return i;
+                    return i
                 }
             }
             return -1
