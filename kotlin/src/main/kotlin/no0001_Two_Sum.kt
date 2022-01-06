@@ -1,33 +1,33 @@
-fun main(args: Array<String>) {
+fun main() {
     class Solution {
         fun twoSum(nums: IntArray, target: Int): IntArray {
 
             for (i in nums.indices) {
                 for (j in nums.indices) {
                     if (i == j) {
-                        continue;
+                        continue
                     }
 
                     if (nums[i] + nums[j] == target) {
-                        println("hit ~~");
-                        val integers = intArrayOf(i, j);
-                        println("OUTPUT: ${integers.contentToString()}");
-                        return integers;
+                        println("hit ~~")
+                        val integers = intArrayOf(i, j)
+                        println("OUTPUT: ${integers.contentToString()}")
+                        return integers
                     }
                 }
             }
-            println("OUTPUT: []");
-            return IntArray(0);
+            println("OUTPUT: []")
+            return IntArray(0)
         }
     }
 
-    println(">> main");
+    println(">> main")
 
-    val solution = Solution();
+    val solution = Solution()
 
     val integers = intArrayOf(2, 7, 11, 15)
-    val target = 9;
+    val target = 9
 
-    solution.twoSum(integers, target);
+    solution.twoSum(integers, target)
 
 }
