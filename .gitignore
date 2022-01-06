@@ -1,0 +1,10 @@
+Java/out/
+kotlin/.gradle/
+kotlin/build/
+kotlin/gradle/
+kotlin/.idea/
+Java/.idea/
+kotlin/gradlew
+kotlin/gradlew.bat
+kotlin/local.properties
+Java/projectFilesBackup/
