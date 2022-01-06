@@ -1,6 +1,6 @@
 import TreeNode.TreeNode
 
-fun main(args: Array<String>) {
+fun main() {
 
 
     /**
@@ -21,7 +21,9 @@ fun main(args: Array<String>) {
 
             fun traverse(node: TreeNode, depth: Int) {
 
-                if (node == null) return
+                if (node == null) {
+                    return
+                }
 
                 if (!mySet.contains(depth)) {
                     mySet += depth
@@ -42,5 +44,5 @@ fun main(args: Array<String>) {
         }
     }
 
-    println(">> main");
+    println(">> main")
 }
