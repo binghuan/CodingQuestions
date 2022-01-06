@@ -1,6 +1,6 @@
 import ListNode.ListNode
 
-fun main(args: Array<String>) {
+fun main() {
 
     /**
      * Example:
@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
     class Solution {
         fun getDecimalValue(head: ListNode?): Int {
 
-            var numString: String = ""
+            var numString = ""
             var node = head
 
             while (node != null) {
