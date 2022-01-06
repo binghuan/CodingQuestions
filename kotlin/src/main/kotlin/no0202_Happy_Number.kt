@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
 
     class Solution {
         fun isHappy(n: Int): Boolean {
@@ -17,10 +17,10 @@ fun main(args: Array<String>) {
                     false
                 }
                 1.0 -> {
-                    true;
+                    true
                 }
                 0.0 -> {
-                    false;
+                    false
                 }
                 else -> {
                     isHappy(total.toInt())
@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
         }
     }
 
-    val solution = Solution();
+    val solution = Solution()
 
 //    Input: n = 19
 //    Output: true
