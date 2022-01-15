@@ -14,11 +14,13 @@ function rollTheString(s, rolls) {
 
     console.log("rollForIndex:", rollForIndex);
 
+    // Build Map for Caching Index
     let alphabets = "abcdefghijklmnopqrstuvwxyz";
     let posMap = {};
     for (let i = 0; i < alphabets.length; i++) {
         posMap[alphabets[i]] = i;
     }
+    
     let chars = s.split("");
     for (let i = 0; i < chars.length; i++) {
         if (rollForIndex[i] == null) {
