@@ -53,6 +53,8 @@ function rollTheString(s, rolls) {
     return result;
 }
 
+// http://theleetcode.blogspot.com/2022/01/hackerrank-roll-string.html
+
 
 if (rollTheString("abz", [3]) != "bca") { console.log("X> FAIL, testcase 1, "); return; }
 if (rollTheString("abz", [3, 2, 1]) != "dda") { console.log("X> FAIL, testcase 2, "); return; }
