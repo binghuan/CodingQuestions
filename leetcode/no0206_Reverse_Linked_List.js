@@ -21,3 +21,5 @@ var reverseList = function (head) {
     }
     return prev;
 }
+
+// https://theleetcode.blogspot.com/2019/03/leetcode-206-reverse-linked-list.html
