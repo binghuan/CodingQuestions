@@ -1,10 +1,12 @@
 
-```
-John plays a game of battleships with his friend Sonia. The game is played on a square map of N rows, 
+/**
+John plays a game of battleships with his friend Sonia. 
+The game is played on a square map of N rows, 
 numbered from 1 to N. Each row contains N cells, 
 labeled with consecutive English upper-case letters (A, B, C, etc.). 
-Each cell is identified by a string composed of its row number followed by its column number: for example, 
-"9C" denotes the third cell in the 9th row, and "15D" denotes the fourth cell in the 15th row.
+Each cell is identified by a string composed of its row number followed by its column number: 
+for example, "9C" denotes the third cell in the 9th row, 
+and "15D" denotes the fourth cell in the 15th row.
 
 John marks the positions of all his ships on the map (which is not shown to Sonia). 
 Ships are defined by rectangles with a maximum area of 4 cells. Sonia picks map cells to hit some ships. 
@@ -16,7 +18,6 @@ For example, the picture below shows a map of size N = 4 with two blue ships and
 
 In this example, one ship has been sunk and the other has been hit but not sunk. 
 In the next picture, the sunken ship is shown in grey and the ship that has been hit but not yet sunk appears in red:
-
 
 The positions of ships are given as a string S, 
 containing pairs of positions describing respectively the top-left and bottom-right corner cells of each ship. 
@@ -54,81 +55,74 @@ each map cell can appear in string T at most once;
 string S and string T contains only valid positions given in specified format.
 
 In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
-```
+ **/
 
+function solution(N, S, T) {
 
+    let getAreaOfShip = function (input, bombArea) {
 
+        let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-function getAreaOfShip(input, bombArea) {
+        let pos1 = input.split(" ")[0];
+        let pos2 = input.split(" ")[1];
+        console.log("getAreaOfShip:", pos1, pos2);
+        let coordinates = [];
 
-    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        if (pos1.length == 0 || pos2.length == 0) {
+            coordinates.push("--");
+        } else {
 
-    let pos1 = input.split(" ")[0];
-    let pos2 = input.split(" ")[1];
-    console.log("getAreaOfShip:", pos1, pos2);
-    let coordinates = [];
+            pos1Num = pos1.match(/\d+/)[0]
+            pos1 = [pos1Num, pos1.replace(pos1Num, "")]
+            pos2Num = pos2.match(/\d+/)[0]
+            pos2 = [pos2Num, pos2.replace(pos2Num, "")]
 
-
-
-
-    if (pos1.length == 0 || pos2.length == 0) {
-        coordinates.push("--");
-    } else {
-
-        pos1Num = pos1.match(/\d+/)[0]
-        pos1 = [pos1Num, pos1.replace(pos1Num, "")]
-        pos2Num = pos2.match(/\d+/)[0]
-        pos2 = [pos2Num, pos2.replace(pos2Num, "")]
-
-        if (pos1[1] != pos2[1]) {
-            let diff = alphabet.indexOf(pos2[1]) - alphabet.indexOf(pos1[1]);
-            for (let i = 0; i < diff + 1; i++) {
-                let index = alphabet.indexOf(pos1[1]) + i;
-                let x = alphabet[index];
-
-                for (let y = parseInt(pos1[0]); y < parseInt(pos2[0]) + 1; y++) {
-                    let coordinate = `${y}${x}`;
-                    console.log("1new coordinate: ", coordinate);
-                    if (bombArea.has(coordinate)) {
-                        console.log("HIT!");
-                        coordinate = "00";
-                    }
-                    coordinates.push(coordinate);
-                }
-
-            }
-        } else if (pos1[0] != pos2[0]) {
-
-            for (let y = parseInt(pos1[0]); y < parseInt(pos2[0]) + 1; y++) {
-
+            if (pos1[1] != pos2[1]) {
                 let diff = alphabet.indexOf(pos2[1]) - alphabet.indexOf(pos1[1]);
                 for (let i = 0; i < diff + 1; i++) {
                     let index = alphabet.indexOf(pos1[1]) + i;
                     let x = alphabet[index];
-                    let coordinate = `${y}${x}`;
-                    console.log("2new coordinate: ", coordinate);
-                    if (bombArea.has(coordinate)) {
-                        console.log("HIT!");
-                        coordinate = "00";
+
+                    for (let y = parseInt(pos1[0]); y < parseInt(pos2[0]) + 1; y++) {
+                        let coordinate = `${y}${x}`;
+                        console.log("1new coordinate: ", coordinate);
+                        if (bombArea.has(coordinate)) {
+                            console.log("HIT!");
+                            coordinate = "00";
+                        }
+                        coordinates.push(coordinate);
                     }
-                    coordinates.push(coordinate);
+
+                }
+            } else if (pos1[0] != pos2[0]) {
+
+                for (let y = parseInt(pos1[0]); y < parseInt(pos2[0]) + 1; y++) {
+
+                    let diff = alphabet.indexOf(pos2[1]) - alphabet.indexOf(pos1[1]);
+                    for (let i = 0; i < diff + 1; i++) {
+                        let index = alphabet.indexOf(pos1[1]) + i;
+                        let x = alphabet[index];
+                        let coordinate = `${y}${x}`;
+                        console.log("2new coordinate: ", coordinate);
+                        if (bombArea.has(coordinate)) {
+                            console.log("HIT!");
+                            coordinate = "00";
+                        }
+                        coordinates.push(coordinate);
+                    }
+                }
+            } else {
+                if (bombArea.has(pos1)) {
+                    console.log("HIT!");
+                    coordinates.push("00");
+                } else {
+                    coordinates.push(pos1);
                 }
             }
-        } else {
-            if (bombArea.has(pos1)) {
-                console.log("HIT!");
-                coordinates.push("00");
-            } else {
-                coordinates.push(pos1);
-            }
         }
-
+        console.log(coordinates);
+        return coordinates;
     }
-    console.log(coordinates);
-    return coordinates;
-}
-
-function solution(N, S, T) {
 
     console.log("INPUT:", N, "S=", S, "T=", T);
 
