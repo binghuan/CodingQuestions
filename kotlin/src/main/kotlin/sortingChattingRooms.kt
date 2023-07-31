@@ -9,8 +9,7 @@ fun main() {
             val instantRooms =
                 meetingRooms.subtract(chattingRooms).sortedBy { it }
             val meetingInChattingRooms = chattingRooms.intersect(meetingRooms)
-            val scheduled =
-                scheduledRooms.subtract(meetingRooms).intersect(chattingRooms)
+            val scheduled = scheduledRooms.subtract(meetingRooms)
             val others = chattingRooms.subtract(meetingInChattingRooms)
                 .subtract(scheduled)
 
