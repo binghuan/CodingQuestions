@@ -31,21 +31,11 @@ fun main() {
                 println(room)
             }
         }
-
-        fun main() {
-            val meetingRooms = listOf("G01", "G03")
-            val scheduledRooms = listOf("P01", "G01", "G03")
-            val chattingRooms = listOf("P01", "P02", "G01", "G02")
-
-            sortingChattingRooms(chattingRooms, scheduledRooms, meetingRooms)
-        }
-
-
     }
 
     val meetingRooms = listOf("G01", "G03")
     val scheduledRooms = listOf("P01", "G01", "G03")
-    val chattingRooms = listOf("P01", "P02", "G01", "G02")
+    val chattingRooms = listOf("P02", "G02", "P01", "G01")
 
     val solution = Solution()
     solution.sortingChattingRooms(chattingRooms, scheduledRooms, meetingRooms)
