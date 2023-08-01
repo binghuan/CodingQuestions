@@ -39,3 +39,21 @@ fun main() {
     val solution = Solution()
     solution.sortingChattingRooms(chattingRooms, scheduledRooms, meetingRooms)
 }
+
+// NOTE: Meeting rooms you have not joined before. You have been invited for a short chat.
+// After that, the meeting room will no longer exist in your records.
+
+/* OUTPUT
+
+--- Instant Call ---
+G03 (mm:ss)
+--- Meeting Rooms ---
+G01 (mm:ss)
+--- Scheduled meetings ---
+P01 (join)
+--- Others ---
+P02
+G01
+G02
+
+*/
