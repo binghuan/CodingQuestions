@@ -51,13 +51,13 @@ fun main() {
 
 /*
     // This callback notifies the app when the user information of a remote user is updated.
-    onUserInfoUpdated (int uid, userAccount String)
+    onUserInfoUpdated (String uid, userAccount String)
 
     // This callback notifies the app when another user joins the channel.
-    onUserJoined (int uid)
+    onUserJoined (String uid)
 
     // This callback notifies the app when a remote user leaves the channel or goes offline.
-    onUserOffline (int uid)
+    onUserOffline (String uid)
 
     // Force sync the user list via HTTP response.
     SyncViaHttpResponse(List<String>)
