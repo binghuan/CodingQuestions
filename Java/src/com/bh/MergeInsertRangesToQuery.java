@@ -6,7 +6,7 @@ import java.util.List;
 
 // Coding questions in Google interviews.
 
-public class mergeInsertRangesToQuery {
+public class MergeInsertRangesToQuery {
 
     public static class RangeContainer {
         private final List<Range> ranges = new ArrayList<>();
