@@ -5,10 +5,10 @@ public class no0303_Range_Sum_Query_Immutable {
     static
     class NumArray {
 
-        private int[] data;
+        private final int[] data;
 
-        public NumArray(int[] nums) {
-            data = nums;
+        public NumArray(int[] numbs) {
+            data = numbs;
         }
 
         public int sumRange(int left, int right) {

@@ -22,7 +22,7 @@ public class no0017_Letter_Combinations_of_a_Phone_Number {
                 ArrayList<String> answer
         ) {
 
-            if (digits.length() == 0) {
+            if (digits.isEmpty()) {
                 return;
             }
 

@@ -11,7 +11,7 @@ public class no0509_Fibonacci_Number {
 
             for (int i = 0; i <= n; i++) {
 
-                Integer sum = 0;
+                int sum = 0;
 
                 if (i == 0) {
                     sum = 0;
@@ -25,7 +25,7 @@ public class no0509_Fibonacci_Number {
                         last2Num = arrayList.get(i - 2);
                         System.out.println("last2num: " + last2Num);
                     }
-                    if (arrayList.size() >= 1) {
+                    if (!arrayList.isEmpty()) {
                         last1Num = arrayList.get(i - 1);
                         System.out.println("last1num: " + last1Num);
                     }

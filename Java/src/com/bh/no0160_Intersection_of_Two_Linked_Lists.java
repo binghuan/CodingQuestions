@@ -20,7 +20,7 @@ public class no0160_Intersection_of_Two_Linked_Lists {
     static
     public class Solution {
         public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-            HashSet<ListNode> nodes = new HashSet<ListNode>();
+            HashSet<ListNode> nodes = new HashSet<>();
             while (headA != null) {
                 nodes.add(headA);
                 headA = headA.next;
