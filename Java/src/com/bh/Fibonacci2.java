@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Fibonacci2 {
 
-    static Integer Fibonacci(int input) {
+    static Integer Fibonacci() {
         ArrayList<Integer> result = new ArrayList<Integer>();
 
-        for (int i = 0; i < input; i++) {
+        for (int i = 0; i < 11; i++) {
 
-            Integer value = 0;
+            int value = 0;
 
             if (i > 1) {
                 // i: 2 --> 3
@@ -40,7 +40,7 @@ public class Fibonacci2 {
         public static void main(String[] args) {
 
             System.out.println("INPUT : " + 11);
-            System.out.println("OUTPUT: " + Fibonacci(11));
+            System.out.println("OUTPUT: " + Fibonacci());
         }
     }
 }

@@ -56,19 +56,18 @@ public class QuickSort {
 
         }
 
-        public int[] sortArray(int[] nums) {
+        public void sortArray(int[] nums) {
 
             quickSort(nums, 0, nums.length - 1);
 
-            return nums;
         }
     }
 
     public static void main(String[] args) {
-        int nums[] = {5, 2, 3, 1};
+        int[] numbs = {5, 2, 3, 1};
         QuickSort.Solution solution = new QuickSort.Solution();
-        System.out.println("INPUT:" + Arrays.toString(nums));
-        solution.sortArray(nums);
-        System.out.println("OUTPUT:" + Arrays.toString(nums));
+        System.out.println("INPUT:" + Arrays.toString(numbs));
+        solution.sortArray(numbs);
+        System.out.println("OUTPUT:" + Arrays.toString(numbs));
     }
 }

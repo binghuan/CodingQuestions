@@ -58,11 +58,11 @@ public class Anagrams {
         String[] inputs = { "pear", "amleth", "dormitory", "tinsel", "dirty room", "hamlet", "listen", "silent" };
         List<String> tempArray = new ArrayList<String>();
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         // prepare strings.
-        for (int i = 0; i < inputs.length; i++) {
-            String original = inputs[i].replaceAll(" ", "");
+        for (String input : inputs) {
+            String original = input.replaceAll(" ", "");
             char[] chars = original.toCharArray();
             Arrays.sort(chars);
             String sorted = new String(chars);
@@ -73,20 +73,20 @@ public class Anagrams {
         boolean[] hitTable = new boolean[inputs.length];
         for (int j = 0; j < inputs.length; j++) {
 
-            if (hitTable[j] == true) {
+            if (hitTable[j]) {
                 continue;
             }
 
             if (DBG)
                 System.out.print("Try :: " + inputs[j]);
-            result += inputs[j];
+            result.append(inputs[j]);
 
             for (int k = 0; k < inputs.length; k++) {
                 if (k == j) {
                     continue;
                 }
 
-                if (hitTable[k] == true) {
+                if (hitTable[k]) {
                     continue;
                 }
 
@@ -94,13 +94,13 @@ public class Anagrams {
                     System.out.println("Compare: " + j + "]" + tempArray.get(j) + " VS " + k + "]" + tempArray.get(k));
                 if (tempArray.get(j).equals(tempArray.get(k))) {
                     hitTable[k] = true;
-                    result += "," + inputs[k];
+                    result.append(",").append(inputs[k]);
                     if (DBG)
                         System.out.println(" -> Hit");
                 }
             }
 
-            result += "\n";
+            result.append("\n");
         }
 
         if (DBG)
