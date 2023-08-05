@@ -10,7 +10,6 @@ Welcome to my repository of coding questions! I've taken on the challenge of sol
 ├── androidapps  
 ├── kotlin  
 ├── leetcode  
-├── quickSort.playground  
 └── rust  
 
 
