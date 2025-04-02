@@ -8,3 +8,7 @@ kotlin/gradlew
 kotlin/gradlew.bat
 kotlin/local.properties
 Java/projectFilesBackup/
+/CSharpApps/HealthCheckOptimizer/bin/Debug
+/CSharpApps/HealthCheckOptimizer/obj/Debug/net7.0
+/CSharpApps/HealthCheckOptimizer/obj/Debug/net9.0
+/CSharpApps/HealthCheckOptimizer/obj
