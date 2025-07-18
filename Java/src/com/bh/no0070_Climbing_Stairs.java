@@ -55,8 +55,13 @@ public class no0070_Climbing_Stairs {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int result = solution.climbStairs(3);
-        System.out.println("OUTPUT:" + result); // Expected: 3
+        int[] testCases = {1, 2, 3, 4, 5, 10, 20, 0, -1};
+        int[] expected = {1, 2, 3, 5, 8, 89, 10946, 0, 0};
+        for (int i = 0; i < testCases.length; i++) {
+            int n = testCases[i];
+            int result = solution.climbStairs(n);
+            System.out.println("n = " + n + " | Output: " + result + " | Expected: " + expected[i]);
+        }
     }
 
 }
