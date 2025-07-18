@@ -163,37 +163,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.no0001_Two_Sum.executor": "Run",
-    "Application.no0002_Add_Two_Numbers.executor": "Run",
-    "Application.no0003_Longest_Substring_Without_Repeating_Characters.executor": "Run",
-    "Application.no0004_Media_of_Two_Sorted_Arrays.executor": "Run",
-    "Application.no0217_Contains_Duplicate.executor": "Run",
-    "Application.no0509_Fibonacci_Number.executor": "Run",
-    "Application.no0560_Subarray_Sum_Equals_K.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "gh-pages",
-    "last_opened_file_path": "/Users/binghuan/GitHub/CodingQuestions/Java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.no0001_Two_Sum.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0002_Add_Two_Numbers.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0003_Longest_Substring_Without_Repeating_Characters.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0004_Media_of_Two_Sorted_Arrays.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0217_Contains_Duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0509_Fibonacci_Number.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0560_Subarray_Sum_Equals_K.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gh-pages&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/binghuan/GitHub/CodingQuestions/Java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.bh" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.no0004_Media_of_Two_Sorted_Arrays">
+  <component name="RunManager" selected="Application.no0410_Split_Array_Largest_Sum">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -252,20 +252,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0001_Two_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0001_Two_Sum" />
-      <module name="CodingQuestions" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bh.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="no0002_Add_Two_Numbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bh.no0002_Add_Two_Numbers" />
       <module name="CodingQuestions" />
@@ -308,8 +294,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0560_Subarray_Sum_Equals_K" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0560_Subarray_Sum_Equals_K" />
+    <configuration name="no0015_3Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0015_3Sum" />
+      <module name="CodingQuestions" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bh.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="no0410_Split_Array_Largest_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0410_Split_Array_Largest_Sum" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -346,11 +346,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.no0410_Split_Array_Largest_Sum" />
+        <item itemvalue="Application.no0015_3Sum" />
         <item itemvalue="Application.no0004_Media_of_Two_Sorted_Arrays" />
         <item itemvalue="Application.no0003_Longest_Substring_Without_Repeating_Characters" />
         <item itemvalue="Application.no0002_Add_Two_Numbers" />
-        <item itemvalue="Application.no0001_Two_Sum" />
-        <item itemvalue="Application.no0560_Subarray_Sum_Equals_K" />
       </list>
     </recent_temporary>
   </component>
