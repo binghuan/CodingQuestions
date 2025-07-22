@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c192c1c3-4d03-459b-b053-8f8a42404ac1" name="Default" comment="" />
+    <list default="true" id="c192c1c3-4d03-459b-b053-8f8a42404ac1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,9 +171,20 @@
     &quot;Application.no0002_Add_Two_Numbers.executor&quot;: &quot;Run&quot;,
     &quot;Application.no0003_Longest_Substring_Without_Repeating_Characters.executor&quot;: &quot;Run&quot;,
     &quot;Application.no0004_Media_of_Two_Sorted_Arrays.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0015_3Sum.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0020_Valid_Parentheses.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0053_Maximum_Subarray.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0056_Merge_Intervals.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0070_Climbing_Stairs.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0121_Best_Time_to_Buy_and_Sell_Stock.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0139_Word_Break_I.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0141_Linked_List_Cycle.executor&quot;: &quot;Run&quot;,
     &quot;Application.no0217_Contains_Duplicate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0242_Valid_Anagram.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0410_Split_Array_Largest_Sum.executor&quot;: &quot;Run&quot;,
     &quot;Application.no0509_Fibonacci_Number.executor&quot;: &quot;Run&quot;,
     &quot;Application.no0560_Subarray_Sum_Equals_K.executor&quot;: &quot;Run&quot;,
+    &quot;Application.no0704_Binary_Search.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -193,7 +206,7 @@
       <recent name="com.bh" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.no0410_Split_Array_Largest_Sum">
+  <component name="RunManager" selected="Application.no0300_Longest_Increasing_Subsequence">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -252,8 +265,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0002_Add_Two_Numbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0002_Add_Two_Numbers" />
+    <configuration name="no0053_Maximum_Subarray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0053_Maximum_Subarray" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -266,8 +279,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0003_Longest_Substring_Without_Repeating_Characters" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0003_Longest_Substring_Without_Repeating_Characters" />
+    <configuration name="no0056_Merge_Intervals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0056_Merge_Intervals" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -280,8 +293,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0004_Media_of_Two_Sorted_Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0004_Media_of_Two_Sorted_Arrays" />
+    <configuration name="no0139_Word_Break_I" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0139_Word_Break_I" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -294,8 +307,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0015_3Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0015_3Sum" />
+    <configuration name="no0141_Linked_List_Cycle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0141_Linked_List_Cycle" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -308,8 +321,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="no0410_Split_Array_Largest_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.bh.no0410_Split_Array_Largest_Sum" />
+    <configuration name="no0300_Longest_Increasing_Subsequence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bh.no0300_Longest_Increasing_Subsequence" />
       <module name="CodingQuestions" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -346,11 +359,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.no0410_Split_Array_Largest_Sum" />
-        <item itemvalue="Application.no0015_3Sum" />
-        <item itemvalue="Application.no0004_Media_of_Two_Sorted_Arrays" />
-        <item itemvalue="Application.no0003_Longest_Substring_Without_Repeating_Characters" />
-        <item itemvalue="Application.no0002_Add_Two_Numbers" />
+        <item itemvalue="Application.no0300_Longest_Increasing_Subsequence" />
+        <item itemvalue="Application.no0139_Word_Break_I" />
+        <item itemvalue="Application.no0056_Merge_Intervals" />
+        <item itemvalue="Application.no0053_Maximum_Subarray" />
+        <item itemvalue="Application.no0141_Linked_List_Cycle" />
       </list>
     </recent_temporary>
   </component>
