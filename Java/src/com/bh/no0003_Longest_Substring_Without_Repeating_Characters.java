@@ -1,15 +1,36 @@
 
 
+
 package com.bh;
 
 import java.util.HashMap;
 
+/**
+ * LeetCode 3: Longest Substring Without Repeating Characters
+ *
+ * Problem:
+ * Given a string s, find the length of the longest substring without repeating characters.
+ *
+ * Example:
+ *   Input: s = "abcabcbb"
+ *   Output: 3
+ *   Explanation: The answer is "abc", with the length of 3.
+ *
+ * Approach:
+ * Use the sliding window technique with a HashMap to track the last seen index of each character.
+ * Move the left pointer to the right of the previous occurrence when a duplicate is found.
+ * For each step, update the max length.
+ *
+ * Time Complexity: O(n), where n is the length of the string.
+ * Space Complexity: O(min(n, m)), where m is the size of the character set.
+ */
 public class no0003_Longest_Substring_Without_Repeating_Characters {
+
 
     public static void main(String[] args) {
         Solution solution = new Solution();
 
-        // Example 1
+        // Test case 1: Standard example
         String s1 = "abcabcbb";
         int result1 = solution.lengthOfLongestSubstring(s1);
         System.out.println("Example 1:");
@@ -19,7 +40,7 @@ public class no0003_Longest_Substring_Without_Repeating_Characters {
         System.out.println("Test 1 " + (result1 == 3 ? "PASSED" : "FAILED"));
         System.out.println();
 
-        // Example 2
+        // Test case 2: All characters the same
         String s2 = "bbbbb";
         int result2 = solution.lengthOfLongestSubstring(s2);
         System.out.println("Example 2:");
@@ -29,7 +50,7 @@ public class no0003_Longest_Substring_Without_Repeating_Characters {
         System.out.println("Test 2 " + (result2 == 1 ? "PASSED" : "FAILED"));
         System.out.println();
 
-        // Example 3
+        // Test case 3: Substring in the middle
         String s3 = "pwwkew";
         int result3 = solution.lengthOfLongestSubstring(s3);
         System.out.println("Example 3:");
@@ -39,7 +60,7 @@ public class no0003_Longest_Substring_Without_Repeating_Characters {
         System.out.println("Test 3 " + (result3 == 3 ? "PASSED" : "FAILED"));
         System.out.println();
 
-        // Additional test case: empty string
+        // Test case 4: Empty string
         String s4 = "";
         int result4 = solution.lengthOfLongestSubstring(s4);
         System.out.println("Test 4:");
@@ -51,21 +72,15 @@ public class no0003_Longest_Substring_Without_Repeating_Characters {
 
     static class Solution {
         /**
-         * Solution Idea:
-         * Use the sliding window technique with a HashMap to keep track of the last seen index of each character.
-         * - The window is defined by [left, right].
-         * - As we iterate with 'right', if we see a duplicate character (already in the window),
-         *   we move 'left' to the right of the previous occurrence of that character.
-         * - For each step, update the max length.
+         * Returns the length of the longest substring without repeating characters.
          *
-         * Steps:
-         * 1. Initialize a HashMap to store the last index of each character.
-         * 2. Use two pointers: 'left' (start of window) and 'right' (end of window).
-         * 3. For each character at 'right':
-         *    - If it has been seen and its last index >= left, move 'left' to last index + 1 (to remove duplicate).
-         *    - Update the character's last index in the map.
-         *    - Update maxLen as the window size (right - left + 1).
-         * 4. Return maxLen.
+         * Approach:
+         * - Use a sliding window with two pointers and a HashMap to track the last seen index of each character.
+         * - Move the left pointer to the right of the previous occurrence when a duplicate is found.
+         * - Update the maximum length for each window.
+         *
+         * @param s input string
+         * @return length of the longest substring without repeating characters
          */
         public int lengthOfLongestSubstring(String s) {
             HashMap<Character, Integer> map = new HashMap<>();
