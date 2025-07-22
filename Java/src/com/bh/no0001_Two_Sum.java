@@ -5,6 +5,29 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Arrays;
 
+/**
+ * LeetCode 1: Two Sum
+ * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+ * 
+ * Problem Analysis:
+ * - We need to find two numbers in the array that sum to the target
+ * - Return the indices of these two numbers
+ * - Each input has exactly one solution
+ * - Cannot use the same element twice
+ * 
+ * Solution Approaches:
+ * 1. Brute Force: O(n²) - Check all pairs (not implemented)
+ * 2. Hash Map: O(n) - Use HashMap to store complement values (implemented)
+ * 
+ * Hash Map Approach:
+ * - For each number, calculate its complement (target - current number)
+ * - Check if complement exists in HashMap
+ * - If exists, return both indices
+ * - If not, store current number and index in HashMap
+ * 
+ * Time Complexity: O(n) - Single pass through the array
+ * Space Complexity: O(n) - HashMap storage in worst case
+ */
 public class no0001_Two_Sum {
 
     public static void main(String[] args) {
@@ -59,6 +82,26 @@ public class no0001_Two_Sum {
 
     static
     class Solution {
+        /**
+         * Finds two numbers in the array that add up to target and returns their indices.
+         * 
+         * Algorithm Explanation:
+         * 1. Create a HashMap to store number -> index mapping
+         * 2. Iterate through the array once
+         * 3. For each element, calculate complement = target - current_element
+         * 4. Check if complement exists in HashMap:
+         *    - If YES: We found our pair! Return [complement_index, current_index]
+         *    - If NO: Store current element and its index in HashMap
+         * 5. Continue until pair is found
+         * 
+         * Example walkthrough with nums = [2,7,11,15], target = 9:
+         * - i=0, nums[0]=2, complement=9-2=7, HashMap={}, 7 not found, add {2:0}
+         * - i=1, nums[1]=7, complement=9-7=2, HashMap={2:0}, 2 found! Return [0,1]
+         * 
+         * @param nums array of integers
+         * @param target target sum
+         * @return array containing indices of the two numbers that sum to target
+         */
         public int[] twoSum(int[] nums, int target) {
             // Use HashMap to store value and its index
             // Time complexity: O(n), Space complexity: O(n)
