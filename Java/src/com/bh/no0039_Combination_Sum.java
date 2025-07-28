@@ -136,7 +136,7 @@ public class no0039_Combination_Sum {
                 );
 
                 // Unchoose: backtrack by removing the last added number
-                currentCombination.remove(currentCombination.size() - 1);
+                currentCombination.removeLast();
             }
         }
     }
