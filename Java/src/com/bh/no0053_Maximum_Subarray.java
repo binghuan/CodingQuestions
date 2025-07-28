@@ -1,4 +1,3 @@
-
 package com.bh;
 
 /**
@@ -21,14 +20,7 @@ public class no0053_Maximum_Subarray {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[][] testCases = {
-            {-2,1,-3,4,-1,2,1,-5,4},
-            {1},
-            {5,4,-1,7,8},
-            {-1,-2,-3,-4},
-            {0,0,0,0},
-            {-2, -1}
-        };
+        int[][] testCases = {{-2, 1, -3, 4, -1, 2, 1, -5, 4}, {1}, {5, 4, -1, 7, 8}, {-1, -2, -3, -4}, {0, 0, 0, 0}, {-2, -1}};
         int[] expected = {6, 1, 23, -1, 0, -1};
         for (int i = 0; i < testCases.length; i++) {
             int result = solution.maxSubArray(testCases[i]);
