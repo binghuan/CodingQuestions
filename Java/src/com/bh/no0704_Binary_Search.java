@@ -1,4 +1,3 @@
-
 package com.bh;
 
 /**
@@ -22,12 +21,7 @@ public class no0704_Binary_Search {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[][] testCases = {
-            {-1,0,3,5,9,12},
-            {-1,0,3,5,9,12},
-            {1},
-            {1,2,3,4,5,6,7,8,9,10}
-        };
+        int[][] testCases = {{-1, 0, 3, 5, 9, 12}, {-1, 0, 3, 5, 9, 12}, {1}, {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}};
         int[] targets = {9, 2, 1, 7};
         int[] expected = {4, -1, 0, 6};
         for (int i = 0; i < testCases.length; i++) {
