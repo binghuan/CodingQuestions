@@ -8,12 +8,8 @@ package com.bh;
  * The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are 
  * horizontally or vertically neighboring. The same letter cell may not be used more than once.
  * 
- * 題目：給定一個 m x n 的字符網格板和一個字符串單詞，如果單詞存在於網格中則返回 true。
- * 單詞可以由順序相鄰的單元格字母構成，其中相鄰單元格是水平或垂直相鄰的。
- * 同一字母單元格不能多次使用。
- * 
  * Solution Approach: DFS with Backtracking
- * 解決方法：DFS回溯
+ * We use depth-first search with backtracking to explore all possible paths in the grid.
  * 
  * Algorithm:
  * 1. For each cell in the board, try to start the word search from that position
@@ -21,23 +17,13 @@ package com.bh;
  * 3. Mark visited cells temporarily and backtrack after exploration
  * 4. If we successfully match the entire word, return true
  * 
- * 算法步驟：
- * 1. 對於板上的每個單元格，嘗試從該位置開始單詞搜索
- * 2. 使用DFS探索所有4個方向（上、下、左、右）
- * 3. 臨時標記已訪問的單元格，探索後回溯
- * 4. 如果我們成功匹配整個單詞，返回true
- * 
  * Time Complexity: O(N * 4^L) where N is board cells, L is word length
  * Space Complexity: O(L) for recursion stack
- * 
- * 時間複雜度：O(N * 4^L)，其中N是板單元格數，L是單詞長度
- * 空間複雜度：O(L)，用於遞歸棧
  */
 public class no0079_Word_Search {
 
     /**
      * Main method to check if word exists in the board
-     * 檢查單詞是否存在於板中的主方法
      */
     public boolean exist(char[][] board, String word) {
         if (board == null || board.length == 0 || board[0].length == 0) {
@@ -52,7 +38,6 @@ public class no0079_Word_Search {
         int cols = board[0].length;
         
         // Try starting the search from each cell
-        // 嘗試從每個單元格開始搜索
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (dfs(board, word, i, j, 0)) {
@@ -66,7 +51,6 @@ public class no0079_Word_Search {
     
     /**
      * DFS helper method with backtracking
-     * DFS回溯輔助方法
      * 
      * @param board the character grid
      * @param word the target word to search
@@ -77,13 +61,11 @@ public class no0079_Word_Search {
      */
     private boolean dfs(char[][] board, String word, int row, int col, int index) {
         // Base case: we've matched the entire word
-        // 基礎情況：我們已經匹配了整個單詞
         if (index == word.length()) {
             return true;
         }
         
         // Check bounds and character match
-        // 檢查邊界和字符匹配
         if (row < 0 || row >= board.length || 
             col < 0 || col >= board[0].length || 
             board[row][col] != word.charAt(index)) {
@@ -91,19 +73,16 @@ public class no0079_Word_Search {
         }
         
         // Mark current cell as visited by temporarily changing it
-        // 通過臨時更改來標記當前單元格為已訪問
         char originalChar = board[row][col];
         board[row][col] = '#'; // Use a character that won't be in the input
         
         // Explore all 4 directions: up, down, left, right
-        // 探索所有4個方向：上、下、左、右
-        boolean found = dfs(board, word, row - 1, col, index + 1) ||  // up 上
-                       dfs(board, word, row + 1, col, index + 1) ||  // down 下
-                       dfs(board, word, row, col - 1, index + 1) ||  // left 左
-                       dfs(board, word, row, col + 1, index + 1);    // right 右
+        boolean found = dfs(board, word, row - 1, col, index + 1) ||  // up
+                       dfs(board, word, row + 1, col, index + 1) ||  // down
+                       dfs(board, word, row, col - 1, index + 1) ||  // left
+                       dfs(board, word, row, col + 1, index + 1);    // right
         
         // Backtrack: restore the original character
-        // 回溯：恢復原始字符
         board[row][col] = originalChar;
         
         return found;
@@ -111,7 +90,6 @@ public class no0079_Word_Search {
     
     /**
      * Alternative implementation using boolean visited array
-     * 使用布爾訪問數組的替代實現
      */
     public boolean existWithVisitedArray(char[][] board, String word) {
         if (board == null || board.length == 0 || board[0].length == 0) {
@@ -135,7 +113,6 @@ public class no0079_Word_Search {
     
     /**
      * DFS helper with explicit visited array
-     * 使用顯式訪問數組的DFS輔助方法
      */
     private boolean dfsWithVisited(char[][] board, String word, int row, int col, 
                                   int index, boolean[][] visited) {
@@ -164,7 +141,6 @@ public class no0079_Word_Search {
     
     /**
      * Optimized version with early pruning
-     * 帶有早期剪枝的優化版本
      */
     public boolean existOptimized(char[][] board, String word) {
         if (board == null || board.length == 0 || board[0].length == 0) {
@@ -172,12 +148,10 @@ public class no0079_Word_Search {
         }
         
         // Count characters in board and word for early pruning
-        // 統計板和單詞中的字符以進行早期剪枝
         int[] boardCount = new int[256];
         int[] wordCount = new int[256];
         
         // Count characters in board
-        // 統計板中的字符
         for (char[] row : board) {
             for (char c : row) {
                 boardCount[c]++;
@@ -185,13 +159,11 @@ public class no0079_Word_Search {
         }
         
         // Count characters in word
-        // 統計單詞中的字符
         for (char c : word.toCharArray()) {
             wordCount[c]++;
         }
         
         // Early pruning: if word has more of any character than board, return false
-        // 早期剪枝：如果單詞中任何字符的數量超過板中的數量，返回false
         for (int i = 0; i < 256; i++) {
             if (wordCount[i] > boardCount[i]) {
                 return false;
@@ -214,7 +186,6 @@ public class no0079_Word_Search {
     
     /**
      * Helper method to print board for debugging
-     * 用於調試的打印板輔助方法
      */
     public static void printBoard(char[][] board) {
         System.out.println("Board:");
