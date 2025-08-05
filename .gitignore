@@ -14,3 +14,7 @@ Java/projectFilesBackup/
 /CSharpApps/HealthCheckOptimizer/obj
 /Java/com/bh
 /Java/.idea
+/kotlin/bin
+/rust/target/debug/.fingerprint
+/rust/target/debug
+rust/Cargo.lock
