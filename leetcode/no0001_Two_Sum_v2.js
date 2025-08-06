@@ -39,24 +39,21 @@ Space Complexity: O(n) - HashMap storage
  */
 var twoSum = function (nums, target) {
     // HashMap to store number -> index mapping
-    let indexResultMap = {};
-    let pair4Answer = [];
+    let numToIndex = {};
 
     for (let i = 0; i < nums.length; i++) {
-        let currentNumber = nums[i];
-        let diff = target - currentNumber;
+        let complement = target - nums[i];
 
         // Check if complement exists in map
-        if (indexResultMap[diff] != null) {
-            pair4Answer.push(i, indexResultMap[diff]);
-            break;
+        if (numToIndex[complement] != null) {
+            return [i, numToIndex[complement]];
         }
 
         // Store current number and its index
-        indexResultMap[currentNumber] = i;
+        numToIndex[nums[i]] = i;
     }
 
-    return pair4Answer.sort();
+    return [];
 };
 
 /**
