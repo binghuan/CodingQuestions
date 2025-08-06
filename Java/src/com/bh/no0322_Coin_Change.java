@@ -11,33 +11,17 @@ import java.util.*;
  * Return the fewest number of coins that you need to make up that amount. 
  * If that amount of money cannot be made up by any combination of the coins, return -1.
  * You may assume that you have an infinite number of each kind of coin.
- * 
- * Problem Description: Given an integer array coins representing different coin denominations, 
- * and an integer amount representing the total amount of money.
- * Return the minimum number of coins needed to make up that amount. 
- * If the amount cannot be made up by any combination of coins, return -1.
- * You may assume that you have an infinite number of each type of coin.
  */
 public class no0322_Coin_Change {
 
     /**
      * Solution 1: Dynamic Programming (Bottom-up) - Optimal Solution
-     * Approach 1: Dynamic Programming (Bottom-up) - Optimal Solution
      * 
      * Algorithm:
      * 1. Create dp array where dp[i] represents minimum coins needed for amount i
      * 2. Initialize dp[0] = 0 (0 coins needed for amount 0)
      * 3. For each amount from 1 to target, try each coin denomination
      * 4. Update dp[amount] with minimum coins needed
-     * 
-     * Algorithm Steps:
-     * 1. Create dp array where dp[i] represents the minimum coins needed for amount i
-     * 2. Initialize dp[0] = 0 (0 coins needed for amount 0)
-     * 3. For each amount from 1 to target, try each coin denomination
-     * 4. Update dp[amount] with the minimum coins needed
-     * 
-     * Time Complexity: O(amount * coins.length)
-     * Space Complexity: O(amount)
      * 
      * Time Complexity: O(amount * coins.length)
      * Space Complexity: O(amount)
@@ -47,25 +31,19 @@ public class no0322_Coin_Change {
         if (amount == 0) return 0;
         
         // dp[i] represents minimum coins needed for amount i
-        // dp[i] represents minimum coins needed for amount i
         int[] dp = new int[amount + 1];
         
-        // Initialize with impossible value (amount + 1 is larger than any possible answer)
         // Initialize with impossible value (amount + 1 is larger than any possible answer)
         Arrays.fill(dp, amount + 1);
         
         // Base case: 0 coins needed for amount 0
-        // Base case: 0 coins needed for amount 0
         dp[0] = 0;
         
         // Fill dp array for each amount from 1 to target amount
-        // Fill dp array for each amount from 1 to target amount
         for (int currentAmount = 1; currentAmount <= amount; currentAmount++) {
-            // Try each coin denomination
             // Try each coin denomination
             for (int coin : coins) {
                 if (coin <= currentAmount) {
-                    // If we can use this coin, update minimum coins needed
                     // If we can use this coin, update minimum coins needed
                     dp[currentAmount] = Math.min(dp[currentAmount], dp[currentAmount - coin] + 1);
                 }
@@ -73,19 +51,13 @@ public class no0322_Coin_Change {
         }
         
         // Return result: -1 if impossible, otherwise minimum coins needed
-        // Return result: -1 if impossible, otherwise minimum coins needed
         return dp[amount] > amount ? -1 : dp[amount];
     }
     
     /**
      * Solution 2: BFS Approach
-     * Approach 2: Breadth-First Search Method
      * 
      * Treats the problem as finding shortest path in a graph
-     * Treats the problem as finding the shortest path in a graph
-     * 
-     * Time Complexity: O(amount * coins.length)
-     * Space Complexity: O(amount)
      * 
      * Time Complexity: O(amount * coins.length)
      * Space Complexity: O(amount)
@@ -128,13 +100,8 @@ public class no0322_Coin_Change {
     
     /**
      * Solution 3: Top-down Dynamic Programming (Memoization)
-     * Approach 3: Top-down Dynamic Programming (Memoization)
      * 
      * Uses recursion with memoization to avoid redundant calculations
-     * Uses recursion with memoization to avoid redundant calculations
-     * 
-     * Time Complexity: O(amount * coins.length)
-     * Space Complexity: O(amount)
      * 
      * Time Complexity: O(amount * coins.length)
      * Space Complexity: O(amount)
@@ -142,7 +109,6 @@ public class no0322_Coin_Change {
     public int coinChangeTopDown(int[] coins, int amount) {
         if (amount == 0) return 0;
         
-        // Memoization array: -1 means not computed, -2 means impossible
         // Memoization array: -1 means not computed, -2 means impossible
         int[] memo = new int[amount + 1];
         Arrays.fill(memo, -1);
