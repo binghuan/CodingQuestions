@@ -55,7 +55,7 @@ console.log(
     minDeliveryTime(2, [1, 1, 1, 1, 1, 2])
 ); // 4
 
-
+// Coding quest from Amazon
 // **Code Question 2 – `minDeliveryTime`（配送中心排程）**
 
 // Each city `1 … n` contains a **distribution centre** that can handle **one order at a time**.
