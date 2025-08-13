@@ -84,8 +84,8 @@ Comparison: Eager Precompute vs Lazy Streaming (this class)
 class AlbumIterator implements Iterator<Integer> {
     private final int[] favorites;
     private final int[] album;
-    private int iFav = 0;
-    private int iAlb = 0;
+    private int iFav = 0; // index for favorites
+    private int iAlb = 0; // index for album
     private final Set<Integer> seen = new HashSet<>(); // Deduplicate by id
     private Integer nextCache = null;
 
