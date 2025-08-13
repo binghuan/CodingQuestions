@@ -5,13 +5,16 @@ import java.util.*;
 // Coding question from Google Camera Team 2025-08-13
 
 /**
- * Photos Slideshow Iterator
+ * Photos Slideshow Iterator (Simplified)
  * <p>
- * Problem:
- * Implement an Iterator that plays photos in the following order:
- * 1) Play photos from favorites first (keep original order).
- * 2) Then play photos from album (keep original order).
- * 3) If a photo appears in both favorites and album (determined by id), play it only once.
+ * Problem (simplified by example):
+ * Given two integer arrays:
+ * favorite = [1, 2]
+ * album    = [1, 2, 3, 4, 5]
+ * Iterate in this order:
+ * 1) Emit favorites first in given order → 1, 2
+ * 2) Then emit album elements in given order, skipping those already emitted by id → 3, 4, 5
+ * Final iteration output: 1, 2, 3, 4, 5
  * <p>
  * Complexity:
  * - Time (to iterate through the whole sequence): O(F + A), where F is the size of favorites and A is the size of album.
@@ -19,13 +22,7 @@ import java.util.*;
  * - Each hasNext()/next() call is amortized O(1).
  */
 
-record PhotoObj(String id) {
-
-    @Override
-    public String toString() {
-        return id;
-    }
-}
+// Note: This implementation uses primitive int arrays as inputs and iterates Integers.
 
 /*
 Reference - Solution 1 (precompute merged display list):
@@ -84,17 +81,17 @@ Comparison: Eager Precompute vs Lazy Streaming (this class)
   - Choose streaming if input can be large, you want lower peak memory, or you prefer lazy evaluation.
 */
 
-class AlbumIterator implements Iterator<PhotoObj> {
-    private final List<PhotoObj> favorites;
-    private final List<PhotoObj> album;
+class AlbumIterator implements Iterator<Integer> {
+    private final int[] favorites;
+    private final int[] album;
     private int iFav = 0;
     private int iAlb = 0;
-    private final Set<String> seen = new HashSet<>(); // Deduplicate by id
-    private PhotoObj nextCache = null;
+    private final Set<Integer> seen = new HashSet<>(); // Deduplicate by id
+    private Integer nextCache = null;
 
-    public AlbumIterator(List<PhotoObj> favorites, List<PhotoObj> album) {
-        this.favorites = (favorites == null) ? Collections.emptyList() : favorites;
-        this.album = (album == null) ? Collections.emptyList() : album;
+    public AlbumIterator(int[] favorites, int[] album) {
+        this.favorites = (favorites == null) ? new int[0] : favorites;
+        this.album = (album == null) ? new int[0] : album;
     }
 
     @Override
@@ -102,18 +99,18 @@ class AlbumIterator implements Iterator<PhotoObj> {
         if (nextCache != null) return true;
 
         // 1) Emit favorites first (ids not yet output)
-        while (iFav < favorites.size()) {
-            PhotoObj p = favorites.get(iFav++);
-            if (p != null && p.id() != null && seen.add(p.id())) {
-                nextCache = p;
+        while (iFav < favorites.length) {
+            int id = favorites[iFav++];
+            if (seen.add(id)) {
+                nextCache = id;
                 return true;
             }
         }
         // 2) Then emit album (ids not yet output)
-        while (iAlb < album.size()) {
-            PhotoObj p = album.get(iAlb++);
-            if (p != null && p.id() != null && seen.add(p.id())) {
-                nextCache = p;
+        while (iAlb < album.length) {
+            int id = album[iAlb++];
+            if (seen.add(id)) {
+                nextCache = id;
                 return true;
             }
         }
@@ -121,25 +118,19 @@ class AlbumIterator implements Iterator<PhotoObj> {
     }
 
     @Override
-    public PhotoObj next() {
+    public Integer next() {
         if (!hasNext()) throw new NoSuchElementException();
-        PhotoObj out = nextCache;
+        Integer out = nextCache;
         nextCache = null;
         return out;
     }
 
     public static void main(String[] args) {
-        List<PhotoObj> favorites = Arrays.asList(new PhotoObj("7"),
-                new PhotoObj("8"),
-                new PhotoObj("9"));
-        List<PhotoObj> album = Arrays.asList(new PhotoObj("1"),
-                new PhotoObj("2"), new PhotoObj("3"),
-                new PhotoObj("4"), new PhotoObj("5"),
-                new PhotoObj("6"), new PhotoObj("7"),
-                new PhotoObj("8"), new PhotoObj("9"),
-                new PhotoObj("10"));
+        // Simplified example from problem statement
+        int[] favorite = new int[] {5, 6, 7};
+        int[] album = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        AlbumIterator it = new AlbumIterator(favorites, album);
+        AlbumIterator it = new AlbumIterator(favorite, album);
         while (it.hasNext()) {
             System.out.println(it.next());
         }
