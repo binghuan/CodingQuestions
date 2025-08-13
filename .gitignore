@@ -18,3 +18,4 @@ Java/projectFilesBackup/
 /rust/target/debug/.fingerprint
 /rust/target/debug
 rust/Cargo.lock
+*.class
