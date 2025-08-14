@@ -1,3 +1,4 @@
+// Coding quest from REAP
 // cost: array of length n, cost[i] is cost at point i+1
 // k: max jump length
 function getMinimumCost(cost, k) {
