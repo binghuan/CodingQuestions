@@ -14,6 +14,8 @@ import java.util.*;
  * Recurrence:
  *   dp[0] = 0
  *   dp[i] = min(dp[j]) for j in [max(0, i-k), i-1] + cost[i-1], for i = 1..n
+ *
+ * Reference: LeetCode 1696: Jump Game VI
  */
 public class MinCostJump {
 
