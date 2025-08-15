@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharpApps", "CSharpApps", "{480AFBCA-8A9F-660C-5FF2-37F5D660CA3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCheckOptimizer", "CSharpApps\HealthCheckOptimizer\HealthCheckOptimizer.csproj", "{911BE506-3269-D40C-0341-9D64EC8A7CD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{911BE506-3269-D40C-0341-9D64EC8A7CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{911BE506-3269-D40C-0341-9D64EC8A7CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{911BE506-3269-D40C-0341-9D64EC8A7CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{911BE506-3269-D40C-0341-9D64EC8A7CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{911BE506-3269-D40C-0341-9D64EC8A7CD7} = {480AFBCA-8A9F-660C-5FF2-37F5D660CA3F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {494BE1FA-2902-4047-BFDA-DC066923016F}
+	EndGlobalSection
+EndGlobal
