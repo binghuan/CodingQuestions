@@ -46,15 +46,21 @@ public class MinCostJump {
 	 */
 	public static int minCostTopDown(int[] cost, int k) {
 		int n = (cost == null) ? 0 : cost.length;
-		if (n == 0) return 0;
+		if (n == 0) {
+			return 0;
+		}
 		Integer[] memo = new Integer[n + 1];
 		return dfs(n, cost, k, memo);
 	}
 
 	// Minimum cost to reach position i (0..n). Base: i == 0 -> 0.
 	private static int dfs(int i, int[] cost, int k, Integer[] memo) {
-		if (i == 0) return 0;
-		if (memo[i] != null) return memo[i];
+		if (i == 0) {
+			return 0;
+		}
+		if (memo[i] != null) {
+			return memo[i];
+		}
 
 		int best = Integer.MAX_VALUE / 2;
 		int from = Math.max(0, i - k);
