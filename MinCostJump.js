@@ -128,14 +128,24 @@ function detailedTest() {
 function performanceTest() {
   console.log("=== Performance Test ===\n");
   
+  // Ensure performance.now() is available in Node and browser environments
+  if (typeof performance === 'undefined' && typeof require === 'function') {
+    try {
+      const { performance: nodePerformance } = require('perf_hooks');
+      global.performance = nodePerformance;
+    } catch (_) {
+      // no-op: if perf_hooks is unavailable, skip timing
+    }
+  }
+
   const largeArray = Array(1000).fill(0).map(() => Math.floor(Math.random() * 100) + 1);
   
   console.log("Testing large array performance (1000 elements):");
   console.log("k = 10");
   
-  const startTime = performance.now();
+  const startTime = (typeof performance !== 'undefined' ? performance.now() : Date.now());
   const result = getMinimumCost(largeArray, 10);
-  const endTime = performance.now();
+  const endTime = (typeof performance !== 'undefined' ? performance.now() : Date.now());
   
   console.log("Result:", result);
   console.log("Execution time:", (endTime - startTime).toFixed(2), "milliseconds");
@@ -146,5 +156,58 @@ function performanceTest() {
 console.log("Starting test execution...\n");
 runTests();
 detailedTest();
+runRecursiveTests();
 performanceTest();
 console.log("All tests completed!");
+
+/**
+ * Recursive top-down DP with memoization (O(n * k) time, O(n) space).
+ * dp(i): minimum cost to reach position i (0..n), where cost[i-1] is the cost to land on i.
+ * Recurrence: dp(0) = 0; dp(i) = min_{j in [max(0,i-k)..i-1]} dp(j) + cost[i-1].
+ */
+function getMinimumCostRecursive(cost, k) {
+  const n = cost.length;
+  const memo = new Map(); // memoization cache: i -> dp(i)
+
+  function dp(i) {
+    // Base case: reaching the start costs 0
+    if (i === 0) return 0;
+    if (memo.has(i)) return memo.get(i);
+
+    let minCost = Infinity;
+    // Try all jump sources from i-k to i-1 (bounded by 0)
+    for (let j = Math.max(0, i - k); j < i; j++) {
+      minCost = Math.min(minCost, dp(j) + cost[i - 1]);
+    }
+    memo.set(i, minCost);
+    return minCost;
+  }
+
+  return dp(n);
+}
+
+// Additional tests for the recursive solution
+function runRecursiveTests() {
+  console.log("=== Recursive DP Tests ===\n");
+
+  const cases = [
+    { name: "Basic", cost: [1, 3, 2, 4], k: 2, expected: 7 },
+    { name: "Direct jump", cost: [10, 15, 20], k: 3, expected: 20 },
+    { name: "One step at a time", cost: [1, 2, 3, 4], k: 1, expected: 10 },
+    { name: "Single element", cost: [5], k: 1, expected: 5 },
+    { name: "Cheaper detour", cost: [100, 1, 1, 1, 100], k: 2, expected: 102 },
+    { name: "Large jump distance", cost: [1, 2, 3, 4, 5], k: 10, expected: 5 },
+    { name: "All same", cost: [5, 5, 5, 5], k: 2, expected: 10 },
+  ];
+
+  for (const tc of cases) {
+    const rec = getMinimumCostRecursive(tc.cost, tc.k);
+    const deque = getMinimumCost(tc.cost, tc.k);
+    console.log(`${tc.name}: recursive=${rec}, deque=${deque}, expected≈${tc.expected ?? "n/a"}`);
+    // Basic consistency check with deque method
+    if (rec !== deque) {
+      console.warn(`Mismatch detected for ${tc.name}: recursive=${rec}, deque=${deque}`);
+    }
+  }
+  console.log();
+}
