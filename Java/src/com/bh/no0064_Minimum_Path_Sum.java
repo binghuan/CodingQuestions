@@ -45,15 +45,19 @@ public class no0064_Minimum_Path_Sum {
 		return dfs(grid, 0, 0, memo);
 	}
 
-	private int dfs(int[][] grid, int i, int j, Integer[][] memo) {
-		int m = grid.length, n = grid[0].length;
-		if (i == m - 1 && j == n - 1) return grid[i][j];
-		if (memo[i][j] != null) return memo[i][j];
-		int down = Integer.MAX_VALUE / 2, right = Integer.MAX_VALUE / 2;
-		if (i + 1 < m) down = dfs(grid, i + 1, j, memo);
-		if (j + 1 < n) right = dfs(grid, i, j + 1, memo);
-		return memo[i][j] = grid[i][j] + Math.min(down, right);
-	}
+    private int dfs(int[][] grid, int i, int j, Integer[][] memo) {
+        int m = grid.length, n = grid[0].length;
+        if (i == m - 1 && j == n - 1) {
+            return grid[i][j];
+        }
+        if (memo[i][j] != null) {
+            return memo[i][j];
+        }
+        int down = Integer.MAX_VALUE / 2, right = Integer.MAX_VALUE / 2;
+        if (i + 1 < m) down = dfs(grid, i + 1, j, memo);
+        if (j + 1 < n) right = dfs(grid, i, j + 1, memo);
+        return memo[i][j] = grid[i][j] + Math.min(down, right);
+    }
 
 	// Simple test harness
 	public static void main(String[] args) {
