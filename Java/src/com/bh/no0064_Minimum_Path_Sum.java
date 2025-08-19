@@ -45,19 +45,26 @@ public class no0064_Minimum_Path_Sum {
 		return dfs(grid, 0, 0, memo);
 	}
 
-    private int dfs(int[][] grid, int i, int j, Integer[][] memo) {
-        int m = grid.length, n = grid[0].length;
-        if (i == m - 1 && j == n - 1) {
-            return grid[i][j];
-        }
-        if (memo[i][j] != null) {
-            return memo[i][j];
-        }
-        int down = Integer.MAX_VALUE / 2, right = Integer.MAX_VALUE / 2;
-        if (i + 1 < m) down = dfs(grid, i + 1, j, memo);
-        if (j + 1 < n) right = dfs(grid, i, j + 1, memo);
-        return memo[i][j] = grid[i][j] + Math.min(down, right);
-    }
+	// DFS helper: returns the minimum path sum from cell (i, j) to the bottom-right.
+	private int dfs(int[][] grid, int i, int j, Integer[][] memo) {
+		int m = grid.length, n = grid[0].length;
+		// Base case: if we're at the destination, cost is the cell value itself.
+		if (i == m - 1 && j == n - 1) {
+			return grid[i][j];
+		}
+		// Return cached result if already computed.
+		if (memo[i][j] != null) {
+			return memo[i][j];
+		}
+		// Initialize costs to a large number (use MAX_VALUE/2 to avoid overflow on addition).
+		int down = Integer.MAX_VALUE / 2, right = Integer.MAX_VALUE / 2;
+		// Recurse to the cell below if within bounds.
+		if (i + 1 < m) down = dfs(grid, i + 1, j, memo);
+		// Recurse to the cell to the right if within bounds.
+		if (j + 1 < n) right = dfs(grid, i, j + 1, memo);
+		// Memoize and return current cell value plus the cheaper of the two options.
+		return memo[i][j] = grid[i][j] + Math.min(down, right);
+	}
 
 	// Simple test harness
 	public static void main(String[] args) {
