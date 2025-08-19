@@ -33,6 +33,28 @@ public class no0064_Minimum_Path_Sum {
 		return dp[n - 1];
 	}
 
+	/**
+	 * Top-down recursion with memoization.
+	 * dp(i, j): minimum path sum from (i, j) to bottom-right.
+	 * Transitions: dp(i, j) = grid[i][j] + min(dp(i+1, j), dp(i, j+1)).
+	 * Time: O(m*n), Space: O(m*n) for memo + recursion stack.
+	 */
+	public int minPathSumTopDown(int[][] grid) {
+		int m = grid.length, n = grid[0].length;
+		Integer[][] memo = new Integer[m][n];
+		return dfs(grid, 0, 0, memo);
+	}
+
+	private int dfs(int[][] grid, int i, int j, Integer[][] memo) {
+		int m = grid.length, n = grid[0].length;
+		if (i == m - 1 && j == n - 1) return grid[i][j];
+		if (memo[i][j] != null) return memo[i][j];
+		int down = Integer.MAX_VALUE / 2, right = Integer.MAX_VALUE / 2;
+		if (i + 1 < m) down = dfs(grid, i + 1, j, memo);
+		if (j + 1 < n) right = dfs(grid, i, j + 1, memo);
+		return memo[i][j] = grid[i][j] + Math.min(down, right);
+	}
+
 	// Simple test harness
 	public static void main(String[] args) {
 		no0064_Minimum_Path_Sum solver = new no0064_Minimum_Path_Sum();
@@ -42,12 +64,14 @@ public class no0064_Minimum_Path_Sum {
 			{1, 5, 1},
 			{4, 2, 1}
 		}; // Expected 7
-		System.out.println("Example 1 -> " + solver.minPathSum(grid1));
+		System.out.println("Example 1 (Bottom-up) -> " + solver.minPathSum(grid1));
+		System.out.println("Example 1 (Top-down)  -> " + solver.minPathSumTopDown(grid1));
 
 		int[][] grid2 = {
 			{1, 2, 3},
 			{4, 5, 6}
 		}; // Expected 12
-		System.out.println("Example 2 -> " + solver.minPathSum(grid2));
+		System.out.println("Example 2 (Bottom-up) -> " + solver.minPathSum(grid2));
+		System.out.println("Example 2 (Top-down)  -> " + solver.minPathSumTopDown(grid2));
 	}
 }
