@@ -20,3 +20,4 @@ Java/projectFilesBackup/
 rust/Cargo.lock
 *.class
 /.vs
+/rust/target
