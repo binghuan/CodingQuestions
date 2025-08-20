@@ -22,3 +22,4 @@ rust/Cargo.lock
 /.vs
 /rust/target
 /.vscode
+/CPlusPlus/cmake-build-debug
