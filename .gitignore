@@ -24,3 +24,6 @@ rust/Cargo.lock
 /.vscode
 /CPlusPlus/cmake-build-debug
 /CPlusPlus/.idea
+CPlusPlus/Fibonacci
+CPlusPlus/no0001_Two_Sum
+CPlusPlus/truetelCodingQuestions

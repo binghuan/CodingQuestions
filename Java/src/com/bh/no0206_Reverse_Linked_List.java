@@ -12,18 +12,6 @@ public class no0206_Reverse_Linked_List {
      * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
      * }
      */
-    public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode nextTemp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = nextTemp;
-        }
-        return prev;
-    }
-
     public static class ListNode {
         int val;
         ListNode next;
@@ -39,6 +27,18 @@ public class no0206_Reverse_Linked_List {
             this.val = val;
             this.next = next;
         }
+    }
+
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
     }
 
     public static void main(String[] args) {
