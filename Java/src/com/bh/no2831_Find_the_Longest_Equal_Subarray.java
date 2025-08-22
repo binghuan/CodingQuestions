@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * LeetCode 2831: Find the Longest Equal Subarray
- *
+ * <p>
  * Idea:
  * For each distinct value v, collect the indices where v occurs: pos[v] = [i1, i2, ...].
  * A window pos[l..r] corresponds to choosing r-l+1 occurrences of v. To make them a
@@ -12,7 +12,7 @@ import java.util.*;
  * Deletions needed = (i_r - i_l + 1) - (r - l + 1) = (i_r - i_l) - (r - l).
  * We maintain a sliding window while (i_r - i_l) - (r - l) <= k.
  * The window size is the length of the equal subarray achievable after ≤ k deletions.
- *
+ * <p>
  * Time: O(n), Space: O(n).
  */
 public class no2831_Find_the_Longest_Equal_Subarray {
@@ -35,7 +35,9 @@ public class no2831_Find_the_Longest_Equal_Subarray {
                 int l = 0;
                 for (int r = 0; r < a.size(); r++) {
                     // Shrink while deletions needed > k
-                    while (a.get(r) - a.get(l) - (r - l) > k) l++;
+                    while (a.get(r) - a.get(l) - (r - l) > k) {
+                        l++;
+                    }
                     ans = Math.max(ans, r - l + 1);
                 }
             }
