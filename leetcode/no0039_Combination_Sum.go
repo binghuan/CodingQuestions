@@ -8,7 +8,7 @@ import (
 
 func combinationSum(candidates []int, target int) [][]int {
 
-	DBG := false
+	DBG := true
 
 	sort.SliceStable(candidates, func(i, j int) bool {
 		return candidates[i] < candidates[j]
