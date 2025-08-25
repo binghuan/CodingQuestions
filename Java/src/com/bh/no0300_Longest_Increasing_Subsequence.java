@@ -9,8 +9,9 @@ import java.util.Arrays;
  * Solution Approach:
  * 1. Dynamic Programming approach: O(n^2) time complexity
  * 2. Binary Search approach: O(n log n) time complexity (implemented here)
+ * 3. Top-Down (memoized) recursion: O(n^2) (added)
  * <p>
- * Time Complexity: O(n log n)
+ * Time Complexity: O(n log n) for lengthOfLIS (binary search method)
  * Space Complexity: O(n)
  */
 public class no0300_Longest_Increasing_Subsequence {
@@ -51,7 +52,7 @@ public class no0300_Longest_Increasing_Subsequence {
         }
 
         /**
-         * Alternative DP solution with O(n^2) time complexity
+         * Alternative bottom-up DP solution with O(n^2) time complexity.
          */
         public int lengthOfLIS_DP(int[] nums) {
             if (nums == null || nums.length == 0) return 0;
@@ -71,6 +72,35 @@ public class no0300_Longest_Increasing_Subsequence {
 
             return maxLength;
         }
+
+        /**
+         * Top-Down (memoized) recursion version. Also O(n^2) time, O(n^2) memo space.
+         * dfs(i, prevIdx) = max of:
+         *  - skip current: dfs(i+1, prevIdx)
+         *  - take current (if nums[i] > nums[prevIdx]): 1 + dfs(i+1, i)
+         * prevIdx of -1 denotes no previous element chosen yet.
+         */
+        public int lengthOfLIS_TopDown(int[] nums) {
+            if (nums == null || nums.length == 0) return 0;
+            int n = nums.length;
+            int[][] memo = new int[n][n + 1]; // prevIdx shifted by +1 to map -1..n-1 => 0..n
+            for (int[] row : memo) Arrays.fill(row, -1);
+            return dfs(0, -1, nums, memo);
+        }
+
+        private int dfs(int i, int prevIdx, int[] nums, int[][] memo) {
+            if (i == nums.length) return 0;
+            int memoIdx = prevIdx + 1; // shift
+            if (memo[i][memoIdx] != -1) return memo[i][memoIdx];
+            // Option 1: skip
+            int best = dfs(i + 1, prevIdx, nums, memo);
+            // Option 2: take if increasing
+            if (prevIdx == -1 || nums[i] > nums[prevIdx]) {
+                best = Math.max(best, 1 + dfs(i + 1, i, nums, memo));
+            }
+            memo[i][memoIdx] = best;
+            return best;
+        }
     }
 
     public static void main(String[] args) {
@@ -83,9 +113,10 @@ public class no0300_Longest_Increasing_Subsequence {
         for (int i = 0; i < testCases.length; i++) {
             int result = solution.lengthOfLIS(testCases[i]);
             int resultDP = solution.lengthOfLIS_DP(testCases[i]);
+            int resultTopDown = solution.lengthOfLIS_TopDown(testCases[i]);
             System.out.println("Test " + (i + 1) + ":");
             System.out.println("  nums: " + Arrays.toString(testCases[i]));
-            System.out.println("  Binary Search result: " + result + " | DP result: " + resultDP + " | Expected: " + expected[i]);
+            System.out.println("  Binary Search: " + result + " | Bottom-Up DP: " + resultDP + " | Top-Down DP: " + resultTopDown + " | Expected: " + expected[i]);
             System.out.println();
         }
     }
