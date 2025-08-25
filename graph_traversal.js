@@ -54,4 +54,5 @@ function traversal(node) {
     }
 }
 
-traversal(node2)
+// Start BFS from node1 so output begins from 1
+traversal(node1)
