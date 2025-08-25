@@ -93,9 +93,13 @@ public class no0300_Longest_Increasing_Subsequence {
         }
 
         private int dfs(int i, int prevIdx, int[] nums, int[][] memo) {
-            if (i == nums.length) return 0;
+            if (i == nums.length) {
+                return 0;
+            }
             int memoIdx = prevIdx + 1; // shift
-            if (memo[i][memoIdx] != -1) return memo[i][memoIdx];
+            if (memo[i][memoIdx] != -1) {
+                return memo[i][memoIdx];
+            }
             // Option 1: skip
             int best = dfs(i + 1, prevIdx, nums, memo);
             // Option 2: take if increasing
