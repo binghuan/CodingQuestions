@@ -6,6 +6,7 @@ public class no0334_Increasing_Triplet_Subsequence {
      * O(n) time, O(1) extra space.
      * Idea: track the smallest first element and the smallest possible second element of an
      * increasing pair seen so far. When we find a number bigger than both, a triplet exists.
+     * Follow up: Leet code 300: Longest increasing Subsequence (LIS) generalizes this problem.
      */
     public boolean increasingTriplet(int[] nums) {
         if (nums == null || nums.length < 3) return false;
