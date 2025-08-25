@@ -10,7 +10,9 @@ public class no0435_Non_overlapping_Intervals {
      * Time: O(n log n) for sorting. Space: O(1) extra (ignoring sort in-place).
      */
     public int eraseOverlapIntervals(int[][] intervals) {
-        if (intervals == null || intervals.length <= 1) return 0;
+        if (intervals == null || intervals.length <= 1) {
+            return 0;
+        }
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[1])); // sort by end
         int kept = 1; // keep first (earliest end)
         int prevEnd = intervals[0][1];
@@ -30,7 +32,9 @@ public class no0435_Non_overlapping_Intervals {
      * Returns same result, provided for comparison.
      */
     public int eraseOverlapIntervalsByStart(int[][] intervals) {
-        if (intervals == null || intervals.length <= 1) return 0;
+        if (intervals == null || intervals.length <= 1) {
+            return 0;
+        }
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[0])); // sort by start
         int removals = 0;
         int prevEnd = intervals[0][1];
