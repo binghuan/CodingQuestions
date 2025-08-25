@@ -76,15 +76,19 @@ public class no0300_Longest_Increasing_Subsequence {
         /**
          * Top-Down (memoized) recursion version. Also O(n^2) time, O(n^2) memo space.
          * dfs(i, prevIdx) = max of:
-         *  - skip current: dfs(i+1, prevIdx)
-         *  - take current (if nums[i] > nums[prevIdx]): 1 + dfs(i+1, i)
+         * - skip current: dfs(i+1, prevIdx)
+         * - take current (if nums[i] > nums[prevIdx]): 1 + dfs(i+1, i)
          * prevIdx of -1 denotes no previous element chosen yet.
          */
         public int lengthOfLIS_TopDown(int[] nums) {
-            if (nums == null || nums.length == 0) return 0;
+            if (nums == null || nums.length == 0) {
+                return 0;
+            }
             int n = nums.length;
             int[][] memo = new int[n][n + 1]; // prevIdx shifted by +1 to map -1..n-1 => 0..n
-            for (int[] row : memo) Arrays.fill(row, -1);
+            for (int[] row : memo) {
+                Arrays.fill(row, -1);
+            }
             return dfs(0, -1, nums, memo);
         }
 
