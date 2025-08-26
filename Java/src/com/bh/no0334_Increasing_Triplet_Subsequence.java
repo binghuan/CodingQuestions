@@ -9,7 +9,9 @@ public class no0334_Increasing_Triplet_Subsequence {
      * Follow up: Leet code 300: Longest increasing Subsequence (LIS) generalizes this problem.
      */
     public boolean increasingTriplet(int[] nums) {
-        if (nums == null || nums.length < 3) return false;
+        if (nums == null || nums.length < 3) {
+            return false;
+        }
         int first = Integer.MAX_VALUE;  // smallest value seen so far
         int second = Integer.MAX_VALUE; // smallest possible middle value (> first)
         for (int x : nums) {
