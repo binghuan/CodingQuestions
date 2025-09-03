@@ -14,7 +14,7 @@ public:
         for (int right = 0; right < s.length(); ++right) {
             char c = s[right];
             // If the character has been seen before and is within the current window
-            if (charIndex.find(c) != charIndex.end() && charIndex[c] >= left) {
+            if (charIndex.contains(c) && charIndex[c] >= left) {
                 left = charIndex[c] + 1; // Move the left pointer to the position after the duplicate character
             }
             // Update the last occurrence of the character
