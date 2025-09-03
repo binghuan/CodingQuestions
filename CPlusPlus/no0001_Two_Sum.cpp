@@ -16,16 +16,21 @@ public: // public members
     // Two Sum: return indices i, j such that nums[i] + nums[j] == target
     vector<int> twoSum(vector<int> &nums, int target) {
         // input array by reference and target sum
-        unordered_map<int, int> seen; // map value -> index for numbers we've seen
-        for (int i = 0; i < (int) nums.size(); ++i) {
-            // iterate indices from left to right
-            int complement = target - nums[i]; // the needed counterpart to reach target
-            auto it = seen.find(complement); // check if the complement was seen before
-            if (it != seen.end()) {
+        unordered_map<int, int> valueToIndexMap; // map: number value -> its index in array
+
+        for (int currentIndex = 0; currentIndex < nums.size(); ++currentIndex) {
+            int currentValue = nums[currentIndex]; // current number we're examining
+            int neededValue = target - currentValue; // the value we need to find to complete the pair
+
+            auto foundIterator = valueToIndexMap.find(neededValue); // search for the needed value
+            if (foundIterator != valueToIndexMap.end()) {
                 // if found, we have a valid pair
-                return {it->second, i}; // return indices: index of complement and current i
+                int neededValueIndex = foundIterator->second; // index where needed value was found
+                return {neededValueIndex, currentIndex}; // return both indices
             }
-            seen[nums[i]] = i; // record current value and its index for future checks
+
+            // store current value and its index for future lookups
+            valueToIndexMap[currentValue] = currentIndex;
         }
         throw runtime_error("No solution found"); // safety: throw if no pair exists
     }
