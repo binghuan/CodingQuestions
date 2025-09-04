@@ -10,7 +10,9 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        if (intervals.empty()) return {};
+        if (intervals.empty()) {
+            return {};
+        }
 
         // Sort intervals by start time
         sort(intervals.begin(), intervals.end());
