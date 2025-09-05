@@ -23,9 +23,9 @@ unsigned long long fib_iter(unsigned int n) {
 // Returns pair{F(n), F(n+1)}
 static std::pair<unsigned long long, unsigned long long> fib_doubling_pair(unsigned long long n) {
 	if (n == 0) return {0ULL, 1ULL};
-	auto p = fib_doubling_pair(n >> 1);
-	unsigned long long a = p.first;   // F(k)
-	unsigned long long b = p.second;  // F(k+1)
+	const auto p = fib_doubling_pair(n >> 1);
+	const unsigned long long a = p.first;   // F(k)
+	const unsigned long long b = p.second;  // F(k+1)
 	// c = F(2k) = F(k) * (2*F(k+1) - F(k))
 	unsigned long long c = a * ((b << 1) - a);
 	// d = F(2k+1) = F(k)^2 + F(k+1)^2
