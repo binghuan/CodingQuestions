@@ -14,4 +14,5 @@ add_executable(CPlusPlus main.cpp
         no1116_Print_Zero_Even_Odd.cpp
         Breadh_First_Search.cpp
         no0226_Invert_Binary_Tree.cpp
-        no0373_Find_K_Pairs_with_Smallest_Sums.cpp)
+        no0373_Find_K_Pairs_with_Smallest_Sums.cpp
+        no0442_Find_All_Duplicates_in_an_Array.cpp)
