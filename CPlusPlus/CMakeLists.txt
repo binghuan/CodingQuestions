@@ -15,4 +15,7 @@ add_executable(CPlusPlus main.cpp
         Breadh_First_Search.cpp
         no0226_Invert_Binary_Tree.cpp
         no0373_Find_K_Pairs_with_Smallest_Sums.cpp
-        no0442_Find_All_Duplicates_in_an_Array.cpp)
+        no0442_Find_All_Duplicates_in_an_Array.cpp
+        no0005_Longest_Palindromic_Substring.cpp
+        no0035_Search_Insert_Position.cpp
+        Binary_Search.cpp)
