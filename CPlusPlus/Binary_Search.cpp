@@ -8,7 +8,7 @@
 using namespace std;
 
 // 簡單的二分搜尋函數
-int binarySearch(vector<int>& nums, int target) {
+int binarySearch(vector<int> &nums, int target) {
     int left = 0;
     int right = nums.size() - 1;
 
@@ -16,15 +16,15 @@ int binarySearch(vector<int>& nums, int target) {
         int mid = left + (right - left) / 2;
 
         if (nums[mid] == target) {
-            return mid;  // 找到目標，返回索引
+            return mid; // 找到目標，返回索引
         } else if (nums[mid] < target) {
-            left = mid + 1;  // 在右半部搜尋
+            left = mid + 1; // 在右半部搜尋
         } else {
             right = mid - 1; // 在左半部搜尋
         }
     }
 
-    return -1;  // 沒找到
+    return -1; // 沒找到
 }
 
 int main() {
@@ -32,7 +32,7 @@ int main() {
     vector<int> nums = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
 
     cout << "數組: ";
-    for (int num : nums) {
+    for (int num: nums) {
         cout << num << " ";
     }
     cout << endl;
@@ -40,7 +40,7 @@ int main() {
     // 測試幾個例子
     int targets[] = {7, 1, 19, 8, 15};
 
-    for (int target : targets) {
+    for (int target: targets) {
         int result = binarySearch(nums, target);
 
         if (result != -1) {
