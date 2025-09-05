@@ -18,4 +18,6 @@ add_executable(CPlusPlus main.cpp
         no0442_Find_All_Duplicates_in_an_Array.cpp
         no0005_Longest_Palindromic_Substring.cpp
         no0035_Search_Insert_Position.cpp
-        Binary_Search.cpp)
+        Binary_Search.cpp
+        Quick_Sort.cpp
+        Depth_First_Search.cpp)
