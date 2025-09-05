@@ -41,7 +41,9 @@ public:
 
     // Iterative approach using stack - DFS
     TreeNode* invertTreeIterative(TreeNode* root) {
-        if (!root) return nullptr;
+        if (!root) {
+            return nullptr;
+        }
 
         stack<TreeNode*> stk;
         stk.push(root);
@@ -90,7 +92,9 @@ public:
 
 // Helper function to create binary tree from vector (level order)
 TreeNode* createBinaryTree(const vector<int>& vals) {
-    if (vals.empty()) return nullptr;
+    if (vals.empty()) {
+        return nullptr;
+    }
 
     TreeNode* root = new TreeNode(vals[0]);
     queue<TreeNode*> q;
