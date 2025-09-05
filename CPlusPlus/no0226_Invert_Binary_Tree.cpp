@@ -27,7 +27,9 @@ public:
     // Recursive approach - DFS with smart pointers
     unique_ptr<TreeNode> invertTree(unique_ptr<TreeNode> root) {
         // Base case: if root is null, return null
-        if (!root) return nullptr;
+        if (!root) {
+            return nullptr;
+        }
 
         // Swap left and right children using std::move semantics
         swap(root->left, root->right);
@@ -41,7 +43,9 @@ public:
 
     // Iterative approach using queue - BFS with smart pointers
     unique_ptr<TreeNode> invertTreeBFS(unique_ptr<TreeNode> root) {
-        if (!root) return nullptr;
+        if (!root) {
+            return nullptr;
+        }
 
         queue<TreeNode*> q;  // Use raw pointers in queue for simplicity
         q.push(root.get());
