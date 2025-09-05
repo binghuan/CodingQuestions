@@ -21,14 +21,21 @@ class Solution {
 public:
     // Iterative solution to reverse a singly linked list
     ListNode *reverseList(ListNode *head) {
+        // prev points to the previous node in the reversed list, initially nullptr
         ListNode *prev = nullptr;
+        // curr points to the current node being processed
         ListNode *curr = head;
+        // Traverse the list
         while (curr) {
+            // Save the next node before changing the link
             ListNode *nextTemp = curr->next;
+            // Reverse the current node's pointer
             curr->next = prev;
+            // Move prev and curr one step forward
             prev = curr;
             curr = nextTemp;
         }
+        // prev will be the new head of the reversed list
         return prev;
     }
 
