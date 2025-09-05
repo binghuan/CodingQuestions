@@ -2,6 +2,7 @@
 #include <unordered_set>
 #include <vector>
 #include <string>
+#include <unordered_map>
 using namespace std;
 
 class Solution {
@@ -14,7 +15,7 @@ public:
         for (int right = 0; right < s.length(); ++right) {
             char c = s[right];
             // If the character has been seen before and is within the current window
-            if (charIndex.contains(c) && charIndex[c] >= left) {
+            if (charIndex.count(c) && charIndex[c] >= left) {
                 left = charIndex[c] + 1; // Move the left pointer to the position after the duplicate character
             }
             // Update the last occurrence of the character
