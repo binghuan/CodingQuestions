@@ -35,12 +35,10 @@ public class Fibonacci2 {
         return result.get(result.size() - 1);
     }
 
-    static class Main {
-        // 0 1 1 2 3 5 8 11 19 30 49
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-            System.out.println("INPUT : " + 11);
-            System.out.println("OUTPUT: " + Fibonacci());
-        }
+        System.out.println("INPUT : " + 11);
+        System.out.println("OUTPUT: " + Fibonacci());
+
     }
 }
