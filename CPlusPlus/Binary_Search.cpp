@@ -14,10 +14,10 @@ int binarySearch(vector<int> &nums, int target) {
 
     while (left <= right) {
         int mid = left + (right - left) / 2;
-
         if (nums[mid] == target) {
             return mid; // 找到目標，返回索引
-        } else if (nums[mid] < target) {
+        }
+        if (nums[mid] < target) {
             left = mid + 1; // 在右半部搜尋
         } else {
             right = mid - 1; // 在左半部搜尋
