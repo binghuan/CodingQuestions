@@ -20,4 +20,5 @@ add_executable(CPlusPlus main.cpp
         no0035_Search_Insert_Position.cpp
         Binary_Search.cpp
         Quick_Sort.cpp
-        Depth_First_Search.cpp)
+        Depth_First_Search.cpp
+        no0058_Length_of_Last_Word.cpp)
