@@ -11,7 +11,9 @@ class Solution {
 public:
     // Main solution using center expansion approach
     string longestPalindrome(string s) {
-        if (s.empty()) return "";
+        if (s.empty()) {
+            return "";
+        }
 
         int start = 0;
         int maxLen = 1;
