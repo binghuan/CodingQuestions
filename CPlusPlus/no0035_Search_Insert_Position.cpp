@@ -19,7 +19,9 @@ public:
 
             if (nums[mid] == target) {
                 return mid;  // Found target, return its index
-            } else if (nums[mid] < target) {
+            }
+
+            if (nums[mid] < target) {
                 left = mid + 1;  // Target is in right half
             } else {
                 right = mid - 1; // Target is in left half
