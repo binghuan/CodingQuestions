@@ -21,4 +21,6 @@ add_executable(CPlusPlus main.cpp
         Binary_Search.cpp
         Quick_Sort.cpp
         Depth_First_Search.cpp
-        no0058_Length_of_Last_Word.cpp)
+        no0058_Length_of_Last_Word.cpp
+        generate_unique_ips.cpp
+        no0020_Valid_Parentheses.cpp)
