@@ -21,7 +21,8 @@ class DoublyLinkedList {
 
         if (!this.head) {
             // Empty list: both head and tail point to the new node
-            this.head = this.tail = node;
+            this.tail = node;
+            this.head = node;
         } else {
             // Non-empty list: attach after tail and update tail
             node.prev = this.tail;
