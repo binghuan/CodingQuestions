@@ -25,9 +25,9 @@ class DoublyLinkedList {
             this.head = node;
         } else {
             // Non-empty list: attach after tail and update tail
-            node.prev = this.tail;
-            this.tail.next = node;
-            this.tail = node;
+            node.prev = this.tail;        // Step 1: Link new node's prev to current tail
+            this.tail.next = node;        // Step 2: Link current tail's next to new node
+            this.tail = node;             // Step 3: Update tail pointer to new node
         }
 
         this.length++;
