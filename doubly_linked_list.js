@@ -38,16 +38,16 @@ class DoublyLinkedList {
         let cur = this.head;
         while (cur) {
             if (cur.value === value) {
-                // Relink previous and next
+                // Relink previous and next nodes to bypass current node
                 if (cur.prev) {
-                    cur.prev.next = cur.next;
+                    cur.prev.next = cur.next;  // Link previous node to next node
                 } else {
-                    this.head = cur.next;
+                    this.head = cur.next;      // Current is head, update head pointer
                 }
                 if (cur.next) {
-                    cur.next.prev = cur.prev;
+                    cur.next.prev = cur.prev;  // Link next node to previous node
                 } else {
-                    this.tail = cur.prev;
+                    this.tail = cur.prev;      // Current is tail, update tail pointer
                 }
 
                 cur.next = cur.prev = null; // (optional) help GC release references
