@@ -39,8 +39,16 @@ class DoublyLinkedList {
         while (cur) {
             if (cur.value === value) {
                 // Relink previous and next
-                if (cur.prev) cur.prev.next = cur.next; else this.head = cur.next;
-                if (cur.next) cur.next.prev = cur.prev; else this.tail = cur.prev;
+                if (cur.prev) {
+                    cur.prev.next = cur.next;
+                } else {
+                    this.head = cur.next;
+                }
+                if (cur.next) {
+                    cur.next.prev = cur.prev;
+                } else {
+                    this.tail = cur.prev;
+                }
 
                 cur.next = cur.prev = null; // (optional) help GC release references
                 this.length--;
