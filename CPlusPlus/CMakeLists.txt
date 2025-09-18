@@ -23,4 +23,5 @@ add_executable(CPlusPlus main.cpp
         Depth_First_Search.cpp
         no0058_Length_of_Last_Word.cpp
         generate_unique_ips.cpp
-        no0020_Valid_Parentheses.cpp)
+        no0020_Valid_Parentheses.cpp
+        SimpleStack.cpp)
