@@ -1,6 +1,7 @@
 package com.bh;
 import java.util.*;
 
+// Coding question from Employment Hero
 public class MostFrequentFraction {
 
     class Solution {
