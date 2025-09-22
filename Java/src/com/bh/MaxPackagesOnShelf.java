@@ -12,10 +12,10 @@ public class MaxPackagesOnShelf {
 
         public int solutionWithDebug(int[] client, boolean debug) {
             int n = client.length;
-            boolean[] onShelf = new boolean[n + 1]; // 標記哪些包裹在貨架上
+            boolean[] onShelf = new boolean[n + 1]; // Mark which packages are on the shelf
             int maxShelf = 0;
             int shelfCount = 0;
-            int clientIndex = 0;        // 當前隊伍的索引
+            int clientIndex = 0;        // Current position in the client queue
 
             if (debug) {
                 System.out.println("=== Package Delivery Simulation ===");
@@ -31,13 +31,13 @@ public class MaxPackagesOnShelf {
                 }
 
                 if (client[clientIndex] == pkg) {
-                    // 當前顧客要的包裹到達
+                    // Current client's desired package has arrived
                     if (debug) {
                         System.out.println("✅ Client " + clientIndex + " picks up package " + pkg + " (their desired package)");
                     }
                     clientIndex++;
 
-                    // 檢查貨架上是否有後續顧客要的包裹
+                    // Check if subsequent clients can pick up packages from the shelf
                     while (clientIndex < n && onShelf[client[clientIndex]]) {
                         int pickedPackage = client[clientIndex];
                         onShelf[pickedPackage] = false;
@@ -55,7 +55,7 @@ public class MaxPackagesOnShelf {
                         System.out.println("🎉 All clients have been served!");
                     }
                 } else {
-                    // 不是當前顧客要的，放到貨架上
+                    // Not the current client's desired package, put it on the shelf
                     onShelf[pkg] = true;
                     shelfCount++;
                     maxShelf = Math.max(maxShelf, shelfCount);
@@ -63,7 +63,7 @@ public class MaxPackagesOnShelf {
                         System.out.println("📚 Package " + pkg + " goes to shelf (client wants " + client[clientIndex] + ")");
                         System.out.println("📚 Shelf count: " + shelfCount + " packages (Max so far: " + maxShelf + ")");
 
-                        // 顯示貨架上有哪些包裹
+                        // Show which packages are currently on the shelf
                         List<Integer> packagesOnShelf = new ArrayList<>();
                         for (int i = 1; i <= n; i++) {
                             if (onShelf[i]) {
