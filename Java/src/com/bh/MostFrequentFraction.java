@@ -14,15 +14,15 @@ public class MostFrequentFraction {
                 int numerator = X[i];
                 int denominator = Y[i];
 
-                // 分母為 0 的情況（題目假設不會發生，但保險起見）
+                // Handle case where denominator is 0 (assumed not to happen in problem, but for safety)
                 if (denominator == 0) continue;
 
-                // 將分子分母化簡
+                // Reduce the fraction to its simplest form
                 int gcd = gcd(Math.abs(numerator), Math.abs(denominator));
                 numerator /= gcd;
                 denominator /= gcd;
 
-                // 確保分母為正
+                // Ensure denominator is positive
                 if (denominator < 0) {
                     numerator = -numerator;
                     denominator = -denominator;
@@ -38,7 +38,7 @@ public class MostFrequentFraction {
             return maxCount;
         }
 
-        // 求最大公因數 GCD
+        // Calculate Greatest Common Divisor (GCD)
         private int gcd(int a, int b) {
             if (b == 0) return a;
             return gcd(b, a % b);
