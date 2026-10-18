@@ -1,0 +1,50 @@
+   0.034171542s  INFO prepare_target{force=false package_id=rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust) target="rust"}: cargo::core::compiler::fingerprint: fingerprint error for rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust)/Check { test: false }/TargetInner { name: "rust", doc: true, ..: with_path("/Users/binghuan/GitHub/CodingQuestions/rust/src/main.rs", Edition2021) }
+   0.034182458s  INFO prepare_target{force=false package_id=rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust) target="rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/binghuan/GitHub/CodingQuestions/rust/target/debug/.fingerprint/rust-291d8d8ac245968d/bin-rust`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::cli::main
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.039546375s  INFO prepare_target{force=false package_id=rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust) target="rust"}: cargo::core::compiler::fingerprint: fingerprint error for rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust)/Check { test: true }/TargetInner { name: "rust", doc: true, ..: with_path("/Users/binghuan/GitHub/CodingQuestions/rust/src/main.rs", Edition2021) }
+   0.039553083s  INFO prepare_target{force=false package_id=rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust) target="rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/binghuan/GitHub/CodingQuestions/rust/target/debug/.fingerprint/rust-002de749b906f734/test-bin-rust`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::cli::main
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+    Checking rust v0.1.0 (/Users/binghuan/GitHub/CodingQuestions/rust)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.24s
