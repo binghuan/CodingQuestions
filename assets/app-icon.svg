@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>Coding Questions</title>
+  <desc>Code brackets surrounding connected algorithm nodes on a navy tile.</desc>
+  <rect width="512" height="512" rx="112" fill="#102A43"/>
+  <path d="M160 160 72 256l88 96M352 160l88 96-88 96" stroke="#F0F9FF" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m280 144-48 224" stroke="#5EEAD4" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="280" cy="144" r="28" fill="#5EEAD4"/>
+  <circle cx="256" cy="256" r="28" fill="#5EEAD4"/>
+  <circle cx="232" cy="368" r="28" fill="#5EEAD4"/>
+</svg>
